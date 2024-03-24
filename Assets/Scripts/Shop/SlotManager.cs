@@ -7,11 +7,6 @@ using UnityEngine.UI;
 public class SlotManager : MonoBehaviour
 {
     public Commodity curCommodity;
-    
-    private void Start()
-    {
-        GenerateCommodity();
-    }
 
     public void GenerateCommodity()
     {
@@ -25,5 +20,6 @@ public class SlotManager : MonoBehaviour
     
     public void BuyCommodity()
     {
+        gameObject.SetActive(false);
     }
 }

@@ -7,7 +7,8 @@ public class ShopManager : MonoBehaviour
 {
     public static ShopManager instance;
     public bool isPaused;
-    public SlotManager[] slots;
+    public GameObject[] slots;
+    public SlotManager[] slotManagers;
     public Commodity[] commodities;
 
     private void Awake()
@@ -26,6 +27,18 @@ public class ShopManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        foreach(GameObject slot in slots)
+        {
+            slot.SetActive(true);
+        }
+        foreach(SlotManager slot in slotManagers)
+        {
+            slot.GenerateCommodity();
+        }
+    }
+
     public Commodity getRandomCommodity()
     {
         int index = UnityEngine.Random.Range(0, commodities.Length);
@@ -34,7 +47,11 @@ public class ShopManager : MonoBehaviour
 
     public void RefreshCommodities()
     {
-        foreach (SlotManager slot in slots)
+        foreach (GameObject slot in slots)
+        {
+            slot.SetActive(true);
+        }
+        foreach (SlotManager slot in slotManagers)
         {
             slot.GenerateCommodity();
         }
