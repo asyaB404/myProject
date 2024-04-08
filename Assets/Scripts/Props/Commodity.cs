@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName ="Commodity",fileName ="µÀ¾ßÃû")]
+[CreateAssetMenu(menuName ="Commodity",fileName ="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
 public class Commodity : PropBase
 {
     public int id;
     public int type;
-    public string name;
+    public string commodityName;
     public Sprite icon;
     public float price;
     public int quality;
