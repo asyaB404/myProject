@@ -191,7 +191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9.3989, y: -107}
+  m_AnchoredPosition: {x: -9.399, y: -114}
   m_SizeDelta: {x: 185.89, y: 182.3608}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1047483994608836744
@@ -224,7 +224,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 47390ba7371f7fa4691dbbc7130d3c02, type: 3}
-    m_FontSize: 32
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -271,8 +271,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -51.172, y: 7}
-  m_SizeDelta: {x: 102.3439, y: 27.1908}
+  m_AnchoredPosition: {x: -41.3324, y: 2.3879}
+  m_SizeDelta: {x: 122.0231, y: 36.415}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1047483994668154726
 CanvasRenderer:
@@ -304,7 +304,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 47390ba7371f7fa4691dbbc7130d3c02, type: 3}
-    m_FontSize: 24
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -438,7 +438,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1047483994962940060}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1047483995331783086}
+        m_TargetAssemblyTypeName: SlotManager, Assembly-CSharp
+        m_MethodName: BuyCommodity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1047483995331783074
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,7 +479,7 @@ RectTransform:
   m_GameObject: {fileID: 1047483995331783074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8819879, y: 0.8819879, z: 0.8819879}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1047483994383007300}
@@ -533,6 +545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curCommodity: {fileID: 0}
+  playerStats: {fileID: 0}
 --- !u!1 &7643882082044620799
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,19 +7,26 @@ using UnityEngine.UI;
 public class SlotManager : MonoBehaviour
 {
     public Commodity curCommodity;
+    public PlayerStats playerStats;
+
+    private void Awake()
+    {
+        playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
+    }
 
     public void GenerateCommodity()
     {
         curCommodity = ShopManager.instance.getRandomCommodity();
 
         transform.GetChild(0).GetComponent<Image>().sprite = curCommodity.icon;
-        transform.GetChild(1).GetComponent<Text>().text = curCommodity.name;
+        transform.GetChild(1).GetComponent<Text>().text = curCommodity.commodityName;
         transform.GetChild(2).GetComponent<Text>().text = curCommodity.description;
         transform.GetChild(3).GetChild(0).GetComponent<Text>().text = curCommodity.price.ToString();
     }
     
     public void BuyCommodity()
     {
+        curCommodity.EffectAfterGet(playerStats);
         gameObject.SetActive(false);
     }
 }
