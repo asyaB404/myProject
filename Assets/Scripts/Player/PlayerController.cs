@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateMove()
     {
-        moveInput.x = Input.GetAxisRaw("Horizontal");
+        moveInput.x = Input.GetAxisRaw("Horizontal") * facingRight;
         moveInput.y = Input.GetAxisRaw("Vertical");
         moveInput = moveInput.normalized;
         float speed = playerStats.moveSpeed.GetValue();
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         {
             speed = 20;
         }
-        transform.Translate(moveInput * Time.deltaTime * (speed / 100) * 4);
+        transform.Translate(moveInput * Time.deltaTime * (speed / 100) * 4 );
     }
 
     //0-1

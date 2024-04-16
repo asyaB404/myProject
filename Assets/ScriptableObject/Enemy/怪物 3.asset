@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3b0c5a51288134eb5961d810b463a4, type: 3}
   m_Name: "\u602A\u7269 3"
   m_EditorClassIdentifier: 
-  id: 10003
-  itemName: "\u9634\u7075"
+  id: 10004
+  itemName: "\u9633\u7075"
   enemyType: 1
-  energyType: 1
+  energyType: 0
   health: 28
   recoverForAtk: 4
   atkMul: 1
