@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-public enum energyType
+
+public enum EnergyType
 {
     Anode,
     Cathode
 }
+
 public class Enemy : MonoBehaviour
 {
-    [Header("»ù´¡ÊôÐÔ")]
-    public energyType type;
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
+    public EnergyType type;
     public float energy;
     public float maxHealth;
     public float curHealth;
@@ -20,7 +22,8 @@ public class Enemy : MonoBehaviour
     public float attackSpeed;
     public float alertRange;
     public float effectiveRange;
-    [Header("×é¼þ")]
+
+    [Header("ï¿½ï¿½ï¿½")]
     public Rigidbody2D rb;
     public Animator anim;
     public EnemyStateMachine stateMachine;
@@ -33,17 +36,19 @@ public class Enemy : MonoBehaviour
         stateMachine = new EnemyStateMachine();
         sr = GetComponent<SpriteRenderer>();
     }
+
     public virtual void Update()
     {
-        if (stateMachine.curState != null) stateMachine.curState.OnUpdate();
+        if (stateMachine.curState != null)
+            stateMachine.curState.OnUpdate();
     }
+
     public virtual void TakeDamage(float damage)
     {
         curHealth -= damage;
-        if (curHealth < 0) Die();
+        if (curHealth < 0)
+            Die();
     }
-    public virtual void Die()
-    {
 
-    }
+    public virtual void Die() { }
 }
