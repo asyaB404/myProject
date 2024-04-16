@@ -7,22 +7,27 @@ public class PlayersCoins : MonoBehaviour
 {
     public int coins;
     public float pullingRange = 5f;
-
-    // private Vector3 Direction{get{return }}
+    public bool isOpen = true;
 
     private void Update()
     {
-        Collider2D[] objs = Physics2D.OverlapCircleAll(transform.position, pullingRange, 1 << 6);
-        foreach (var obj in objs)
+        if (isOpen)
         {
-            Vector2 direction = (transform.position - obj.transform.position).normalized;
-            float len = (transform.position - obj.transform.position).magnitude;
-            obj.transform.Translate(direction * Time.deltaTime * (len + 2));
-            // obj.transform.DOLocalMove(transform.position);
+            Collider2D[] objs = Physics2D.OverlapCircleAll(
+                transform.position,
+                pullingRange,
+                1 << 6
+            );
+            foreach (var obj in objs)
+            {
+                Vector2 direction = (transform.position - obj.transform.position).normalized;
+                float len = (transform.position - obj.transform.position).magnitude;
+                obj.transform.Translate(direction * Time.deltaTime * (len + 1));
+            }
         }
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, pullingRange);
     }
