@@ -9,19 +9,19 @@ public enum EnergyType
     Cathode
 }
 
-public class Enemy : MonoBehaviour
+public class EnemyBase : MonoBehaviour
 {
     [Header("��������")]
     public EnergyType type;
-    public float energy;
-    public float maxHealth;
     public float curHealth;
-    public int attackMultiple;
-    public float damage;
-    public float moveSpeed;
-    public float attackSpeed;
-    public float alertRange;
-    public float effectiveRange;
+    public EnemyInfo info;
+    public Vector2 DirectionToPlayer
+    {
+        get
+        {
+            return (PlayerController.Instance.transform.position - transform.position).normalized;
+        }
+    }
 
     [Header("���")]
     public Rigidbody2D rb;
@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void Start()
     {
+        curHealth = info.health;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         stateMachine = new EnemyStateMachine();
@@ -39,8 +40,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void Update()
     {
-        if (stateMachine.curState != null)
-            stateMachine.curState.OnUpdate();
+        stateMachine?.CurState?.OnUpdate();
     }
 
     public virtual void TakeDamage(float damage)
@@ -51,4 +51,9 @@ public class Enemy : MonoBehaviour
     }
 
     public virtual void Die() { }
+
+    private void OnDestroy()
+    {
+        stateMachine?.CurState?.OnExit();
+    }
 }

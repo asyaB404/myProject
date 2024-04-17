@@ -18,10 +18,10 @@ public class BulletBase : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Enemy>() != null && penetrableCount > 0)
+        if (collision.GetComponent<EnemyBase>() != null && penetrableCount > 0)
         {
             penetrableCount--;
-            Enemy enemy = collision.GetComponent<Enemy>();
+            EnemyBase enemy = collision.GetComponent<EnemyBase>();
             if (enemy.type == type)
             {
                 PlayerStats playerStats = PlayerController.Instance.playerStats;

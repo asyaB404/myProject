@@ -2,29 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class EnemyState 
+public abstract class EnemyState
 {
     public EnemyStateMachine stateMachine;
-    public Enemy enemy;
+    public EnemyBase enemy;
     public float stateTimer;
 
-    protected EnemyState(EnemyStateMachine stateMachine, Enemy enemy, float stateTimer)
+    protected EnemyState(EnemyStateMachine stateMachine, EnemyBase enemy, float stateTimer = 0)
     {
         this.stateMachine = stateMachine;
         this.enemy = enemy;
         this.stateTimer = stateTimer;
     }
 
-    public virtual void OnEnter()
-    {
-        
-    }
+    public virtual void OnEnter() { }
+
     public virtual void OnUpdate()
     {
-
+        stateTimer += Time.deltaTime;
     }
-    public virtual void OnExit()
-    {
 
-    }
+    public virtual void OnExit() { }
 }

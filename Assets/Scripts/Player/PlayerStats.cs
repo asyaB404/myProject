@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour 
+public class PlayerStats : MonoBehaviour
 {
-    /// <summary>
-    /// Ö÷ÒªÊôĞÔ
-    /// </summary>
-    [Header("Ö÷ÒªÊôĞÔ")]
+    [Header("ä¸»è¦å±æ€§")]
     public PlayerStat maxHealth;
     public PlayerStat curHealth;
     public PlayerStat moveSpeed;
@@ -15,37 +12,36 @@ public class PlayerStats : MonoBehaviour
     public PlayerStat Defence;
     public PlayerStat Critical;
 
-    /// <summary>
-    /// ´ÎÒªÊôĞÔ
-    /// </summary>
-    [Header("´ÎÒªÊôĞÔ")]
-    public PlayerStat anodeEnergy;//Ñô¼«ÄÜÁ¿
-    public PlayerStat cathodeEnergy;//Òõ¼«ÄÜÁ¿
-    public PlayerStat powerOfCathode;//ÒõÁéÖ®Á¦
-    public PlayerStat powerOfAnode;//ÑôÁéÖ®Á¦
-    public PlayerStat criticalStrikeMultiplier;//±©»÷±¶ÂÊ
-    public PlayerStat attackScattering;//¹¥»÷É¢Éä
-    public PlayerStat energyConsumption;//ÄÜÁ¿ÏûºÄ
-    public PlayerStat piercingAttack;//¹¥»÷´©Í¸
+    [Header("æ¬¡è¦å±æ€§")]
+    public PlayerStat anodeEnergy; //é˜³
+    public PlayerStat cathodeEnergy; //é˜´
+    public PlayerStat powerOfCathode;
+    public PlayerStat powerOfAnode;
+    public PlayerStat criticalStrikeMultiplier; //æš´å‡»å€ç‡
+    public PlayerStat attackScattering; //æ•£å°„
+    public PlayerStat energyConsumption; //èƒ½é‡æ¶ˆè€—
+    public PlayerStat piercingAttack; //ç©¿é€
 
-    /// <summary>
-    /// ³ĞÊÜÉËº¦
-    /// </summary>
-    /// <param name="attackMultiple"></param>
+    
     public void TakeDamage(int attackMultiple)
     {
-        int damage = Mathf.Abs(Mathf.RoundToInt(anodeEnergy.GetValue())-Mathf.RoundToInt(cathodeEnergy.GetValue())) * attackMultiple;
-        damage = damage - Mathf.RoundToInt(Defence.GetValue()) > 0 ? damage - Mathf.RoundToInt(Defence.GetValue()) : 0;
+        int damage =
+            Mathf.Abs(
+                Mathf.RoundToInt(anodeEnergy.GetValue())
+                    - Mathf.RoundToInt(cathodeEnergy.GetValue())
+            ) * attackMultiple;
+        damage =
+            damage - Mathf.RoundToInt(Defence.GetValue()) > 0
+                ? damage - Mathf.RoundToInt(Defence.GetValue())
+                : 0;
         curHealth.AddChange(-damage);
-        if (curHealth.GetValue() < 0) Die();
+        if (curHealth.GetValue() < 0)
+            Die();
     }
 
-    /// <summary>
-    /// ËÀÍö
-    /// </summary>
+    
     public void Die()
     {
-        /// ¶¯»­²¥·ÅËÀÍö¶¯»­£¬ÔÚ¶¯»­Ö¡ÉÏÌí¼ÓÊÂ¼Ù
+        
     }
-
 }

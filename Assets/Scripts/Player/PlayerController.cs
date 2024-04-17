@@ -11,7 +11,12 @@ public class PlayerController : MonoBehaviour
         get { return instance; }
     }
     public PlayerStats playerStats;
-    public GameObject bullet;
+
+    [SerializeField]
+    private GameObject bullet;
+
+    [SerializeField]
+    private Animator animator;
     public bool shootMode;
     public bool canControl;
     public int facingRight = 1;
@@ -58,12 +63,13 @@ public class PlayerController : MonoBehaviour
         moveInput.x = Input.GetAxisRaw("Horizontal") * facingRight;
         moveInput.y = Input.GetAxisRaw("Vertical");
         moveInput = moveInput.normalized;
+        animator.SetBool("isRun", moveInput != Vector2.zero);
         float speed = playerStats.moveSpeed.GetValue();
         if (speed < 20)
         {
             speed = 20;
         }
-        transform.Translate(moveInput * Time.deltaTime * (speed / 100) * 4 );
+        transform.Translate(moveInput * Time.deltaTime * (speed / 100) * 4);
     }
 
     //0-1
@@ -142,7 +148,11 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot1(Vector3 rotaion)
     {
-        GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.Euler(rotaion));
+        GameObject newBullet = Instantiate(
+            bullet,
+            sword.firePoint.position,
+            Quaternion.Euler(rotaion)
+        );
         BulletBase script = newBullet.GetComponent<BulletBase>();
         script.SetupBullet(
             Mathf.RoundToInt(playerStats.piercingAttack.GetValue()),
@@ -176,64 +186,4 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-    // public void Shoot()
-    // {
-    //     if (!shootMode)
-    //     {
-    //         ShootMode1();
-    //     }
-    //     else
-    //     {
-    //         ShootMode2();
-    //     }
-    // }
-
-    // public void ShootMode1()
-    // {
-    //     if (Input.GetMouseButtonDown(0))
-    //     {
-    //         GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
-    //         BulletBase script = newBullet.GetComponent<BulletBase>();
-    //         script.SetupBullet(
-    //             Mathf.RoundToInt(playerStats.piercingAttack.GetValue()),
-    //             energyType.Cathode,
-    //             Mathf.RoundToInt(playerStats.powerOfCathode.GetValue())
-    //         );
-    //     }
-    //     else if (Input.GetMouseButtonDown(1))
-    //     {
-    //         GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
-    //         BulletBase script = newBullet.GetComponent<BulletBase>();
-    //         script.SetupBullet(
-    //             Mathf.RoundToInt(playerStats.piercingAttack.GetValue()),
-    //             energyType.Anode,
-    //             Mathf.RoundToInt(playerStats.powerOfAnode.GetValue())
-    //         );
-    //     }
-    // }
-
-    // public void ShootMode2()
-    // {
-    //     if (Input.GetMouseButton(0))
-    //     {
-    //         GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
-    //         BulletBase script = newBullet.GetComponent<BulletBase>();
-    //         script.SetupBullet(
-    //             Mathf.RoundToInt(playerStats.piercingAttack.GetValue()),
-    //             energyType.Cathode,
-    //             Mathf.RoundToInt(playerStats.powerOfCathode.GetValue())
-    //         );
-    //     }
-    //     else if (Input.GetMouseButton(1))
-    //     {
-    //         GameObject newBullet = Instantiate(bullet, transform.position, Quaternion.identity);
-    //         BulletBase script = newBullet.GetComponent<BulletBase>();
-    //         script.SetupBullet(
-    //             Mathf.RoundToInt(playerStats.piercingAttack.GetValue()),
-    //             energyType.Anode,
-    //             Mathf.RoundToInt(playerStats.powerOfAnode.GetValue())
-    //         );
-    //     }
-    // }
 }

@@ -21,11 +21,12 @@ public class CoinsManager : MonoBehaviour
         instance = this;
     }
 
-    public void GenerateCoin(Vector2 position, int amount = 1)
+    public void GenerateCoin(Vector2 position, int count = 1, int value = 1)
     {
-        for (int i = 0; i < amount; i++)
+        for (int i = 0; i < count; i++)
         {
             GameObject coin = Instantiate(coinPrefab, transform);
+            coin.GetComponent<Coin>().coins = value;
             coin.transform.position = new(
                 position.x + Random.Range(0, 0.2f),
                 position.y + Random.Range(0, 0.2f)
