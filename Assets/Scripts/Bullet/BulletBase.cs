@@ -22,7 +22,7 @@ public class BulletBase : MonoBehaviour
         {
             penetrableCount--;
             EnemyBase enemy = collision.GetComponent<EnemyBase>();
-            if (enemy.type == type)
+            if (enemy.info.energyType == type)
             {
                 PlayerStats playerStats = PlayerController.Instance.playerStats;
                 if (playerStats.Critical.GetValue() > Random.Range(0f, 1f))

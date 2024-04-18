@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private Animator animator;
+
+    [SerializeField]
+    private Rigidbody2D rb;
     public bool shootMode;
     public bool canControl;
     public int facingRight = 1;
@@ -56,11 +59,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [SerializeField]
     private Vector2 moveInput;
 
     private void UpdateMove()
     {
-        moveInput.x = Input.GetAxisRaw("Horizontal") * facingRight;
+        moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
         moveInput = moveInput.normalized;
         animator.SetBool("isRun", moveInput != Vector2.zero);
@@ -69,7 +73,9 @@ public class PlayerController : MonoBehaviour
         {
             speed = 20;
         }
-        transform.Translate(moveInput * Time.deltaTime * (speed / 100) * 4);
+        // transform.Translate(moveInput * Time.deltaTime * speed * GameData.GlobalMoveSpeed);
+        Vector2 moveAmount = moveInput * Time.deltaTime * speed * GameData.GlobalMoveSpeed;
+        rb.MovePosition(rb.position + moveAmount);
     }
 
     //0-1

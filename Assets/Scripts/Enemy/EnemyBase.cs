@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -11,8 +12,7 @@ public enum EnergyType
 
 public class EnemyBase : MonoBehaviour
 {
-    [Header("��������")]
-    public EnergyType type;
+    [Header("基本属性")]
     public float curHealth;
     public EnemyInfo info;
     public Vector2 DirectionToPlayer
@@ -23,7 +23,7 @@ public class EnemyBase : MonoBehaviour
         }
     }
 
-    [Header("���")]
+    [Header("组件")]
     public Rigidbody2D rb;
     public Animator anim;
     public EnemyStateMachine stateMachine;
@@ -36,6 +36,20 @@ public class EnemyBase : MonoBehaviour
         anim = GetComponent<Animator>();
         stateMachine = new EnemyStateMachine();
         sr = GetComponent<SpriteRenderer>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(other.tag);
+        if (other.CompareTag("Player"))
+        {
+            PlayerStats playerStats = other.GetComponent<PlayerStats>();
+            if (info.energyType == EnergyType.Anode)
+                playerStats.anodeEnergy.AddChange(info.recoverFromAtk);
+            else
+                playerStats.cathodeEnergy.AddChange(info.recoverFromAtk);
+            playerStats.TakeDamage(Mathf.FloorToInt(info.atkMul));
+        }
     }
 
     public virtual void Update()

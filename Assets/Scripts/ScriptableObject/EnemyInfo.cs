@@ -18,7 +18,7 @@ public class EnemyInfo : ScriptableObject
     /// <summary>
     /// 命中增加主角极性能量
     /// </summary>
-    public float recoverForAtk;
+    public float recoverFromAtk;
     public float atkMul;
     public float speed;
     public float atkSpeed;

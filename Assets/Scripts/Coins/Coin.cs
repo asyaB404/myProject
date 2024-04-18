@@ -18,11 +18,11 @@ public class Coin : MonoBehaviour
         {
             isTrigged = true;
             playersCoins.coins += coins;
-            if (GameData.Instance.TempCoins >= coins)
-            {
-                GameData.Instance.TempCoins -= coins;
-                playersCoins.coins += coins;
-            }
+            // if (GameData.Instance.TempCoins >= coins)
+            // {
+            //     GameData.Instance.TempCoins -= coins;
+            //     playersCoins.coins += coins;
+            // }
             StartCoroutine(nameof(DestroyCoroutine));
         }
     }

@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3b0c5a51288134eb5961d810b463a4, type: 3}
   m_Name: "\u602A\u7269 25"
   m_EditorClassIdentifier: 
-  id: 10025
-  itemName: "\u70DB\u9F99"
+  id: 10026
+  itemName: "\u91D1\u4E4C"
   enemyType: 3
-  energyType: 1
+  energyType: 0
   health: 500
   recoverForAtk: 20
   atkMul: 1
-  speed: 100
+  speed: 120
   atkSpeed: 100
   range: 130
   bulletRange: 180

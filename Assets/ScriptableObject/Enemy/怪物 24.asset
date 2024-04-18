@@ -20,6 +20,6 @@ MonoBehaviour:
   recoverForAtk: 20
   atkMul: 1
   speed: 100
-  atkSpeed: 100
+  atkSpeed: 120
   range: 130
   bulletRange: 180

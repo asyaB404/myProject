@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    [SerializeField]
+    private SpriteRenderer sr;
+
     [Header("主要属性")]
     public PlayerStat maxHealth;
     public PlayerStat curHealth;
@@ -22,26 +25,56 @@ public class PlayerStats : MonoBehaviour
     public PlayerStat energyConsumption; //能量消耗
     public PlayerStat piercingAttack; //穿透
 
-    
+    public float invCD = 0.5f; //无敌帧
+    private float invTimer;
+    private bool invFlag;
+
     public void TakeDamage(int attackMultiple)
     {
-        int damage =
-            Mathf.Abs(
-                Mathf.RoundToInt(anodeEnergy.GetValue())
-                    - Mathf.RoundToInt(cathodeEnergy.GetValue())
-            ) * attackMultiple;
-        damage =
-            damage - Mathf.RoundToInt(Defence.GetValue()) > 0
-                ? damage - Mathf.RoundToInt(Defence.GetValue())
-                : 0;
-        curHealth.AddChange(-damage);
-        if (curHealth.GetValue() < 0)
-            Die();
+        if (invTimer <= 0)
+        {
+            StartCoroutine(nameof(DamagedCoroutine));
+            invTimer = invCD;
+            int damage =
+                Mathf.Abs(
+                    Mathf.RoundToInt(anodeEnergy.GetValue())
+                        - Mathf.RoundToInt(cathodeEnergy.GetValue())
+                ) * attackMultiple;
+            damage =
+                damage - Mathf.RoundToInt(Defence.GetValue()) > 0
+                    ? damage - Mathf.RoundToInt(Defence.GetValue())
+                    : 0;
+            curHealth.AddChange(-damage);
+            if (curHealth.GetValue() < 0)
+                Die();
+        }
     }
 
-    
+    IEnumerator DamagedCoroutine()
+    {
+        InvokeRepeating(nameof(DamagedEffect), 0, 0.1f);
+        yield return new WaitForSeconds(invCD);
+        CancelInvoke();
+        sr.color = Color.white;
+    }
+
+    private void DamagedEffect()
+    {
+        sr.color = invFlag ? Color.white : Color.clear;
+        invFlag = !invFlag;
+    }
+
+    private void Update()
+    {
+        if (invTimer > 0)
+        {
+            invTimer -= Time.deltaTime;
+        }
+    }
+
     public void Die()
     {
-        
+        StopAllCoroutines();
+        CancelInvoke();
     }
 }
