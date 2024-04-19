@@ -16,7 +16,7 @@ public class SlotManager : MonoBehaviour
 
     public void GenerateCommodity()
     {
-        curCommodity = ShopManager.instance.getRandomCommodity();
+        curCommodity = ShopManager.instance.GetRandomCommodity();
 
         transform.GetChild(0).GetComponent<Image>().sprite = curCommodity.icon;
         transform.GetChild(1).GetComponent<Text>().text = curCommodity.commodityName;

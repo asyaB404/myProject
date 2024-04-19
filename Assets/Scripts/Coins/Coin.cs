@@ -7,22 +7,22 @@ public class Coin : MonoBehaviour
     [SerializeField]
     private SpriteRenderer sr;
 
-    public int coins = 1;
+    public float coins = 1;
 
     //保证一个金币只能被触发一次;
     public bool isTrigged;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent<PlayersCoins>(out PlayersCoins playersCoins) && !isTrigged)
+        if (other.CompareTag("Player"))
         {
             isTrigged = true;
-            playersCoins.coins += coins;
-            // if (GameData.Instance.TempCoins >= coins)
-            // {
-            //     GameData.Instance.TempCoins -= coins;
-            //     playersCoins.coins += coins;
-            // }
+            CoinsManager.Instance.coins += coins;
+            if (CoinsManager.Instance.tempCoins >= coins)
+            {
+                CoinsManager.Instance.tempCoins -= coins;
+                CoinsManager.Instance.coins += coins;
+            }
             StartCoroutine(nameof(DestroyCoroutine));
         }
     }

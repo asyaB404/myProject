@@ -28,6 +28,7 @@ public class EnemyBase : MonoBehaviour
     public Animator anim;
     public EnemyStateMachine stateMachine;
     public SpriteRenderer sr;
+    public int facingRight = 1;
 
     public virtual void Start()
     {
@@ -38,33 +39,53 @@ public class EnemyBase : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log(other.tag);
         if (other.CompareTag("Player"))
         {
             PlayerStats playerStats = other.GetComponent<PlayerStats>();
-            if (info.energyType == EnergyType.Anode)
-                playerStats.anodeEnergy.AddChange(info.recoverFromAtk);
-            else
-                playerStats.cathodeEnergy.AddChange(info.recoverFromAtk);
-            playerStats.TakeDamage(Mathf.FloorToInt(info.atkMul));
+            if (!playerStats.IsInv)
+            {
+                if (info.energyType == EnergyType.Anode)
+                    playerStats.anodeEnergy.AddChange(info.recoverFromAtk);
+                else
+                    playerStats.cathodeEnergy.AddChange(info.recoverFromAtk);
+                playerStats.TakeDamage(Mathf.FloorToInt(info.atkMul));
+            }
         }
+    }
+
+    public void Filp()
+    {
+        facingRight = -facingRight;
+        transform.Rotate(0, 180, 0);
     }
 
     public virtual void Update()
     {
         stateMachine?.CurState?.OnUpdate();
+        if (DirectionToPlayer.x > 0 && facingRight == -1)
+        {
+            Filp();
+        }
+        else if (DirectionToPlayer.x < 0 && facingRight == 1)
+        {
+            Filp();
+        }
     }
 
     public virtual void TakeDamage(float damage)
     {
         curHealth -= damage;
-        if (curHealth < 0)
+        if (curHealth <= 0)
             Die();
     }
 
-    public virtual void Die() { }
+    public virtual void Die()
+    {
+        MyEventSystem.Instance.EventTrigger<Vector2>("monsDie",transform.position);
+        Destroy(gameObject);
+    }
 
     private void OnDestroy()
     {

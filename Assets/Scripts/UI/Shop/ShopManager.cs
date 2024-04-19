@@ -13,33 +13,26 @@ public class ShopManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
+        if (instance != null)
         {
-            instance = this;
+            Destroy(instance.gameObject);
         }
-        else
-        {
-            if (instance != this)
-            {
-                Destroy(gameObject);
-            }
-        }
-        DontDestroyOnLoad(gameObject);
+        instance = this;
     }
 
     private void Start()
     {
-        foreach(GameObject slot in slots)
+        foreach (GameObject slot in slots)
         {
             slot.SetActive(true);
         }
-        foreach(SlotManager slot in slotManagers)
+        foreach (SlotManager slot in slotManagers)
         {
             slot.GenerateCommodity();
         }
     }
 
-    public Commodity getRandomCommodity()
+    public Commodity GetRandomCommodity()
     {
         int index = UnityEngine.Random.Range(0, commodities.Length);
         return commodities[index];
@@ -56,14 +49,13 @@ public class ShopManager : MonoBehaviour
             slot.GenerateCommodity();
         }
     }
-    
 
     private void Resume()
     {
         gameObject.SetActive(false);
         Time.timeScale = 1;
     }
-    
+
     private void Pause()
     {
         gameObject.SetActive(true);

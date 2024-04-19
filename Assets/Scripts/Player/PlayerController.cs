@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private Rigidbody2D rb;
-    public bool shootMode;
     public bool canControl;
     public int facingRight = 1;
     public CameraPos cameraPos;
@@ -50,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (canControl)
+        if (canControl && Time.timeScale != 0)
         {
             AutoFilp();
             UpdateMove();
@@ -74,8 +73,9 @@ public class PlayerController : MonoBehaviour
             speed = 20;
         }
         // transform.Translate(moveInput * Time.deltaTime * speed * GameData.GlobalMoveSpeed);
-        Vector2 moveAmount = moveInput * Time.deltaTime * speed * GameData.GlobalMoveSpeed;
-        rb.MovePosition(rb.position + moveAmount);
+        // Vector2 moveAmount = moveInput * Time.deltaTime * speed * GameData.GlobalMoveSpeed;
+        // rb.MovePosition(rb.position + moveAmount);
+        rb.velocity = speed * GameData.GlobalMoveSpeed * moveInput;
     }
 
     //0-1
@@ -98,12 +98,18 @@ public class PlayerController : MonoBehaviour
                 Input.GetMouseButton(0)
                 && playerStats.cathodeEnergy.GetValue() >= playerStats.energyConsumption.GetValue()
             )
+            {
                 shootFun = Shoot0;
+                playerStats.cathodeEnergy.AddChange(-playerStats.energyConsumption.GetValue());
+            }
             else if (
                 Input.GetMouseButton(1)
                 && playerStats.anodeEnergy.GetValue() >= playerStats.energyConsumption.GetValue()
             )
+            {
                 shootFun = Shoot1;
+                playerStats.anodeEnergy.AddChange(-playerStats.energyConsumption.GetValue());
+            }
 
             if (shootFun != null)
             {

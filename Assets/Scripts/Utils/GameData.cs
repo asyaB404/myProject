@@ -14,5 +14,5 @@ public class GameData
         }
     }
     
-    public static float GlobalMoveSpeed = 0.04f;
+    public static float GlobalMoveSpeed = 0.05f;
 }

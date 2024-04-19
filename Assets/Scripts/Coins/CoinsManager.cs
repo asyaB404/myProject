@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CoinsManager : MonoBehaviour
 {
+    public float coins;
+    public float tempCoins;
     public GameObject coinPrefab;
     public static CoinsManager Instance
     {
@@ -21,7 +23,7 @@ public class CoinsManager : MonoBehaviour
         instance = this;
     }
 
-    public void GenerateCoin(Vector2 position, int count = 1, int value = 1)
+    public void GenerateCoin(Vector2 position, int count = 1, float value = 1)
     {
         for (int i = 0; i < count; i++)
         {
@@ -34,13 +36,23 @@ public class CoinsManager : MonoBehaviour
         }
     }
 
+    private void Update() { }
+
     public void Clear()
     {
         foreach (Transform coinsTransfrom in transform)
         {
             Coin coin = coinsTransfrom.GetComponent<Coin>();
-            coin.DoDestroy();
-            // transform.DOMove(Camera.main.ScreenToWorldPoint);
+            coin.isTrigged = true;
+            Vector3 viewportPosition = new(0.05f, 0.7f, 0);
+            Vector3 worldPosition = Camera.main.ViewportToWorldPoint(viewportPosition);
+            coin.transform.DOLocalMove(worldPosition, 0.5f)
+                .SetEase(Ease.Linear)
+                .OnComplete(() =>
+                {
+                    tempCoins += coin.coins;
+                    coin.DoDestroy();
+                });
         }
     }
 }

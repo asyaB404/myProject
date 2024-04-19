@@ -16,7 +16,7 @@ public class CameraPos : MonoBehaviour
     //是否开启摄像机随玩家和鼠标指针的跟随
     public bool isOpen = true;
 
-    void Update()
+    void FixedUpdate()
     {
         Vector3 mousePos = Utils.MouseWorldPos;
         direction = (mousePos - transform.position).normalized;

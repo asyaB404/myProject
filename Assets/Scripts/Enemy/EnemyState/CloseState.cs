@@ -13,8 +13,13 @@ public class CloseState : EnemyState
     public override void OnUpdate()
     {
         base.OnUpdate();
-        enemy.transform.Translate(
-            enemy.DirectionToPlayer * enemy.info.speed * GameData.GlobalMoveSpeed * Time.deltaTime
-        );
+        // enemy.rb.MovePosition(
+        //     (Vector2)enemy.transform.position
+        //         + enemy.DirectionToPlayer
+        //             * enemy.info.speed
+        //             * GameData.GlobalMoveSpeed
+        //             * Time.deltaTime
+        // );
+        enemy.rb.velocity = enemy.DirectionToPlayer * enemy.info.speed * GameData.GlobalMoveSpeed;
     }
 }

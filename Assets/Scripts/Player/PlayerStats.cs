@@ -26,8 +26,15 @@ public class PlayerStats : MonoBehaviour
     public PlayerStat piercingAttack; //穿透
 
     public float invCD = 0.5f; //无敌帧
+    public bool IsInv
+    {
+        get { return invTimer > 0; }
+    }
     private float invTimer;
     private bool invFlag;
+
+    public float pullingRange = 1.5f;
+    public bool isOpenPullingCoins = true;
 
     public void TakeDamage(int attackMultiple)
     {
@@ -64,11 +71,30 @@ public class PlayerStats : MonoBehaviour
         invFlag = !invFlag;
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, pullingRange);
+    }
+
     private void Update()
     {
         if (invTimer > 0)
         {
             invTimer -= Time.deltaTime;
+        }
+        if (isOpenPullingCoins)
+        {
+            Collider2D[] objs = Physics2D.OverlapCircleAll(
+                transform.position,
+                pullingRange,
+                1 << 6
+            );
+            foreach (var obj in objs)
+            {
+                Vector2 direction = (transform.position - obj.transform.position).normalized;
+                float len = (transform.position - obj.transform.position).magnitude;
+                obj.transform.Translate(direction * Time.deltaTime * (len + 1));
+            }
         }
     }
 
