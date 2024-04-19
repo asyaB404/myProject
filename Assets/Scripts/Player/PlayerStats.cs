@@ -51,6 +51,9 @@ public class PlayerStats : MonoBehaviour
                 damage - Mathf.RoundToInt(Defence.GetValue()) > 0
                     ? damage - Mathf.RoundToInt(Defence.GetValue())
                     : 0;
+            WorldCanvas
+                .Instacne.ShowMessage(transform.position, Mathf.FloorToInt(damage).ToString())
+                .color = Color.red;
             curHealth.AddChange(-damage);
             if (curHealth.GetValue() < 0)
                 Die();

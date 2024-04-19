@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,7 +13,8 @@ public class LevelManager : MonoBehaviour
     }
     public int level = 0;
     public float timer = 0;
-    public bool isStart = true;
+    public bool isStart;
+    public Transform monstersParent;
 
     private void Awake()
     {
@@ -47,8 +49,10 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        // StartNextLevel();
+        StartNextLevel();
     }
+
+    public bool t;
 
     private void Update()
     {
@@ -59,9 +63,16 @@ public class LevelManager : MonoBehaviour
                 timer -= Time.deltaTime;
             }
             else
-            {
                 LevelClear();
+        }
+        if (t)
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                Vector2 pos = GetRandomPos();
+                WorldCanvas.Instacne.ShowMessage(pos, pos.ToString());
             }
+            t = false;
         }
     }
 
@@ -81,54 +92,54 @@ public class LevelManager : MonoBehaviour
             timer = 60;
         if (level == 1)
         {
-            SpawnEnemyCoroutine(1, 2);
-            SpawnEnemyCoroutine(2, 2);
-            SpawnEnemyCoroutine(7, 2);
-            SpawnEnemyCoroutine(8, 2);
+            StartSpawn(1, 2);
+            StartSpawn(2, 2);
+            StartSpawn(7, 2);
+            StartSpawn(8, 2);
         }
         else if (level == 2)
         {
-            SpawnEnemyCoroutine(1, 1);
-            SpawnEnemyCoroutine(2, 1);
-            SpawnEnemyCoroutine(3, 3);
-            SpawnEnemyCoroutine(4, 3);
-            SpawnEnemyCoroutine(7, 1);
-            SpawnEnemyCoroutine(8, 1);
-            SpawnEnemyCoroutine(9, 3);
-            SpawnEnemyCoroutine(10, 3);
+            StartSpawn(1, 1);
+            StartSpawn(2, 1);
+            StartSpawn(3, 3);
+            StartSpawn(4, 3);
+            StartSpawn(7, 1);
+            StartSpawn(8, 1);
+            StartSpawn(9, 3);
+            StartSpawn(10, 3);
         }
         else if (level == 3)
         {
-            SpawnEnemyCoroutine(1, 0.6f);
-            SpawnEnemyCoroutine(2, 0.6f);
-            SpawnEnemyCoroutine(3, 3);
-            SpawnEnemyCoroutine(4, 3);
-            SpawnEnemyCoroutine(7, 0.6f);
-            SpawnEnemyCoroutine(8, 0.6f);
-            SpawnEnemyCoroutine(9, 3);
-            SpawnEnemyCoroutine(10, 3);
+            StartSpawn(1, 0.6f);
+            StartSpawn(2, 0.6f);
+            StartSpawn(3, 3);
+            StartSpawn(4, 3);
+            StartSpawn(7, 0.6f);
+            StartSpawn(8, 0.6f);
+            StartSpawn(9, 3);
+            StartSpawn(10, 3);
         }
         else if (level == 4)
         {
-            SpawnEnemyCoroutine(1, 1);
-            SpawnEnemyCoroutine(2, 1);
-            SpawnEnemyCoroutine(3, 2);
-            SpawnEnemyCoroutine(4, 2);
-            SpawnEnemyCoroutine(7, 1);
-            SpawnEnemyCoroutine(8, 1);
-            SpawnEnemyCoroutine(9, 2);
-            SpawnEnemyCoroutine(10, 2);
+            StartSpawn(1, 1);
+            StartSpawn(2, 1);
+            StartSpawn(3, 2);
+            StartSpawn(4, 2);
+            StartSpawn(7, 1);
+            StartSpawn(8, 1);
+            StartSpawn(9, 2);
+            StartSpawn(10, 2);
         }
         else if (level == 5)
         {
-            SpawnEnemyCoroutine(1, 0.5f);
-            SpawnEnemyCoroutine(2, 0.5f);
-            SpawnEnemyCoroutine(3, 1);
-            SpawnEnemyCoroutine(4, 1);
-            SpawnEnemyCoroutine(7, 1);
-            SpawnEnemyCoroutine(8, 1);
-            SpawnEnemyCoroutine(9, 2);
-            SpawnEnemyCoroutine(10, 2);
+            StartSpawn(1, 0.5f);
+            StartSpawn(2, 0.5f);
+            StartSpawn(3, 1);
+            StartSpawn(4, 1);
+            StartSpawn(7, 1);
+            StartSpawn(8, 1);
+            StartSpawn(9, 2);
+            StartSpawn(10, 2);
         }
     }
 
@@ -139,11 +150,45 @@ public class LevelManager : MonoBehaviour
         StopAllCoroutines();
         CancelInvoke();
         CoinsManager.Instance.Clear();
+        foreach (Transform monster in monstersParent)
+        {
+            monster
+                .DOScale(0, 0.3f)
+                .OnComplete(() =>
+                {
+                    Destroy(monster.gameObject);
+                });
+        }
     }
 
-    IEnumerable SpawnEnemyCoroutine(int id, float duration)
+    private void StartSpawn(int id, float duration)
     {
-        yield return new WaitForSeconds(duration);
-        GameObject enemy = Instantiate(Resources.Load<GameObject>("Enemy" + id));
+        StartCoroutine(SpawnEnemyCoroutine(id, duration));
+    }
+
+    public IEnumerator SpawnEnemyCoroutine(int id, float duration)
+    {
+        while (isStart)
+        {
+            yield return new WaitForSeconds(duration);
+            GameObject enemy = Instantiate(
+                Resources.Load<GameObject>("Prefabs/Enemy/Monster" + id),
+                monstersParent
+            );
+            enemy.transform.position = GetRandomPos();
+        }
+    }
+
+    private Vector2 GetRandomPos()
+    {
+        int maxChoice = 20;
+        Vector2 pos;
+        pos = new(MyRandom.Instance.NextFloat(-11, 11), MyRandom.Instance.NextFloat(-11, 11));
+        while (Physics2D.OverlapCircle(pos, 5.5f, 1 << 7) != null && maxChoice > 0)
+        {
+            pos = new(MyRandom.Instance.NextFloat(-11, 11), MyRandom.Instance.NextFloat(-11, 11));
+            maxChoice--;
+        }
+        return pos;
     }
 }

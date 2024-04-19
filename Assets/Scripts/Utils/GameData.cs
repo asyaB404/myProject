@@ -13,6 +13,8 @@ public class GameData
             return instance;
         }
     }
-    
-    public static float GlobalMoveSpeed = 0.05f;
+
+    public static float GlobalMoveSpeed = 5 / 100f;
+    public static float GlobalRange = 12 / 100f;
+    public static float GlobalBulletFlyTime = 1 / 100f;
 }

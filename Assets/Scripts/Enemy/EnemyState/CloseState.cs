@@ -13,13 +13,23 @@ public class CloseState : EnemyState
     public override void OnUpdate()
     {
         base.OnUpdate();
-        // enemy.rb.MovePosition(
-        //     (Vector2)enemy.transform.position
-        //         + enemy.DirectionToPlayer
-        //             * enemy.info.speed
-        //             * GameData.GlobalMoveSpeed
-        //             * Time.deltaTime
-        // );
         enemy.rb.velocity = enemy.DirectionToPlayer * enemy.info.speed * GameData.GlobalMoveSpeed;
+        float len = (
+            PlayerController.Instance.transform.position - enemy.transform.position
+        ).magnitude;
+        EnemyInfo info = enemy.info;
+        if (len <= info.range * GameData.GlobalRange)
+        {
+            if (info.enemyType == 2)
+            {
+                stateMachine.ChangeState(new RangeState(stateMachine, enemy));
+            }
+        }
+    }
+
+    public override void OnExit()
+    {
+        base.OnExit();
+        enemy.rb.velocity = Vector2.zero;
     }
 }

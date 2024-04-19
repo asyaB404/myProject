@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
             float scat = playerStats.attackScattering.GetValue();
             UnityAction<Vector3> shootFun = null;
             if (
-                Input.GetMouseButton(0)
+                Input.GetMouseButton(1)
                 && playerStats.cathodeEnergy.GetValue() >= playerStats.energyConsumption.GetValue()
             )
             {
@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
                 playerStats.cathodeEnergy.AddChange(-playerStats.energyConsumption.GetValue());
             }
             else if (
-                Input.GetMouseButton(1)
+                Input.GetMouseButton(0)
                 && playerStats.anodeEnergy.GetValue() >= playerStats.energyConsumption.GetValue()
             )
             {

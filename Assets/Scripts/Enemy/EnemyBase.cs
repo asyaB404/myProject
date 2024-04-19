@@ -77,13 +77,14 @@ public class EnemyBase : MonoBehaviour
     public virtual void TakeDamage(float damage)
     {
         curHealth -= damage;
+        WorldCanvas.Instacne.ShowMessage(transform.position, Mathf.FloorToInt(damage).ToString());
         if (curHealth <= 0)
             Die();
     }
 
     public virtual void Die()
     {
-        MyEventSystem.Instance.EventTrigger<Vector2>("monsDie",transform.position);
+        MyEventSystem.Instance.EventTrigger<Vector2>("monsDie", transform.position);
         Destroy(gameObject);
     }
 

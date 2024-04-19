@@ -1,0 +1,38 @@
+using UnityEngine;
+
+public class RangeState : EnemyState
+{
+    private float shootCD = 0.5f;
+
+    public RangeState(EnemyStateMachine stateMachine, EnemyBase enemy, float stateTimer = 0)
+        : base(stateMachine, enemy, stateTimer)
+    {
+        this.stateMachine = stateMachine;
+        this.enemy = enemy;
+        this.stateTimer = stateTimer;
+    }
+
+    public override void OnUpdate()
+    {
+        base.OnUpdate();
+        float len = (
+            PlayerController.Instance.transform.position - enemy.transform.position
+        ).magnitude;
+        EnemyInfo info = enemy.info;
+        if (len <= info.range * GameData.GlobalRange)
+        {
+            shootCD -= Time.deltaTime * info.atkSpeed / 100;
+            if (shootCD <= 0)
+            {
+                GameObject bullet = GameObject.Instantiate((enemy as Enemy2).bullet);
+                bullet.transform.position = enemy.transform.position;
+                bullet.GetComponent<EnemyBullet>().Init(enemy.DirectionToPlayer, info);
+                shootCD = 1;
+            }
+        }
+        else
+        {
+            stateMachine.ChangeState(new CloseState(stateMachine, enemy));
+        }
+    }
+}

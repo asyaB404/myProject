@@ -22,6 +22,14 @@ public class EnemyInfo : ScriptableObject
     public float atkMul;
     public float speed;
     public float atkSpeed;
+
+    /// <summary>
+    /// 攻击范围
+    /// </summary>
     public float range;
+
+    /// <summary>
+    /// 子弹范围....其实从实现上已经把他当成飞行时间了(因为子弹速度相等)
+    /// </summary>
     public float bulletRange;
 }

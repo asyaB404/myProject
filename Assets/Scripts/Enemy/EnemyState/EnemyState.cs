@@ -15,12 +15,18 @@ public abstract class EnemyState
         this.stateTimer = stateTimer;
     }
 
-    public virtual void OnEnter() { }
+    public virtual void OnEnter()
+    {
+        Debug.Log("进入了" + GetType().Name);
+    }
 
     public virtual void OnUpdate()
     {
         stateTimer += Time.deltaTime;
     }
 
-    public virtual void OnExit() { }
+    public virtual void OnExit()
+    {
+        Debug.Log("退出了了" + GetType().Name);
+    }
 }
