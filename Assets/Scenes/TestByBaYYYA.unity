@@ -969,7 +969,11 @@ Transform:
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 =======
+<<<<<<< HEAD
 >>>>>>> origin/basya
+=======
+>>>>>>> fe958ce039b50b3393b6edf887b53db707f1eab9
+>>>>>>> basya
 --- !u!1 &272823160
 GameObject:
   m_ObjectHideFlags: 0
@@ -6309,7 +6313,11 @@ MonoBehaviour:
   sr: {fileID: 6508915239225434250}
   facingRight: 1
   bullet: {fileID: 2266371781074470618, guid: 21a7d2c3246260942902b0e4ed212cb0, type: 3}
+<<<<<<< HEAD
 >>>>>>> origin/basya
+=======
+>>>>>>> fe958ce039b50b3393b6edf887b53db707f1eab9
+>>>>>>> basya
 --- !u!1 &1866432503
 GameObject:
   m_ObjectHideFlags: 0
