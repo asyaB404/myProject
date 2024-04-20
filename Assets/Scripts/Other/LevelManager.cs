@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    private LevelManager instance;
-    public LevelManager Instance
+    private static LevelManager instance;
+    public static LevelManager Instance
     {
         get => instance;
     }
@@ -15,6 +16,8 @@ public class LevelManager : MonoBehaviour
     public float timer = 0;
     public bool isStart;
     public Transform monstersParent;
+    public Transform bulletParent;
+    public Text text;
 
     private void Awake()
     {
@@ -61,6 +64,7 @@ public class LevelManager : MonoBehaviour
             if (timer > 0)
             {
                 timer -= Time.deltaTime;
+                text.text = ((int)timer).ToString();
             }
             else
                 LevelClear();
@@ -149,16 +153,25 @@ public class LevelManager : MonoBehaviour
         timer = 0;
         StopAllCoroutines();
         CancelInvoke();
-        CoinsManager.Instance.Clear();
         foreach (Transform monster in monstersParent)
         {
             monster
-                .DOScale(0, 0.3f)
+                .DOScale(0, 0.2f)
                 .OnComplete(() =>
                 {
                     Destroy(monster.gameObject);
                 });
         }
+        foreach (Transform bullet in bulletParent)
+        {
+            bullet
+                .DOScale(0, 0.2f)
+                .OnComplete(() =>
+                {
+                    Destroy(bullet.gameObject);
+                });
+        }
+        CoinsManager.Instance.Clear();
     }
 
     private void StartSpawn(int id, float duration)

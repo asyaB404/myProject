@@ -57,5 +57,6 @@ public class BulletBase : MonoBehaviour
         this.type = _type;
         this.penetrableCount = _penetrableCount;
         this.speed = _speed;
+        transform.parent = LevelManager.Instance.bulletParent;
     }
 }

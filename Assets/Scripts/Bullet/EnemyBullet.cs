@@ -31,6 +31,7 @@ public class EnemyBullet : MonoBehaviour
     {
         this.info = info;
         rb.velocity = diretion * speed;
+        transform.parent = LevelManager.Instance.bulletParent;
     }
 
     private void Update()
