@@ -20,7 +20,10 @@ public class PlayerStat
 
     public void AddChange(float change)
     {
-        changes.Add(change);
+        if (change != 0)
+        {
+            changes.Add(change);
+        }
     }
 
     public void Clear()

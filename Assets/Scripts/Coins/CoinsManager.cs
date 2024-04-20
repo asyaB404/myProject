@@ -44,13 +44,17 @@ public class CoinsManager : MonoBehaviour
         {
             Coin coin = coinsTransfrom.GetComponent<Coin>();
             coin.isTrigged = true;
-            Vector3 viewportPosition = new(0.05f, 0.7f, 0);
+            Vector3 viewportPosition = new(0.05f, 0.6f, 0);
             Vector3 worldPosition = Camera.main.ViewportToWorldPoint(viewportPosition);
-            coin.transform.DOLocalMove(worldPosition, 0.5f).SetEase(Ease.Linear);
-            coin.transform.DOScale(0, 2f)
+            coin.transform.DOLocalMove(worldPosition, 1.0f)
+                .SetEase(Ease.Linear)
                 .OnComplete(() =>
                 {
                     tempCoins += coin.coins;
+                });
+            coin.transform.DOScale(0, 3f)
+                .OnComplete(() =>
+                {
                     coin.DoDestroy();
                 });
         }

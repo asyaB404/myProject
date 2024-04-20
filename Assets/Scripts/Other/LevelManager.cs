@@ -86,6 +86,12 @@ public class LevelManager : MonoBehaviour
 
     public void StartNextLevel()
     {
+        PlayerController.Instance.transform.position = Vector2.zero;
+        PlayerController.Instance.CanControl = true;
+        PlayerStats playerStats = PlayerController.Instance.playerStats;
+        playerStats.curHealth.AddChange(
+            playerStats.maxHealth.GetValue() - playerStats.curHealth.GetValue()
+        );
         isStart = true;
         wave++;
         if (wave <= 3)
@@ -127,6 +133,7 @@ public class LevelManager : MonoBehaviour
     {
         isStart = false;
         timer = 0;
+        PlayerController.Instance.Idle();
         StopAllCoroutines();
         CancelInvoke();
         foreach (Transform monster in monstersParent)

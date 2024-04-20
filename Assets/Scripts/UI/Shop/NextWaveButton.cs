@@ -10,13 +10,16 @@ public class NextWaveButton : MonoBehaviour
     void Awake()
     {
         SelectedIcon.SetActive(false);
-        Debug.Log("绑定成功");
         GetComponent<Button>()
             .onClick.AddListener(() =>
             {
                 LevelManager.Instance.StartNextLevel();
                 UIManager.Instance.HideShopUI();
             });
+    }
+
+    private void OnEnable() {
+        
     }
 
     public void UpdateWave()

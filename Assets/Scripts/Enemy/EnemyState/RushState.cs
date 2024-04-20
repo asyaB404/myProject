@@ -19,7 +19,6 @@ public class RushState : EnemyState
 
     public override void OnEnter()
     {
-        
         base.OnEnter();
         enemy.autoFilp = false;
         Rush(enemy.DirectionToPlayer);

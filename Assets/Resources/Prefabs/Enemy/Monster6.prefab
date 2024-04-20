@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 231818107115747593}
   - component: {fileID: 231818107115747592}
   - component: {fileID: 231818107115747599}
+  - component: {fileID: 7121220105824395806}
   m_Layer: 0
   m_Name: Monster6
   m_TagString: Untagged
@@ -56,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fd07819cb684d2d47bf376a0f526e247, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d7b47eae8bab6b94798f1c25eabe65c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -122,8 +123,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: 0.12656897, y: -0.09578192}
+  m_Size: {x: 1.253138, y: 1.5199592}
   m_Direction: 0
 --- !u!114 &231818107115747599
 MonoBehaviour:
@@ -144,6 +145,28 @@ MonoBehaviour:
   sr: {fileID: 0}
   facingRight: 1
   autoFilp: 1
+  rushDuration: 1
+--- !u!95 &7121220105824395806
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231818107115747598}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7974e0cc79ebdd04189d816f7e423c67, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7136612394446006264
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,6 +212,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.15}
-  m_Size: {x: 1, y: 0.4}
+  m_Offset: {x: 0.109464385, y: -0.30735606}
+  m_Size: {x: 1.2189318, y: 0.6052485}
   m_Direction: 1

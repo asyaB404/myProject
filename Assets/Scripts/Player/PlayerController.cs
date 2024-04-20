@@ -20,7 +20,18 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private Rigidbody2D rb;
-    public bool canControl;
+
+    [SerializeField]
+    private bool canControl;
+    public bool CanControl
+    {
+        get => canControl;
+        set
+        {
+            canControl = value;
+            cameraPos.isOpen = value;
+        }
+    }
     public int facingRight = 1;
     public CameraPos cameraPos;
     public Sword sword;
@@ -49,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (canControl && Time.timeScale != 0)
+        if (CanControl && Time.timeScale != 0)
         {
             AutoFilp();
             UpdateMove();
@@ -60,6 +71,13 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private Vector2 moveInput;
+
+    public void Idle()
+    {
+        CanControl = false;
+        rb.velocity = Vector2.zero;
+        animator.SetBool("isRun", false);
+    }
 
     private void UpdateMove()
     {

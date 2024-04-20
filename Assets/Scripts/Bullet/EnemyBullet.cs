@@ -6,9 +6,14 @@ public class EnemyBullet : MonoBehaviour
     private Rigidbody2D rb;
 
     [SerializeField]
+    private SpriteRenderer sr;
+
+    [SerializeField]
     private float speed = 12f;
     private float timer = 0;
     public EnemyInfo info;
+    public Color color1;
+    public Color color2;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -32,6 +37,10 @@ public class EnemyBullet : MonoBehaviour
         this.info = info;
         rb.velocity = diretion * speed;
         transform.parent = LevelManager.Instance.bulletParent;
+        if (info.energyType == EnergyType.Cathode)
+            sr.color = color1;
+        else
+            sr.color = color2;
     }
 
     private void Update()
