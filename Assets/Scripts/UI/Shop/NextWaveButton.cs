@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NextButton : MonoBehaviour
+public class NextWaveButton : MonoBehaviour
 {
     public GameObject SelectedIcon;
 
@@ -15,8 +15,13 @@ public class NextButton : MonoBehaviour
             .onClick.AddListener(() =>
             {
                 LevelManager.Instance.StartNextLevel();
-                ShopManager.instance.HideMe();
+                UIManager.Instance.HideShopUI();
             });
+    }
+
+    public void UpdateWave()
+    {
+        GetComponentInChildren<Text>().text = (LevelManager.Instance.wave + 1).ToString();
     }
 
     public void OnPointerEnter()

@@ -153,7 +153,7 @@ public class LevelManager : MonoBehaviour
 
     private void ClearCallBack()
     {
-        ShopManager.instance.ShowMe();
+        UIManager.Instance.ShowShopUI();
     }
 
     private void StartSpawn(int id, float duration)

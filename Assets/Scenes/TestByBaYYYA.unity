@@ -389,6 +389,7 @@ GameObject:
   - component: {fileID: 144213488}
   - component: {fileID: 144213490}
   - component: {fileID: 144213489}
+  - component: {fileID: 144213491}
   m_Layer: 5
   m_Name: Num
   m_TagString: Untagged
@@ -458,6 +459,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144213487}
   m_CullTransparentMesh: 1
+--- !u!114 &144213491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144213487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15707c12d4a603344acb0bbf4efd25dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &144933994
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,7 +555,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 881582681}
+      - m_Target: {fileID: 1065714408}
         m_TargetAssemblyTypeName: PauseUI, Assembly-CSharp
         m_MethodName: OnQuitButtonPress
         m_Mode: 1
@@ -1399,7 +1412,7 @@ GameObject:
   - component: {fileID: 418066980}
   - component: {fileID: 418066979}
   m_Layer: 5
-  m_Name: Balance
+  m_Name: CurSpirit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1500,7 +1513,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 52.8, y: 0}
+  m_AnchoredPosition: {x: 45, y: 0}
   m_SizeDelta: {x: 59.7943, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &425267669
@@ -1524,7 +1537,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 47390ba7371f7fa4691dbbc7130d3c02, type: 3}
     m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
@@ -2394,8 +2407,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 43eb3f97c5b780041aa23575d63501dc, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2859,7 +2872,7 @@ GameObject:
   - component: {fileID: 881582684}
   - component: {fileID: 881582683}
   - component: {fileID: 881582682}
-  - component: {fileID: 881582681}
+  - component: {fileID: 881582686}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2867,20 +2880,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &881582681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881582680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfce757b43b86c54083b3e577379ffd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseUI: {fileID: 1065714404}
-  shopManager: {fileID: 1017963530}
 --- !u!114 &881582682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2965,6 +2964,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &881582686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881582680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e035c1894ee9fb041ac78aa61c323bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseUI: {fileID: 1065714404}
+  ShopUI: {fileID: 1017963528}
 --- !u!1 &922870498
 GameObject:
   m_ObjectHideFlags: 0
@@ -3213,7 +3226,7 @@ GameObject:
   - component: {fileID: 1007544417}
   - component: {fileID: 1007544416}
   m_Layer: 5
-  m_Name: Next
+  m_Name: NextWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3439,7 +3452,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce4b6740570dc94ebff012401dd3a95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPaused: 0
   slots:
   - {fileID: 1106240284}
   - {fileID: 1980045960}
@@ -3459,6 +3471,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 503048a35c1e47a4992c164fc6159ab5, type: 2}
   - {fileID: 11400000, guid: 16997902ff332184bb26089e78dc1390, type: 2}
   - {fileID: 11400000, guid: 4d2f3e88e01e2d049b01cf0c63c1b647, type: 2}
+  nextWaveButton: {fileID: 1007544417}
+  playerStatUI: {fileID: 39682296}
+  shopCurSpiritUI: {fileID: 144213491}
 --- !u!1 &1037788635
 GameObject:
   m_ObjectHideFlags: 0
@@ -3667,6 +3682,7 @@ GameObject:
   - component: {fileID: 1065714407}
   - component: {fileID: 1065714406}
   - component: {fileID: 1065714405}
+  - component: {fileID: 1065714408}
   m_Layer: 5
   m_Name: PauseUI
   m_TagString: Untagged
@@ -3736,6 +3752,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1065714408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065714404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfce757b43b86c54083b3e577379ffd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1097398567
 GameObject:
   m_ObjectHideFlags: 0
@@ -4624,8 +4652,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.3, y: -0.000020981}
-  m_SizeDelta: {x: 30, y: 30}
+  m_AnchoredPosition: {x: -0.00004433, y: 0.0000064454}
+  m_SizeDelta: {x: 43.6536, y: 54.7124}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1436698860
 MonoBehaviour:
@@ -4647,7 +4675,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 6bd4e469bd9227340be871d6622a32b8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5732,7 +5760,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 47390ba7371f7fa4691dbbc7130d3c02, type: 3}
     m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
@@ -6077,7 +6105,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 881582681}
+      - m_Target: {fileID: 1065714408}
         m_TargetAssemblyTypeName: PauseUI, Assembly-CSharp
         m_MethodName: OnContinueButtonPress
         m_Mode: 1

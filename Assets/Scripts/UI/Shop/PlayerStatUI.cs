@@ -12,11 +12,6 @@ public class PlayerStatUI : MonoBehaviour
         UpdatePlayerStats();
     }
 
-    private void Update()
-    {
-        UpdatePlayerStats();
-    }
-
     public void UpdatePlayerStats()
     {
         transform.GetChild(0).GetComponent<UnityEngine.UI.Text>().text = playerStats.maxHealth.GetValue().ToString();

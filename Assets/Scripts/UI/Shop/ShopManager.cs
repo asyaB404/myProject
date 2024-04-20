@@ -6,10 +6,18 @@ using UnityEngine;
 public class ShopManager : MonoBehaviour
 {
     public static ShopManager instance;
-    public bool isPaused;
+    public static ShopManager Instance
+    {
+        get => instance;
+    }
+
     public GameObject[] slots;
     public SlotManager[] slotManagers;
     public Commodity[] commodities;
+
+    public NextWaveButton nextWaveButton;
+    public PlayerStatUI playerStatUI;
+    public ShopCurSpiritUI shopCurSpiritUI;
 
     public void Init()
     {
@@ -20,16 +28,25 @@ public class ShopManager : MonoBehaviour
         instance = this;
     }
 
+    private void Awake()
+    {
+        Init();
+    }
+
     private void Start()
     {
-        foreach (GameObject slot in slots)
-        {
-            slot.SetActive(true);
-        }
         foreach (SlotManager slot in slotManagers)
         {
             slot.GenerateCommodity();
         }
+    }
+
+    public void UpdateUI()
+    {
+        
+        nextWaveButton.UpdateWave();
+        playerStatUI.UpdatePlayerStats();
+        shopCurSpiritUI.UpdateSpirit();
     }
 
     public Commodity GetRandomCommodity()
@@ -48,17 +65,5 @@ public class ShopManager : MonoBehaviour
         {
             slot.GenerateCommodity();
         }
-    }
-
-    public void HideMe()
-    {
-        gameObject.SetActive(false);
-        Time.timeScale = 1;
-    }
-
-    public void ShowMe()
-    {
-        gameObject.SetActive(true);
-        Time.timeScale = 0;
     }
 }
