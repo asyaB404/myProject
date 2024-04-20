@@ -29,6 +29,7 @@ public class EnemyBase : MonoBehaviour
     public EnemyStateMachine stateMachine;
     public SpriteRenderer sr;
     public int facingRight = 1;
+    public bool autoFilp = true;
 
     public virtual void Start()
     {
@@ -61,9 +62,8 @@ public class EnemyBase : MonoBehaviour
         transform.Rotate(0, 180, 0);
     }
 
-    public virtual void Update()
+    public void AutoFilp()
     {
-        stateMachine?.CurState?.OnUpdate();
         if (DirectionToPlayer.x > 0 && facingRight == -1)
         {
             Filp();
@@ -71,6 +71,15 @@ public class EnemyBase : MonoBehaviour
         else if (DirectionToPlayer.x < 0 && facingRight == 1)
         {
             Filp();
+        }
+    }
+
+    public virtual void Update()
+    {
+        stateMachine?.CurState?.OnUpdate();
+        if (autoFilp)
+        {
+            AutoFilp();
         }
     }
 

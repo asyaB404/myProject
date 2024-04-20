@@ -19,7 +19,7 @@ public class RangeState : EnemyState
             PlayerController.Instance.transform.position - enemy.transform.position
         ).magnitude;
         EnemyInfo info = enemy.info;
-        if (len <= info.range * GameData.GlobalRange)
+        if (len < info.range * GameData.GlobalRange)
         {
             shootCD -= Time.deltaTime * info.atkSpeed / 100;
             if (shootCD <= 0)
