@@ -11,11 +11,17 @@ public class ShopManager : MonoBehaviour
         get => instance;
     }
 
+    public int refreshTimes = 0;
+    public int refreshPrice = 0;
+    public List<int> priceList;
+
     public GameObject[] slots;
     public SlotManager[] slotManagers;
     public Commodity[] commodities;
+    public List<Commodity> curCommodities;
 
     public NextWaveButton nextWaveButton;
+    public RefreshButton refreshButton;
     public PlayerStatUI playerStatUI;
     public ShopCurSpiritUI shopCurSpiritUI;
 
@@ -43,8 +49,8 @@ public class ShopManager : MonoBehaviour
 
     public void UpdateUI()
     {
-        
         nextWaveButton.UpdateWave();
+        refreshButton.UpdateRefreshPrice();
         playerStatUI.UpdatePlayerStats();
         shopCurSpiritUI.UpdateSpirit();
     }
@@ -57,6 +63,20 @@ public class ShopManager : MonoBehaviour
 
     public void RefreshCommodities()
     {
+        if(CoinsManager.Instance.coins < refreshPrice)
+        {
+            return;
+        }
+
+        CoinsManager.Instance.coins -= refreshPrice;
+        refreshTimes++;
+        if(refreshTimes >= priceList.Count)
+        {
+            refreshTimes = priceList.Count - 1;
+        }
+        refreshPrice = priceList[refreshTimes];
+
+        curCommodities.Clear();
         foreach (GameObject slot in slots)
         {
             slot.SetActive(true);
@@ -65,5 +85,7 @@ public class ShopManager : MonoBehaviour
         {
             slot.GenerateCommodity();
         }
+
+        UpdateUI();
     }
 }
