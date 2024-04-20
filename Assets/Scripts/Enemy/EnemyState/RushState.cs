@@ -5,6 +5,8 @@ using UnityEngine;
 public class RushState : EnemyState
 {
     EnemyInfo info;
+    public float rushDuration;
+    private float timer;
 
     public RushState(EnemyStateMachine stateMachine, EnemyBase enemy, float stateTimer = 0)
         : base(stateMachine, enemy, stateTimer)
@@ -17,6 +19,7 @@ public class RushState : EnemyState
 
     public override void OnEnter()
     {
+        
         base.OnEnter();
         enemy.autoFilp = false;
         Rush(enemy.DirectionToPlayer);

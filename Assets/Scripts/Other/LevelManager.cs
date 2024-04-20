@@ -148,7 +148,7 @@ public class LevelManager : MonoBehaviour
                 });
         }
         CoinsManager.Instance.Clear();
-        Invoke(nameof(ClearCallBack), 3f);
+        Invoke(nameof(ClearCallBack), 2f);
     }
 
     private void ClearCallBack()

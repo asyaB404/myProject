@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class CloseState : EnemyState
 {
+    private float rushTimer;
+
     public CloseState(EnemyStateMachine stateMachine, EnemyBase enemy, float stateTimer = 0)
         : base(stateMachine, enemy, stateTimer)
     {
@@ -13,6 +15,9 @@ public class CloseState : EnemyState
     public override void OnUpdate()
     {
         base.OnUpdate();
+        if (rushTimer > 0)
+            rushTimer -= Time.deltaTime;
+
         enemy.rb.velocity = enemy.DirectionToPlayer * enemy.info.speed * GameData.GlobalMoveSpeed;
         float len = (
             PlayerController.Instance.transform.position - enemy.transform.position
@@ -20,8 +25,9 @@ public class CloseState : EnemyState
         EnemyInfo info = enemy.info;
         if (len < info.range * GameData.GlobalRange)
         {
-            if (info.enemyType == 1)
+            if (info.enemyType == 1 && rushTimer <= 0)
             {
+                rushTimer = (enemy as Enemy1).rushDuration;
                 stateMachine.ChangeState(new RushState(stateMachine, enemy));
             }
             else if (info.enemyType == 2)

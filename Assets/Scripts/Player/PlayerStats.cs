@@ -25,7 +25,7 @@ public class PlayerStats : MonoBehaviour
     public PlayerStat energyConsumption; //能量消耗
     public PlayerStat piercingAttack; //穿透
 
-    public float invCD = 0.5f; //无敌帧
+    public float invCD = 0.25f; //无敌帧
     public bool IsInv
     {
         get { return invTimer > 0; }

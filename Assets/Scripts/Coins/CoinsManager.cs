@@ -46,8 +46,8 @@ public class CoinsManager : MonoBehaviour
             coin.isTrigged = true;
             Vector3 viewportPosition = new(0.05f, 0.7f, 0);
             Vector3 worldPosition = Camera.main.ViewportToWorldPoint(viewportPosition);
-            coin.transform.DOLocalMove(worldPosition, 0.5f)
-                .SetEase(Ease.Linear)
+            coin.transform.DOLocalMove(worldPosition, 0.5f).SetEase(Ease.Linear);
+            coin.transform.DOScale(0, 2f)
                 .OnComplete(() =>
                 {
                     tempCoins += coin.coins;
