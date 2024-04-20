@@ -34,6 +34,5 @@ public class CloseState : EnemyState
     public override void OnExit()
     {
         base.OnExit();
-        enemy.rb.velocity = Vector2.zero;
     }
 }

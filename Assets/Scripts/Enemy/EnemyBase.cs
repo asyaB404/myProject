@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -99,6 +100,7 @@ public class EnemyBase : MonoBehaviour
 
     private void OnDestroy()
     {
+        transform.DOKill();
         stateMachine?.CurState?.OnExit();
     }
 }

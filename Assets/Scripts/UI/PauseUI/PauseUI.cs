@@ -5,18 +5,23 @@ using UnityEngine;
 public class PauseUI : MonoBehaviour
 {
     public GameObject pauseUI;
-    // Start is called before the first frame update
+    public ShopManager shopManager;
+
+    private void Awake()
+    {
+        shopManager.Init();
+    }
+
     void Start()
     {
         pauseUI.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(Time.timeScale == 1)
+            if (Time.timeScale == 1)
             {
                 Time.timeScale = 0;
                 pauseUI.SetActive(true);

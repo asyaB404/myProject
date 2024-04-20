@@ -32,8 +32,7 @@ public class RushState : EnemyState
         Transform transform = enemy.transform;
         transform.DOKill();
         transform
-            .DOScale(Vector3.one * 1.5f, 0.25f)
-            // 缩放变大完成后执行缩放恢复动画
+            .DOScale(Vector3.one * 1.4f, 0.25f)
             .OnComplete(() => transform.DOScale(Vector3.one, 0.25f).SetEase(Ease.OutBounce));
         yield return new WaitForSeconds(0.5f);
         enemy.rb.velocity = dir * enemy.info.speed * GameData.GlobalMoveSpeed * 2f;
@@ -51,7 +50,5 @@ public class RushState : EnemyState
     {
         base.OnExit();
         enemy.autoFilp = true;
-        enemy.transform.localScale = Vector3.one;
-        enemy.rb.velocity = Vector2.zero;
     }
 }

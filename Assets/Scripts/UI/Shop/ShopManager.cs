@@ -11,7 +11,7 @@ public class ShopManager : MonoBehaviour
     public SlotManager[] slotManagers;
     public Commodity[] commodities;
 
-    private void Awake()
+    public void Init()
     {
         if (instance != null)
         {
@@ -50,13 +50,13 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    private void Resume()
+    public void HideMe()
     {
         gameObject.SetActive(false);
         Time.timeScale = 1;
     }
 
-    private void Pause()
+    public void ShowMe()
     {
         gameObject.SetActive(true);
         Time.timeScale = 0;

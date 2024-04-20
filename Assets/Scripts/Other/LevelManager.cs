@@ -12,7 +12,11 @@ public class LevelManager : MonoBehaviour
     {
         get => instance;
     }
-    public int level = 0;
+
+    /// <summary>
+    /// 第几波
+    /// </summary>
+    public int wave = 0;
     public float timer = 0;
     public bool isStart;
     public Transform monstersParent;
@@ -30,19 +34,19 @@ public class LevelManager : MonoBehaviour
             "monsDie",
             (Vector2 pos) =>
             {
-                if (level <= 3)
+                if (wave <= 3)
                 {
                     CoinsManager.Instance.GenerateCoin(pos, 1, 0.5f);
                 }
-                else if (level <= 10)
+                else if (wave <= 10)
                 {
                     CoinsManager.Instance.GenerateCoin(pos, 1, 1f);
                 }
-                else if (level <= 15)
+                else if (wave <= 15)
                 {
                     CoinsManager.Instance.GenerateCoin(pos, 1, 1.5f);
                 }
-                else if (level <= 20)
+                else if (wave <= 20)
                 {
                     CoinsManager.Instance.GenerateCoin(pos, 1, 2f);
                 }
@@ -83,67 +87,39 @@ public class LevelManager : MonoBehaviour
     public void StartNextLevel()
     {
         isStart = true;
-        level++;
-        if (level <= 3)
+        wave++;
+        if (wave <= 3)
             timer = 20;
-        else if (level <= 10)
+        else if (wave <= 10)
             timer = 30;
-        else if (level <= 15)
+        else if (wave <= 15)
             timer = 40;
-        else if (level <= 19)
+        else if (wave <= 19)
             timer = 50;
-        else if (level == 20)
+        else if (wave == 20)
             timer = 60;
-        if (level == 1)
+        if (wave == 1)
+        {
+            StartSpawn(1, 2);
+            StartSpawn(2, 2);
+        }
+        else if (wave == 2)
         {
             StartSpawn(1, 2);
             StartSpawn(2, 2);
             StartSpawn(7, 2);
             StartSpawn(8, 2);
         }
-        else if (level == 2)
+        else if (wave == 3)
         {
-            StartSpawn(1, 1);
-            StartSpawn(2, 1);
+            StartSpawn(1, 2);
+            StartSpawn(2, 2);
             StartSpawn(3, 3);
             StartSpawn(4, 3);
-            StartSpawn(7, 1);
-            StartSpawn(8, 1);
+            StartSpawn(7, 2);
+            StartSpawn(8, 2);
             StartSpawn(9, 3);
             StartSpawn(10, 3);
-        }
-        else if (level == 3)
-        {
-            StartSpawn(1, 0.6f);
-            StartSpawn(2, 0.6f);
-            StartSpawn(3, 3);
-            StartSpawn(4, 3);
-            StartSpawn(7, 0.6f);
-            StartSpawn(8, 0.6f);
-            StartSpawn(9, 3);
-            StartSpawn(10, 3);
-        }
-        else if (level == 4)
-        {
-            StartSpawn(1, 1);
-            StartSpawn(2, 1);
-            StartSpawn(3, 2);
-            StartSpawn(4, 2);
-            StartSpawn(7, 1);
-            StartSpawn(8, 1);
-            StartSpawn(9, 2);
-            StartSpawn(10, 2);
-        }
-        else if (level == 5)
-        {
-            StartSpawn(1, 0.5f);
-            StartSpawn(2, 0.5f);
-            StartSpawn(3, 1);
-            StartSpawn(4, 1);
-            StartSpawn(7, 1);
-            StartSpawn(8, 1);
-            StartSpawn(9, 2);
-            StartSpawn(10, 2);
         }
     }
 
@@ -172,6 +148,12 @@ public class LevelManager : MonoBehaviour
                 });
         }
         CoinsManager.Instance.Clear();
+        Invoke(nameof(ClearCallBack), 3f);
+    }
+
+    private void ClearCallBack()
+    {
+        ShopManager.instance.ShowMe();
     }
 
     private void StartSpawn(int id, float duration)

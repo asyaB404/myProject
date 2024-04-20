@@ -34,7 +34,7 @@ public class WorldCanvas : MonoBehaviour
         uiobj.transform.localScale = Vector3.zero;
         uiobj.transform.DOScale(0.01f, d / 2);
         uiobj
-            .transform.DOLocalMoveY(uiobj.transform.position.y + 2.5f, d)
+            .transform.DOLocalMoveY(uiobj.transform.position.y + 1.5f, d)
             .OnComplete(() => Destroy(uiobj));
         return text;
     }
