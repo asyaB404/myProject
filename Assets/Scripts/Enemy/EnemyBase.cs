@@ -107,11 +107,14 @@ public class EnemyBase : MonoBehaviour
         sr.material.SetFloat("_rate", 0);
     }
 
-    public virtual void Die()
+    public virtual void Die(bool e = true)
     {
         isDie = true;
         stateMachine.ChangeState(new DieState(stateMachine, this));
-        MyEventSystem.Instance.EventTrigger<Vector2>("monsDie", transform.position);
+        if (e)
+        {
+            MyEventSystem.Instance.EventTrigger<Vector2>("monsDie", transform.position);
+        }
         transform.DOScale(0f, 0.5f);
         transform
             .DORotate(new Vector3(0f, 0f, 360f), 0.5f, RotateMode.FastBeyond360)

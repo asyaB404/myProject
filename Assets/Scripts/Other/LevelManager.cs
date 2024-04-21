@@ -138,12 +138,7 @@ public class LevelManager : MonoBehaviour
         CancelInvoke();
         foreach (Transform monster in monstersParent)
         {
-            monster
-                .DOScale(0, 0.2f)
-                .OnComplete(() =>
-                {
-                    Destroy(monster.gameObject);
-                });
+            monster.GetComponent<EnemyBase>().Die(false);
         }
         foreach (Transform bullet in bulletParent)
         {

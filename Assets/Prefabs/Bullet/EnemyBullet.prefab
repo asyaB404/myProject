@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 2266371781074470618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -137,8 +137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2266371781074470597}
-  sr: {fileID: 0}
+  sr: {fileID: 2266371781074470599}
   speed: 12
   info: {fileID: 0}
-  color1: {r: 0.6792453, g: 0.5344251, b: 0.6792453, a: 0}
-  color2: {r: 0.8470589, g: 0.5882353, b: 0.5764706, a: 0}
+  color1: {r: 0.6792453, g: 0.5344251, b: 0.6792453, a: 1}
+  color2: {r: 0.8962264, g: 0.5193555, b: 0.502225, a: 1}
