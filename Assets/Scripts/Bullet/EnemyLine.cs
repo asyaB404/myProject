@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class Line : MonoBehaviour
+public class EnemyLine : MonoBehaviour, IEnemyBullet
 {
     [SerializeField]
     private SpriteRenderer sr;

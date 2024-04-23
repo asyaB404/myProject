@@ -1,6 +1,11 @@
 using UnityEngine;
 
-public class EnemyBullet : MonoBehaviour
+interface IEnemyBullet
+{
+    void Init(Vector2 diretion, EnemyInfo info);
+}
+
+public class EnemyBullet : MonoBehaviour, IEnemyBullet
 {
     [SerializeField]
     private Rigidbody2D rb;

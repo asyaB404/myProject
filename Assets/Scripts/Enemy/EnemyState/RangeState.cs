@@ -22,10 +22,10 @@ public class RangeState : EnemyState
         EnemyInfo info = enemy.info;
         if (len < info.range * GameData.GlobalRange)
         {
-            shootCD -= Time.deltaTime * info.atkSpeed / 100;
-            if (shootCD <= 0)
+            shootCD += Time.deltaTime * info.atkSpeed / 100;
+            if (shootCD >= 1)
             {
-                shootCD = 1;
+                shootCD = 0 - (enemy as Enemy2).Shootduration;
                 enemy
                     .transform.DOScale(Vector3.one * 1.25f, 0.2f)
                     // 缩放变大完成后执行缩放恢复动画
@@ -41,7 +41,7 @@ public class RangeState : EnemyState
                                     );
                                     bullet.transform.position = enemy.transform.position;
                                     bullet
-                                        .GetComponent<EnemyBullet>()
+                                        .GetComponent<IEnemyBullet>()
                                         .Init(enemy.DirectionToPlayer, info);
                                 })
                     );

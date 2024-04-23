@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy2 : EnemyBase
 {
     public GameObject bullet;
+    public float Shootduration = 0;
 
     public override void Start()
     {
