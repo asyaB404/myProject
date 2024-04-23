@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1733334506942935687}
   - component: {fileID: 1733334506942935686}
   - component: {fileID: -1460548518929442254}
+  - component: {fileID: 3834017844755528913}
   m_Layer: 0
   m_Name: Monster10
   m_TagString: Untagged
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d7b47eae8bab6b94798f1c25eabe65c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -122,8 +123,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: 0, y: 0.27212298}
+  m_Size: {x: 1, y: 1.7904732}
   m_Direction: 0
 --- !u!114 &-1460548518929442254
 MonoBehaviour:
@@ -144,7 +145,29 @@ MonoBehaviour:
   sr: {fileID: 0}
   facingRight: 1
   autoFilp: 1
+  isDie: 0
   bullet: {fileID: 0}
+--- !u!95 &3834017844755528913
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733334506942935680}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b92bc7f7d1a0184892e7ac93d98ba6b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6671126780665658821
 GameObject:
   m_ObjectHideFlags: 0

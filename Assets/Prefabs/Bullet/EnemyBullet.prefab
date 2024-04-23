@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2266371781074470596}
   - component: {fileID: 2266371781074470597}
   - component: {fileID: 2266371781074470593}
+  - component: {fileID: 5057737410104674093}
   m_Layer: 0
   m_Name: EnemyBullet
   m_TagString: Untagged
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.990566, g: 0.6019681, b: 0.4616411, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -140,5 +141,26 @@ MonoBehaviour:
   sr: {fileID: 2266371781074470599}
   speed: 12
   info: {fileID: 0}
-  color1: {r: 0.6792453, g: 0.5344251, b: 0.6792453, a: 1}
-  color2: {r: 0.8962264, g: 0.5193555, b: 0.502225, a: 1}
+  sprite1: {fileID: 21300000, guid: a125c7e5c770b1f4c9b6e7cbad0d6e1f, type: 3}
+  sprite2: {fileID: 21300000, guid: 27d089564abb9ed4abc6580b6c996165, type: 3}
+--- !u!95 &5057737410104674093
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2266371781074470618}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 39fe1a6252383be459647d05d13f506a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

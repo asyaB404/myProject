@@ -12,8 +12,8 @@ public class EnemyBullet : MonoBehaviour
     private float speed = 12f;
     private float timer = 0;
     public EnemyInfo info;
-    public Color color1;
-    public Color color2;
+    public Sprite sprite1;
+    public Sprite sprite2;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -38,9 +38,9 @@ public class EnemyBullet : MonoBehaviour
         rb.velocity = diretion * speed;
         transform.parent = LevelManager.Instance.bulletParent;
         if (info.energyType == EnergyType.Cathode)
-            sr.color = color1;
+            sr.sprite = sprite1;
         else
-            sr.color = color2;
+            sr.sprite = sprite2;
     }
 
     private void Update()

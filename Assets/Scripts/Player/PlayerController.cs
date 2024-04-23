@@ -168,7 +168,7 @@ public class PlayerController : MonoBehaviour
             sword.firePoint.position,
             Quaternion.Euler(rotaion)
         );
-        BulletBase script = newBullet.GetComponent<BulletBase>();
+        PlayerBullet script = newBullet.GetComponent<PlayerBullet>();
         script.SetupBullet(
             Mathf.RoundToInt(playerStats.piercingAttack.GetValue()),
             EnergyType.Cathode,
@@ -183,7 +183,7 @@ public class PlayerController : MonoBehaviour
             sword.firePoint.position,
             Quaternion.Euler(rotaion)
         );
-        BulletBase script = newBullet.GetComponent<BulletBase>();
+        PlayerBullet script = newBullet.GetComponent<PlayerBullet>();
         script.SetupBullet(
             Mathf.RoundToInt(playerStats.piercingAttack.GetValue()),
             EnergyType.Anode,

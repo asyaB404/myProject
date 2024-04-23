@@ -127,6 +127,36 @@ public class LevelManager : MonoBehaviour
             StartSpawn(9, 3);
             StartSpawn(10, 3);
         }
+        else if (wave == 4)
+        {
+            StartSpawn(1, 1);
+            StartSpawn(2, 1);
+            StartSpawn(3, 2);
+            StartSpawn(4, 2);
+            StartSpawn(7, 1);
+            StartSpawn(8, 1);
+            StartSpawn(9, 2);
+            StartSpawn(10, 2);
+        }
+        else if (wave == 5)
+        {
+            StartSpawn(1, 0.5f);
+            StartSpawn(2, 0.5f);
+            StartSpawn(3, 1);
+            StartSpawn(4, 1);
+            StartSpawn(7, 1);
+            StartSpawn(8, 1);
+            StartSpawn(9, 2);
+            StartSpawn(10, 2);
+        }
+        else if (wave == 6) { }
+        else if (wave == 7) { }
+        else if (wave == 8) { }
+        else if (wave == 9) { }
+        else if (wave == 10) { }
+        else if (wave == 11) { }
+        else if (wave == 12) { }
+        else if (wave == 13) { }
     }
 
     public void LevelClear()
