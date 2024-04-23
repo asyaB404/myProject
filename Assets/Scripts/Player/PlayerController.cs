@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour
                     degree = 35;
                 else if (scat == 8)
                     degree = 40;
-                else if (scat >= 45)
+                else if (scat >= 9)
                     degree = 45;
                 rotation.z += degree / 2;
                 shootFun.Invoke(rotation);

@@ -22,7 +22,7 @@ public class EnemyBullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            timer = -5;
+            timer = -1;
             PlayerStats playerStats = other.GetComponent<PlayerStats>();
             if (!playerStats.IsInv)
             {
@@ -51,22 +51,18 @@ public class EnemyBullet : MonoBehaviour
         animator.SetBool("Black", info.energyType == EnergyType.Cathode);
     }
 
-    public bool flag;
-
     private void Update()
     {
-        if (timer < info.bulletRange * GameData.GlobalBulletFlyTime)
+        if (
+            timer < info.bulletRange * GameData.GlobalBulletFlyTime
+            && LevelManager.Instance.isStart
+        )
         {
             timer += Time.deltaTime;
         }
         else
         {
             DoDestroy();
-        }
-        if (flag)
-        {
-            Init(Vector2.right, this.info);
-            flag = false;
         }
     }
 

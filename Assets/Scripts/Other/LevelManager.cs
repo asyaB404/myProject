@@ -173,7 +173,7 @@ public class LevelManager : MonoBehaviour
         foreach (Transform bullet in bulletParent)
         {
             bullet
-                .DOScale(0, 0.2f)
+                .DOScale(0, 0.001f)
                 .OnComplete(() =>
                 {
                     Destroy(bullet.gameObject);
