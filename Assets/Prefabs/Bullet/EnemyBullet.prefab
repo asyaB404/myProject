@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fd07819cb684d2d47bf376a0f526e247, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 27d089564abb9ed4abc6580b6c996165, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,9 +101,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.0023970008}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.2690444
 --- !u!50 &2266371781074470597
 Rigidbody2D:
   serializedVersion: 4
@@ -139,10 +139,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2266371781074470597}
   sr: {fileID: 2266371781074470599}
+  animator: {fileID: 5057737410104674093}
   speed: 12
   info: {fileID: 0}
   sprite1: {fileID: 21300000, guid: a125c7e5c770b1f4c9b6e7cbad0d6e1f, type: 3}
   sprite2: {fileID: 21300000, guid: 27d089564abb9ed4abc6580b6c996165, type: 3}
+  flag: 0
 --- !u!95 &5057737410104674093
 Animator:
   serializedVersion: 5

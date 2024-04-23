@@ -9,6 +9,9 @@ public class EnemyBullet : MonoBehaviour
     private SpriteRenderer sr;
 
     [SerializeField]
+    private Animator animator;
+
+    [SerializeField]
     private float speed = 12f;
     private float timer = 0;
     public EnemyInfo info;
@@ -19,16 +22,24 @@ public class EnemyBullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            timer = -5;
             PlayerStats playerStats = other.GetComponent<PlayerStats>();
             if (!playerStats.IsInv)
             {
                 if (info.energyType == EnergyType.Anode)
+                {
                     playerStats.anodeEnergy.AddChange(info.recoverFromAtk);
+                    animator.SetTrigger("1");
+                }
                 else
+                {
                     playerStats.cathodeEnergy.AddChange(info.recoverFromAtk);
+                    animator.SetTrigger("0");
+                }
+                rb.velocity = Vector2.zero;
                 playerStats.TakeDamage(Mathf.FloorToInt(info.atkMul));
             }
-            DoDestroy();
+            // DoDestroy();
         }
     }
 
@@ -37,11 +48,10 @@ public class EnemyBullet : MonoBehaviour
         this.info = info;
         rb.velocity = diretion * speed;
         transform.parent = LevelManager.Instance.bulletParent;
-        if (info.energyType == EnergyType.Cathode)
-            sr.sprite = sprite1;
-        else
-            sr.sprite = sprite2;
+        animator.SetBool("Black", info.energyType == EnergyType.Cathode);
     }
+
+    public bool flag;
 
     private void Update()
     {
@@ -52,6 +62,11 @@ public class EnemyBullet : MonoBehaviour
         else
         {
             DoDestroy();
+        }
+        if (flag)
+        {
+            Init(Vector2.right, this.info);
+            flag = false;
         }
     }
 
