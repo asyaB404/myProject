@@ -23,7 +23,8 @@ public class PlayerBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<EnemyBase>() != null && penetrableCount > 0)
+        EnemyBase enemyBase = collision.GetComponent<EnemyBase>();
+        if (enemyBase != null && !enemyBase.isDie && penetrableCount > 0)
         {
             penetrableCount--;
             EnemyBase enemy = collision.GetComponent<EnemyBase>();

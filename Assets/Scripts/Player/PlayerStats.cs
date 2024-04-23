@@ -96,7 +96,7 @@ public class PlayerStats : MonoBehaviour
             {
                 Vector2 direction = (transform.position - obj.transform.position).normalized;
                 float len = (transform.position - obj.transform.position).magnitude;
-                obj.transform.Translate(direction * Time.deltaTime * (len + 3));
+                obj.transform.Translate(direction * Time.deltaTime * (len + 5));
             }
         }
     }

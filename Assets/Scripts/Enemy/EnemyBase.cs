@@ -44,7 +44,7 @@ public class EnemyBase : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !isDie)
         {
             PlayerStats playerStats = other.GetComponent<PlayerStats>();
             if (!playerStats.IsInv)
