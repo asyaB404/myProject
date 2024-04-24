@@ -36,9 +36,4 @@ public class CloseState : EnemyState
             }
         }
     }
-
-    public override void OnExit()
-    {
-        base.OnExit();
-    }
 }

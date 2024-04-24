@@ -29,21 +29,22 @@ public class EnemyBullet : MonoBehaviour, IEnemyBullet
         {
             timer = -1;
             PlayerStats playerStats = other.GetComponent<PlayerStats>();
-            if (!playerStats.IsInv)
+
+            if (info.energyType == EnergyType.Anode)
             {
-                if (info.energyType == EnergyType.Anode)
-                {
+                if (!playerStats.IsInv)
                     playerStats.anodeEnergy.AddChange(info.recoverFromAtk);
-                    animator.SetTrigger("1");
-                }
-                else
-                {
-                    playerStats.cathodeEnergy.AddChange(info.recoverFromAtk);
-                    animator.SetTrigger("0");
-                }
-                rb.velocity = Vector2.zero;
-                playerStats.TakeDamage(Mathf.FloorToInt(info.atkMul));
+                animator.SetTrigger("1");
             }
+            else
+            {
+                if (!playerStats.IsInv)
+                    playerStats.cathodeEnergy.AddChange(info.recoverFromAtk);
+                animator.SetTrigger("0");
+            }
+            rb.velocity = Vector2.zero;
+            playerStats.TakeDamage(Mathf.FloorToInt(info.atkMul));
+
             // DoDestroy();
         }
     }

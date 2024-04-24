@@ -30,28 +30,7 @@ public class LevelManager : MonoBehaviour
             Destroy(instance.gameObject);
         }
         instance = this;
-        MyEventSystem.Instance.AddEventListener<Vector2>(
-            "monsDie",
-            (Vector2 pos) =>
-            {
-                if (wave <= 3)
-                {
-                    CoinsManager.Instance.GenerateCoin(pos, 1, 0.5f);
-                }
-                else if (wave <= 10)
-                {
-                    CoinsManager.Instance.GenerateCoin(pos, 1, 1f);
-                }
-                else if (wave <= 15)
-                {
-                    CoinsManager.Instance.GenerateCoin(pos, 1, 1.5f);
-                }
-                else if (wave <= 20)
-                {
-                    CoinsManager.Instance.GenerateCoin(pos, 1, 2f);
-                }
-            }
-        );
+        DOTween.SetTweensCapacity(3000, 100);
     }
 
     private void Start()
@@ -61,14 +40,23 @@ public class LevelManager : MonoBehaviour
 
     public bool t;
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (isStart)
         {
             if (timer > 0)
             {
-                timer -= Time.deltaTime;
-                text.text = ((int)timer).ToString();
+                timer -= Time.fixedDeltaTime;
+                string newstr = ((int)timer).ToString();
+                if (newstr != text.text)
+                {
+                    text.transform.DOScale(1.25f, 0.2f)
+                        .OnComplete(() =>
+                        {
+                            text.transform.DOScale(1f, 0.2f);
+                        });
+                }
+                text.text = newstr;
             }
             else
                 LevelClear();
@@ -217,5 +205,35 @@ public class LevelManager : MonoBehaviour
             maxChoice--;
         }
         return pos;
+    }
+
+    private void OnEnable()
+    {
+        MyEventSystem.Instance.AddEventListener<Vector2>("monsDie", DropCoin);
+    }
+
+    private void OnDisable()
+    {
+        MyEventSystem.Instance.RemoveEventListener<Vector2>("monsDie", DropCoin);
+    }
+
+    private void DropCoin(Vector2 pos)
+    {
+        if (wave <= 3)
+        {
+            CoinsManager.Instance.GenerateCoin(pos, 1, 0.5f);
+        }
+        else if (wave <= 10)
+        {
+            CoinsManager.Instance.GenerateCoin(pos, 1, 1f);
+        }
+        else if (wave <= 15)
+        {
+            CoinsManager.Instance.GenerateCoin(pos, 1, 1.5f);
+        }
+        else if (wave <= 20)
+        {
+            CoinsManager.Instance.GenerateCoin(pos, 1, 2f);
+        }
     }
 }

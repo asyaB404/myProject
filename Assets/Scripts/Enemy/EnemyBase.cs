@@ -87,11 +87,17 @@ public class EnemyBase : MonoBehaviour
 
     public virtual void TakeDamage(float damage)
     {
-        curHealth -= damage;
-        StartDamagedEffect();
-        WorldCanvas.Instacne.ShowMessage(transform.position, Mathf.FloorToInt(damage).ToString());
-        if (curHealth <= 0 && !isDie)
-            Die();
+        if (!isDie)
+        {
+            curHealth -= damage;
+            StartDamagedEffect();
+            WorldCanvas.Instacne.ShowMessage(
+                transform.position,
+                Mathf.FloorToInt(damage).ToString()
+            );
+            if (curHealth <= 0)
+                Die();
+        }
     }
 
     private void StartDamagedEffect()
@@ -102,7 +108,6 @@ public class EnemyBase : MonoBehaviour
     IEnumerator DamagedEffect()
     {
         sr.material.SetFloat("_rate", 1);
-        // Debug.Log(sr.material.GetFloat("rate"));
         yield return new WaitForSeconds(0.1f);
         sr.material.SetFloat("_rate", 0);
     }
@@ -111,6 +116,7 @@ public class EnemyBase : MonoBehaviour
     {
         isDie = true;
         stateMachine.ChangeState(new DieState(stateMachine, this));
+        transform.DOKill();
         if (e)
         {
             MyEventSystem.Instance.EventTrigger<Vector2>("monsDie", transform.position);
