@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da759ba1de0047b79b3d14c214dec7bf, type: 3}
-  m_Name: 20006
+  m_Name: 20029
   m_EditorClassIdentifier: 
-  maxHealth: 15
+  maxHealth: 0
   curHealth: 0
   moveSpeed: 0
   recoverForHealth: 0
@@ -22,14 +22,14 @@ MonoBehaviour:
   cathodeEnergy: 0
   powerOfCathode: 0
   powerOfAnode: 0
-  criticalStrikeMultiplier: 0
+  criticalStrikeMultiplier: 0.8
   attackScattering: 0
-  energyConsumption: 0
+  energyConsumption: 1
   piercingAttack: 0
-  id: 20006
-  type: 1
-  commodityName: "\u5F3A\u5FC3\u6563"
-  icon: {fileID: 21300000, guid: b2c622ab53484ae4482f3c7d301bfeb4, type: 3}
-  price: 3
-  quality: 3
-  description: "\u592A\u9633\u5F3A\u5316\uFF0C\u751F\u547D+15"
+  id: 20029
+  type: 2
+  commodityName: "\u86F0\u9F99\u82CF"
+  icon: {fileID: 21300000, guid: b91defd8989b7ff47b2a06b483ccb824, type: 3}
+  price: 15
+  quality: 4
+  description: "\u66B4\u51FB\u6548\u679C+80%\uFF0C\u6D88\u8017+1"
