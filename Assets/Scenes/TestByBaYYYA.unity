@@ -414,7 +414,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 81.933, y: -1.3000183}
+  m_AnchoredPosition: {x: 71, y: -0.12389946}
   m_SizeDelta: {x: 55.234, y: 35.325}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &144213489
@@ -444,7 +444,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 1
@@ -1437,8 +1437,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -440, y: -31}
-  m_SizeDelta: {x: 219.0996, y: 40.195984}
+  m_AnchoredPosition: {x: -387.0153, y: -31}
+  m_SizeDelta: {x: 259.1381, y: 40.196}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &418066979
 MonoBehaviour:
@@ -3480,7 +3480,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1017963529
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3577,6 +3577,9 @@ MonoBehaviour:
   refreshButton: {fileID: 705187221}
   playerStatUI: {fileID: 39682296}
   shopCurSpiritUI: {fileID: 144213491}
+  randomPool: []
+  minQuality: 1
+  maxQuality: 5
 --- !u!1 &1037788635
 GameObject:
   m_ObjectHideFlags: 0

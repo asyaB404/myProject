@@ -25,6 +25,10 @@ public class ShopManager : MonoBehaviour
     public PlayerStatUI playerStatUI;
     public ShopCurSpiritUI shopCurSpiritUI;
 
+    public List<Commodity> randomPool;
+    public int minQuality = 1;
+    public int maxQuality = 5;
+
     public void Init()
     {
         if (instance != null)
@@ -41,6 +45,7 @@ public class ShopManager : MonoBehaviour
 
     private void Start()
     {
+        refreshRandomPool();
         foreach (SlotManager slot in slotManagers)
         {
             slot.GenerateCommodity();
@@ -57,8 +62,8 @@ public class ShopManager : MonoBehaviour
 
     public Commodity GetRandomCommodity()
     {
-        int index = UnityEngine.Random.Range(0, commodities.Length);
-        return commodities[index];
+        int index = UnityEngine.Random.Range(0, randomPool.Count);
+        return randomPool[index];
     }
 
     public void RefreshCommodities()
@@ -87,5 +92,44 @@ public class ShopManager : MonoBehaviour
         }
 
         UpdateUI();
+    }
+
+    public void refreshRandomPool()
+    {
+        if(LevelManager.Instance.wave == 1)
+        {
+            minQuality = 1;
+            maxQuality = 1;
+        } else if (LevelManager.Instance.wave >= 2 && LevelManager.Instance.wave<=5)
+        {
+            minQuality = 1;
+            maxQuality = 2;
+        } else if (LevelManager.Instance.wave >= 6 && LevelManager.Instance.wave <=10)
+        {
+            minQuality = 1;
+            maxQuality = 3;
+        } else if (LevelManager.Instance.wave >= 11 && LevelManager.Instance.wave <= 15)
+        {
+            minQuality = 2;
+            maxQuality = 4;
+        } else if (LevelManager.Instance.wave >= 16 && LevelManager.Instance.wave <= 17)
+        {
+            minQuality = 2;
+            maxQuality = 5;
+        } else
+        {
+            minQuality = 3;
+            maxQuality = 5;
+        }
+
+        randomPool.Clear();
+        foreach (Commodity commodity in commodities)
+        {
+            if (commodity.quality >= minQuality && commodity.quality <= maxQuality)
+            {
+                randomPool.Add(commodity);
+            }
+        }
+
     }
 }
