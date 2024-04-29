@@ -60,7 +60,7 @@ public class EnemyBullet : MonoBehaviour, IEnemyBullet
     private void Update()
     {
         if (
-            timer < info.bulletRange * GameData.GlobalBulletFlyTime
+            timer < info.bulletRange * GameData.GlobalBulletFlyTime * 2
             && LevelManager.Instance.isStart
         )
         {
