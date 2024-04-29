@@ -5,6 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="Commodity",fileName ="������")]
 public class Commodity : PropBase
 {
+    /// <summary>
+    /// 商品信息
+    /// </summary>
+    [Header("商品信息")]
     public int id;
     public int type;
     public string commodityName;

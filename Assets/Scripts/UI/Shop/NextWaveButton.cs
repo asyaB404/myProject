@@ -16,6 +16,7 @@ public class NextWaveButton : MonoBehaviour
                 LevelManager.Instance.StartNextLevel();
                 ShopManager.Instance.refreshTimes = 0;
                 ShopManager.Instance.refreshPrice = 0;
+                ShopManager.Instance.refreshRandomPool();
                 UIManager.Instance.HideShopUI();
             });
     }
