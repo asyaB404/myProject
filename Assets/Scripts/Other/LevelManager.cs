@@ -145,6 +145,13 @@ public class LevelManager : MonoBehaviour
         else if (wave == 11) { }
         else if (wave == 12) { }
         else if (wave == 13) { }
+        else if (wave == 14) { }
+        else if (wave == 15) { }
+        else if (wave == 16) { }
+        else if (wave == 17) { }
+        else if (wave == 18) { }
+        else if (wave == 19) { }
+        else if (wave == 20) { }
     }
 
     public void LevelClear()
@@ -176,12 +183,12 @@ public class LevelManager : MonoBehaviour
         UIManager.Instance.ShowShopUI();
     }
 
-    private void StartSpawn(int id, float duration)
+    public void StartSpawn(int id, float duration)
     {
         StartCoroutine(SpawnEnemyCoroutine(id, duration));
     }
 
-    public IEnumerator SpawnEnemyCoroutine(int id, float duration)
+    private IEnumerator SpawnEnemyCoroutine(int id, float duration)
     {
         while (isStart)
         {
