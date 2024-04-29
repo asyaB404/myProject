@@ -43,13 +43,16 @@ public class ShopManager : MonoBehaviour
         Init();
     }
 
-    private void Start()
+    public void OnEnter()
     {
-        refreshRandomPool();
+        RefreshRandomPool();
+        refreshTimes = 0;
+        refreshPrice = priceList[0];
         foreach (SlotManager slot in slotManagers)
         {
             slot.GenerateCommodity();
         }
+        UpdateUI();
     }
 
     public void UpdateUI()
@@ -94,7 +97,7 @@ public class ShopManager : MonoBehaviour
         UpdateUI();
     }
 
-    public void refreshRandomPool()
+    public void RefreshRandomPool()
     {
         if(LevelManager.Instance.wave == 1)
         {
