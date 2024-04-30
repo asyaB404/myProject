@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject PauseUI;
     public GameObject ShopUI;
+    public GameObject GameOverUI;
 
     public static UIManager Instance
     {

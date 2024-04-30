@@ -16,4 +16,7 @@ public class Commodity : PropBase
     public float price;
     public int quality;
     public string description;
+
+    [Header("持有数量")]
+    public int holdNum;
 }

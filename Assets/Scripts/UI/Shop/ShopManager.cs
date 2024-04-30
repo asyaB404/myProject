@@ -29,6 +29,14 @@ public class ShopManager : MonoBehaviour
     public int minQuality = 1;
     public int maxQuality = 5;
 
+    public Color[] qualityColor = {
+        new Color(1.0f, 1.0f, 1.0f, 0.4f),
+        new Color(0.2f, 0.7f, 0.4f, 0.4f),
+        new Color(0.3f, 0.45f, 0.7f, 0.4f),
+        new Color(0.6f, 0.4f, 0.6f, 0.4f),
+        new Color(0.9f, 0.6f, 0.4f, 0.4f)
+    };
+
     public void Init()
     {
         if (instance != null)
@@ -36,6 +44,11 @@ public class ShopManager : MonoBehaviour
             Destroy(instance.gameObject);
         }
         instance = this;
+
+        foreach(Commodity commodity in commodities)
+        {
+            commodity.holdNum = 0;
+        }
     }
 
     private void Awake()
@@ -65,6 +78,7 @@ public class ShopManager : MonoBehaviour
         refreshButton.UpdateRefreshPrice();
         playerStatUI.UpdatePlayerStats();
         shopCurSpiritUI.UpdateSpirit();
+        InventoryManager.Instance.refreshInventoryUI();
     }
 
     public Commodity GetRandomCommodity()
@@ -137,6 +151,5 @@ public class ShopManager : MonoBehaviour
                 randomPool.Add(commodity);
             }
         }
-
     }
 }
