@@ -3524,7 +3524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refreshTimes: 0
   refreshPrice: 0
-  priceList: 0000000001000000020000000400000005000000
+  priceList: 01000000020000000400000005000000
   slots:
   - {fileID: 1106240284}
   - {fileID: 1980045960}

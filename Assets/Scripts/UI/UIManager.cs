@@ -43,8 +43,7 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 0;
         ShopUI.SetActive(true);
-        ShopManager.Instance.RefreshCommodities();
-        ShopManager.Instance.UpdateUI();
+        ShopManager.Instance.OnEnter();
     }
 
     public void HideShopUI()
