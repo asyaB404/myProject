@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerBullet : MonoBehaviour
 {
@@ -31,9 +32,16 @@ public class PlayerBullet : MonoBehaviour
             if (enemy.info.energyType != type)
             {
                 PlayerStats playerStats = PlayerController.Instance.playerStats;
+                Text text = WorldCanvas.Instacne.ShowMessage(
+                    enemy.transform.position
+                        + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f)),
+                    Mathf.FloorToInt(damage).ToString()
+                );
                 if (playerStats.Critical.GetValue() > Random.Range(0f, 1f))
                 {
                     damage *= playerStats.criticalStrikeMultiplier.GetValue();
+                    text.color = Color.yellow;
+                    text.text = Mathf.FloorToInt(damage).ToString();
                 }
                 enemy.TakeDamage(damage);
             }

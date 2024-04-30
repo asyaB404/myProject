@@ -91,10 +91,6 @@ public class EnemyBase : MonoBehaviour
         {
             curHealth -= damage;
             StartDamagedEffect();
-            WorldCanvas.Instacne.ShowMessage(
-                transform.position,
-                Mathf.FloorToInt(damage).ToString()
-            );
             if (curHealth <= 0)
                 Die();
         }
