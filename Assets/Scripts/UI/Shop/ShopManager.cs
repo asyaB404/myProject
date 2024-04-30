@@ -48,6 +48,10 @@ public class ShopManager : MonoBehaviour
         RefreshRandomPool();
         refreshTimes = 0;
         refreshPrice = priceList[0];
+        foreach (GameObject slot in slots)
+        {
+            slot.SetActive(true);
+        }
         foreach (SlotManager slot in slotManagers)
         {
             slot.GenerateCommodity();
