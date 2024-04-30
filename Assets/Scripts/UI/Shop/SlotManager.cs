@@ -23,7 +23,8 @@ public class SlotManager : MonoBehaviour
         }
         ShopManager.Instance.curCommodities.Add(curCommodity);
 
-        transform.GetChild(0).GetComponent<Image>().sprite = curCommodity.icon;
+        transform.GetChild(0).GetComponent<Image>().color = ShopManager.Instance.qualityColor[curCommodity.quality - 1];
+        transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = curCommodity.icon;
         transform.GetChild(1).GetComponent<Text>().text = curCommodity.commodityName;
         transform.GetChild(2).GetComponent<Text>().text = curCommodity.description;
         transform.GetChild(3).GetChild(0).GetComponent<Text>().text = curCommodity.price.ToString();
@@ -37,6 +38,7 @@ public class SlotManager : MonoBehaviour
         }
         CoinsManager.Instance.coins -= curCommodity.price;
         curCommodity.EffectAfterGet(playerStats);
+        InventoryManager.Instance.AddItem(curCommodity);
         ShopManager.Instance.UpdateUI();
         gameObject.SetActive(false);
     }
