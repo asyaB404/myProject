@@ -106,7 +106,7 @@ public class EnemyLine : MonoBehaviour, IEnemyBullet
                 {
                     playerStats.cathodeEnergy.AddChange(info.recoverFromAtk);
                 }
-                playerStats.TakeDamage(Mathf.FloorToInt(info.atkMul));
+                playerStats.TakeDamage(info.atkMul);
             }
         }
     }

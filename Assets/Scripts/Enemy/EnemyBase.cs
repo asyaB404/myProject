@@ -53,7 +53,7 @@ public class EnemyBase : MonoBehaviour
                     playerStats.anodeEnergy.AddChange(info.recoverFromAtk);
                 else
                     playerStats.cathodeEnergy.AddChange(info.recoverFromAtk);
-                playerStats.TakeDamage(Mathf.FloorToInt(info.atkMul));
+                playerStats.TakeDamage(info.atkMul);
             }
         }
     }
