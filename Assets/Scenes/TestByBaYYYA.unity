@@ -266,7 +266,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.050109863}
+  m_AnchoredPosition: {x: 0, y: -0.050048828}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &19322604
@@ -4759,6 +4759,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 503048a35c1e47a4992c164fc6159ab5, type: 2}
   - {fileID: 11400000, guid: 16997902ff332184bb26089e78dc1390, type: 2}
   - {fileID: 11400000, guid: 4d2f3e88e01e2d049b01cf0c63c1b647, type: 2}
+  - {fileID: 11400000, guid: ded90b9bdec34684e931ea481b4834d5, type: 2}
+  - {fileID: 11400000, guid: b29afaf3eb260f54c932b62989bd8b04, type: 2}
+  - {fileID: 11400000, guid: 548dc2a1f9de0e0409ff46cc0535de37, type: 2}
+  - {fileID: 11400000, guid: 625125a7979414946a0176682b91a959, type: 2}
+  - {fileID: 11400000, guid: 5ebc70b32f3581d40a43321e2660620f, type: 2}
+  - {fileID: 11400000, guid: a4affb06efeb25b49afe8fd213c14755, type: 2}
+  - {fileID: 11400000, guid: 53c546e7dc86ae449af789a77481d282, type: 2}
+  - {fileID: 11400000, guid: 8c28846e9be03af4f8df14aae9d6de82, type: 2}
+  - {fileID: 11400000, guid: 9a41cf6eb6c6b924ea35a624ead913a7, type: 2}
+  - {fileID: 11400000, guid: ef01288db882b154cbff55071b38c53f, type: 2}
+  - {fileID: 11400000, guid: a4cfc390ccf530d46b3fe8c4c71084fe, type: 2}
+  - {fileID: 11400000, guid: e6d16200765656b43bc192a67c2ffe2f, type: 2}
+  - {fileID: 11400000, guid: ff2b3927610ffd84c9427dfe4589e28f, type: 2}
   - {fileID: 11400000, guid: 8fff8c1f9a0672f459288a7131739075, type: 2}
   - {fileID: 11400000, guid: 03adc42f940e9bc47a966af68b93dffd, type: 2}
   - {fileID: 11400000, guid: ceee111435ddaf642b09e1c30ee69c81, type: 2}
@@ -4787,6 +4800,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0dd1ba621b4f4c04296c887553729ca8, type: 2}
   - {fileID: 11400000, guid: aacd5535ef0d4fa49bec9b2338610bb1, type: 2}
   - {fileID: 11400000, guid: 0cdc265fb00f475448eacc7af3c3cd15, type: 2}
+  - {fileID: 11400000, guid: 52e35b0d957794145994dbfcd0948a49, type: 2}
+  - {fileID: 11400000, guid: acc5431ec2ce7f340b9c2bf33e1b667a, type: 2}
   curCommodities: []
   nextWaveButton: {fileID: 1007544417}
   refreshButton: {fileID: 705187221}
