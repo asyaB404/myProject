@@ -38,13 +38,13 @@ public class PlayerStats : MonoBehaviour
     public float pullingRange = 1.5f;
     public bool isOpenPullingCoins = true;
 
-    public void TakeDamage(int attackMultiple)
+    public void TakeDamage(float attackMultiple)
     {
         if (invTimer <= 0)
         {
             StartCoroutine(nameof(DamagedCoroutine));
             invTimer = invCD;
-            int damage =
+            float damage =
                 Mathf.Abs(
                     Mathf.RoundToInt(anodeEnergy.GetValue())
                         - Mathf.RoundToInt(cathodeEnergy.GetValue())

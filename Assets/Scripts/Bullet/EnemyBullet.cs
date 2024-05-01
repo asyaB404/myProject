@@ -43,7 +43,7 @@ public class EnemyBullet : MonoBehaviour, IEnemyBullet
                 animator.SetTrigger("0");
             }
             rb.velocity = Vector2.zero;
-            playerStats.TakeDamage(Mathf.FloorToInt(info.atkMul));
+            playerStats.TakeDamage(info.atkMul);
 
             // DoDestroy();
         }
