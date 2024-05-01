@@ -2,7 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(menuName ="Prop",fileName ="道具名")]
+
+[CreateAssetMenu(menuName = "Prop", fileName = "道具名")]
 public class PropBase : ScriptableObject
 {
     /// <summary>
@@ -20,14 +21,14 @@ public class PropBase : ScriptableObject
     /// 次要属性
     /// </summary>
     [Header("次要属性")]
-    public float anodeEnergy;//阳极能量
-    public float cathodeEnergy;//阴极能量
-    public float powerOfCathode;//阴灵之力
-    public float powerOfAnode;//阳灵之力
-    public float criticalStrikeMultiplier;//暴击倍率
-    public float attackScattering;//攻击散射
-    public float energyConsumption;//能量消耗
-    public float piercingAttack;//攻击穿透
+    public float anodeEnergy; //阳极能量
+    public float cathodeEnergy; //阴极能量
+    public float powerOfCathode; //阴灵之力
+    public float powerOfAnode; //阳灵之力
+    public float criticalStrikeMultiplier; //暴击倍率
+    public float attackScattering; //攻击散射
+    public float energyConsumption; //能量消耗
+    public float piercingAttack; //攻击穿透
 
     public virtual void EffectAfterGet(PlayerStats stats)
     {
@@ -37,7 +38,6 @@ public class PropBase : ScriptableObject
         stats.recoverForHealth.AddChange(recoverForHealth);
         stats.Defence.AddChange(Defence);
         stats.Critical.AddChange(Critical);
-
         stats.anodeEnergy.AddChange(anodeEnergy);
         stats.cathodeEnergy.AddChange(cathodeEnergy);
         stats.powerOfCathode.AddChange(powerOfCathode);

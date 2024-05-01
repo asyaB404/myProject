@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class PlayerStats : MonoBehaviour
     public PlayerStat attackScattering; //散射
     public PlayerStat energyConsumption; //能量消耗
     public PlayerStat piercingAttack; //穿透
+    public UnityAction propUpdate;
 
     public float invCD = 0.25f; //无敌帧
     public bool IsInv
@@ -99,6 +101,7 @@ public class PlayerStats : MonoBehaviour
                 obj.transform.Translate(direction * Time.deltaTime * (len + 20));
             }
         }
+        propUpdate?.Invoke();
     }
 
     public void Die()

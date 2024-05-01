@@ -5,7 +5,7 @@ using UnityEngine;
 public class MusicMgr
 {
     public GameObject soundOBJ = null;
-    private List<AudioSource> soundList = new List<AudioSource>();
+    private readonly List<AudioSource> soundList = new();
     private float soundValue = 1;
 
     /// <summary>
@@ -27,7 +27,7 @@ public class MusicMgr
     /// 播放音效
     /// </summary>
     /// <param name="name"></param>
-    public AudioSource PlaySound(string name, bool isLoop = false)
+    public AudioSource PlaySound(string name, bool isLoop = false, int i = 0)
     {
         if (soundOBJ == null)
         {
@@ -36,15 +36,21 @@ public class MusicMgr
         }
 
         AudioSource source = soundOBJ.AddComponent<AudioSource>();
-
-        AudioClip audioClip = GameObject.Instantiate(
-            Resources.Load<AudioClip>("Music/AudioEffect/" + name)
-        );
+        AudioClip audioClip;
+        if (i == 0)
+        {
+            audioClip = GameObject.Instantiate(Resources.Load<AudioClip>("Sounds/" + name));
+        }
+        else
+        {
+            audioClip = GameObject.Instantiate(
+                Resources.Load<AudioClip>("Sounds/" + name + MyRandom.Instance.NextInt(1, i))
+            );
+        }
         source.clip = audioClip;
         soundList.Add(source);
         source.volume = soundValue;
         source.loop = isLoop;
-        // yield return audioClip;
         source.Play();
         return source;
     }
@@ -96,13 +102,10 @@ public class MusicMgr
             bkMusic = new GameObject("BkMusic").AddComponent<AudioSource>();
             bkMusic.transform.position = Camera.main.transform.position;
         }
-        AudioClip audioClip = GameObject.Instantiate(
-            Resources.Load<AudioClip>("Music/Music/" + name)
-        );
+        AudioClip audioClip = GameObject.Instantiate(Resources.Load<AudioClip>("Sounds/" + name));
         bkMusic.clip = audioClip;
         bkMusic.volume = bkValue;
         bkMusic.loop = true;
-        // yield return audioClip;
         bkMusic.Play();
     }
 
