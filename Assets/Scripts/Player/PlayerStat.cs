@@ -8,26 +8,21 @@ public class PlayerStat
 {
     [SerializeField]
     private float val;
-    public List<float> changes;
 
     public float GetValue()
     {
-        float res = val;
-        foreach (float c in changes)
-            res += c;
-        return res > 0 ? res : 0;
+        if (val < 0)
+        {
+            return 0;
+        }
+        return val;
     }
 
     public void AddChange(float change)
     {
         if (change != 0)
         {
-            changes.Add(change);
+            val += change;
         }
-    }
-
-    public void Clear()
-    {
-        changes.Clear();
     }
 }

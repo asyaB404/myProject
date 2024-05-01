@@ -4072,6 +4072,14 @@ PrefabInstance:
       propertyPath: pullingRange
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6390814321096797517, guid: 9b6be14ee414341478edcba4665b917e, type: 3}
+      propertyPath: anodeEnergy.val
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390814321096797517, guid: 9b6be14ee414341478edcba4665b917e, type: 3}
+      propertyPath: cathodeEnergy.val
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6390814321096797518, guid: 9b6be14ee414341478edcba4665b917e, type: 3}
       propertyPath: m_Name
       value: Player

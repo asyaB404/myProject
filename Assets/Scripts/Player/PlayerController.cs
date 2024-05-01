@@ -98,65 +98,67 @@ public class PlayerController : MonoBehaviour
 
     //0-1
     [SerializeField]
-    private float shootCD;
+    private float shootCD1;
+
+    [SerializeField]
+    private float shootCD2;
 
     private void UpdateShoot()
     {
-        if (shootCD > 0)
+        if (shootCD1 > 0 || shootCD2 > 0)
         {
-            shootCD -= Time.deltaTime * playerStats.moveSpeed.GetValue() / 100;
-            return;
+            shootCD1 -= Time.deltaTime * playerStats.moveSpeed.GetValue() * 3 / 100;
+            shootCD2 -= Time.deltaTime * playerStats.moveSpeed.GetValue() * 3 / 100;
         }
+
         if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
         {
-            shootCD = 1;
             float scat = playerStats.attackScattering.GetValue();
-            UnityAction<Vector3> shootFun = null;
             if (
                 Input.GetMouseButton(1)
                 && playerStats.cathodeEnergy.GetValue() >= playerStats.energyConsumption.GetValue()
+                && shootCD1 <= 0
             )
             {
-                shootFun = Shoot0;
-                playerStats.cathodeEnergy.AddChange(-playerStats.energyConsumption.GetValue());
-            }
-            else if (
-                Input.GetMouseButton(0)
-                && playerStats.anodeEnergy.GetValue() >= playerStats.energyConsumption.GetValue()
-            )
-            {
-                shootFun = Shoot1;
-                playerStats.anodeEnergy.AddChange(-playerStats.energyConsumption.GetValue());
-            }
-
-            if (shootFun != null)
-            {
+                shootCD1 = 1;
                 Vector3 rotation = sword.transform.rotation.eulerAngles;
                 float degree = 0;
-                //配置散射个数的总体角度
-                if (scat == 2)
-                    degree = 10;
-                else if (scat == 3)
-                    degree = 14;
-                else if (scat == 4)
-                    degree = 20;
-                else if (scat == 5)
-                    degree = 25;
-                else if (scat == 6)
-                    degree = 30;
-                else if (scat == 7)
-                    degree = 35;
-                else if (scat == 8)
-                    degree = 40;
-                else if (scat >= 9)
+                if (2 <= scat && scat <= 9)
+                    degree = scat * 5;
+                else if (scat >= 10)
                     degree = 45;
+
                 rotation.z += degree / 2;
-                shootFun.Invoke(rotation);
+                Shoot0(rotation);
                 for (int i = 0; i < scat - 1; i++)
                 {
                     rotation.z -= degree / (scat - 1);
-                    shootFun.Invoke(rotation);
+                    Shoot0(rotation);
                 }
+                playerStats.cathodeEnergy.AddChange(-playerStats.energyConsumption.GetValue());
+            }
+            if (
+                Input.GetMouseButton(0)
+                && playerStats.anodeEnergy.GetValue() >= playerStats.energyConsumption.GetValue()
+                && shootCD2 <= 0
+            )
+            {
+                shootCD2 = 1;
+                Vector3 rotation = sword.transform.rotation.eulerAngles;
+                float degree = 0;
+                if (2 <= scat && scat <= 9)
+                    degree = scat * 5;
+                else if (scat >= 10)
+                    degree = 45;
+
+                rotation.z += degree / 2;
+                Shoot1(rotation);
+                for (int i = 0; i < scat - 1; i++)
+                {
+                    rotation.z -= degree / (scat - 1);
+                    Shoot1(rotation);
+                }
+                playerStats.anodeEnergy.AddChange(-playerStats.energyConsumption.GetValue());
             }
         }
     }
