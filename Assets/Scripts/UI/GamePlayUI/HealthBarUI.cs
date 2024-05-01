@@ -33,6 +33,6 @@ public class HealthBarUI : MonoBehaviour
         healthBarSlider.maxValue = maxHealth;
         healthBarSlider.value = curHealth;
 
-        value.text = curHealth + "/" + maxHealth;
+        value.text = Mathf.FloorToInt(curHealth) + "/" + Mathf.FloorToInt(maxHealth);
     }
 }
