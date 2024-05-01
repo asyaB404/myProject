@@ -83,9 +83,9 @@ public class LevelManager : MonoBehaviour
         isStart = true;
         wave++;
         if (wave <= 3)
-            timer = 20;
-        else if (wave <= 10)
             timer = 30;
+        else if (wave <= 10)
+            timer = 35;
         else if (wave <= 15)
             timer = 40;
         else if (wave <= 19)
@@ -94,48 +94,48 @@ public class LevelManager : MonoBehaviour
             timer = 60;
         if (wave == 1)
         {
-            StartSpawn(1, 2);
-            StartSpawn(2, 2);
+            StartSpawn(1, 3);
+            StartSpawn(2, 3);
         }
         else if (wave == 2)
         {
-            StartSpawn(1, 2);
-            StartSpawn(2, 2);
-            StartSpawn(7, 2);
-            StartSpawn(8, 2);
+            StartSpawn(1, 5);
+            StartSpawn(2, 5);
+            StartSpawn(7, 5);
+            StartSpawn(8, 5);
         }
         else if (wave == 3)
         {
-            StartSpawn(1, 2);
-            StartSpawn(2, 2);
-            StartSpawn(3, 3);
-            StartSpawn(4, 3);
-            StartSpawn(7, 2);
-            StartSpawn(8, 2);
-            StartSpawn(9, 3);
-            StartSpawn(10, 3);
+            StartSpawn(1, 5);
+            StartSpawn(2, 5);
+            StartSpawn(3, 10);
+            StartSpawn(4, 10);
+            StartSpawn(7, 5);
+            StartSpawn(8, 5);
+            StartSpawn(9, 10);
+            StartSpawn(10, 10);
         }
         else if (wave == 4)
         {
-            StartSpawn(1, 1);
-            StartSpawn(2, 1);
-            StartSpawn(3, 2);
-            StartSpawn(4, 2);
-            StartSpawn(7, 1);
-            StartSpawn(8, 1);
-            StartSpawn(9, 2);
-            StartSpawn(10, 2);
+            StartSpawn(1, 5);
+            StartSpawn(2, 5);
+            StartSpawn(3, 5);
+            StartSpawn(4, 5);
+            StartSpawn(7, 5);
+            StartSpawn(8, 5);
+            StartSpawn(9, 5);
+            StartSpawn(10, 5);
         }
         else if (wave == 5)
         {
-            StartSpawn(1, 0.5f);
-            StartSpawn(2, 0.5f);
-            StartSpawn(3, 1);
-            StartSpawn(4, 1);
-            StartSpawn(7, 1);
-            StartSpawn(8, 1);
-            StartSpawn(9, 2);
-            StartSpawn(10, 2);
+            StartSpawn(1, 5);
+            StartSpawn(2, 3);
+            StartSpawn(3, 5);
+            StartSpawn(4, 3);
+            StartSpawn(7, 3);
+            StartSpawn(8, 5);
+            StartSpawn(9, 3);
+            StartSpawn(10, 5);
         }
         else if (wave == 6) { }
         else if (wave == 7) { }

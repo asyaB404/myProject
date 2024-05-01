@@ -17,8 +17,8 @@ MonoBehaviour:
   enemyType: 1
   energyType: 1
   health: 8
-  recoverFromAtk: 2
-  atkMul: 1
+  recoverFromAtk: 3
+  atkMul: 0.2
   speed: 90
   atkSpeed: 0
   range: 30
