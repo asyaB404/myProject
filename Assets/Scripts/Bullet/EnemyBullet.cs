@@ -44,8 +44,6 @@ public class EnemyBullet : MonoBehaviour, IEnemyBullet
             }
             rb.velocity = Vector2.zero;
             playerStats.TakeDamage(info.atkMul);
-
-            // DoDestroy();
         }
     }
 
