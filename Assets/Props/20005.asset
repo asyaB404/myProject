@@ -33,3 +33,4 @@ MonoBehaviour:
   price: 1
   quality: 2
   description: "\u5C11\u9633\u5F3A\u5316\uFF0C\u66B4\u51FB+5%"
+  holdNum: 0
