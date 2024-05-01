@@ -25,4 +25,9 @@ public class PlayerStat
             val += change;
         }
     }
+
+    public void Set(float amout)
+    {
+        val = amout;
+    }
 }
