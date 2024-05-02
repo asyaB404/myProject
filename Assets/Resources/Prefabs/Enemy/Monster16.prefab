@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4078005896585066660}
   - component: {fileID: 4078005896585066661}
   - component: {fileID: 4078005896585066658}
+  - component: {fileID: 5724118092362105628}
   m_Layer: 0
   m_Name: Monster16
   m_TagString: Untagged
@@ -122,9 +123,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
-  m_Direction: 0
+  m_Offset: {x: 0.13372794, y: 0.16989326}
+  m_Size: {x: 1.7964559, y: 1.1608973}
+  m_Direction: 1
 --- !u!114 &4078005896585066658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +147,27 @@ MonoBehaviour:
   autoFilp: 1
   isDie: 0
   rushDuration: 1
+--- !u!95 &5724118092362105628
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4078005896585066659}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fd39fe4d54a62424189bfb6c2eaa68f0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7291736566288358868
 GameObject:
   m_ObjectHideFlags: 0

@@ -217,11 +217,16 @@ public class PlayerStats : MonoBehaviour
         set { piercingAttack = value; }
     }
 
+    [SerializeField]
     private int swordCount;
     public int SwordCount
     {
         get { return swordCount; }
-        set { swordCount = value; }
+        set
+        {
+            swordCount = value;
+            Sword.Instance.Refresh();
+        }
     }
 
     public float invCD = 0.25f; //无敌帧

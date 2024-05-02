@@ -88,7 +88,7 @@ public class LevelManager : MonoBehaviour
             timer = 40;
         else if (wave <= 19)
             timer = 50;
-        else if (wave == 20)
+        else 
             timer = 60;
         if (wave == 1)
         {

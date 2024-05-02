@@ -30,7 +30,13 @@ public class PlayerBullet : MonoBehaviour
         EnemyBase enemyBase = collision.GetComponent<EnemyBase>();
         if (enemyBase != null && !enemyBase.isDie && penetrableCount > 0)
         {
-            penetrableCount--;
+            if (isSword)
+                if (type == EnergyType.Anode)
+                    damage = PlayerController.Instance.playerStats.PowerOfAnode * 0.2f;
+                else
+                    damage = PlayerController.Instance.playerStats.PowerOfCathode * 0.2f;
+            else
+                penetrableCount--;
             EnemyBase enemy = collision.GetComponent<EnemyBase>();
             if (enemy.info.energyType != type)
             {
@@ -48,7 +54,7 @@ public class PlayerBullet : MonoBehaviour
                 }
                 enemy.TakeDamage(damage);
             }
-            if (penetrableCount <= 0)
+            if (penetrableCount <= 0 && !isSword)
                 Destroy(gameObject);
         }
     }

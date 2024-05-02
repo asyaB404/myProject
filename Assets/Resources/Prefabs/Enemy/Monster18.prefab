@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8594083966664630892}
   - component: {fileID: 8594083966664630893}
   - component: {fileID: 8594083966664630890}
+  - component: {fileID: 2455575922590075320}
   m_Layer: 0
   m_Name: Monster18
   m_TagString: Untagged
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d7b47eae8bab6b94798f1c25eabe65c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -122,9 +123,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
-  m_Direction: 0
+  m_Offset: {x: 0.03557204, y: -0.120143846}
+  m_Size: {x: 3.2766037, y: 1.1898977}
+  m_Direction: 1
 --- !u!114 &8594083966664630890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +147,27 @@ MonoBehaviour:
   autoFilp: 1
   isDie: 0
   rushDuration: 1
+--- !u!95 &2455575922590075320
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8594083966664630891}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2fc950ba4a389f440a248661c68379db, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8599173114245342752
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,6 +213,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.15}
-  m_Size: {x: 1, y: 0.4}
+  m_Offset: {x: 0.25344956, y: -0.3723244}
+  m_Size: {x: 1.5069013, y: 0.43557298}
   m_Direction: 1
