@@ -10,7 +10,7 @@ public class CoinsUI : MonoBehaviour
 
     void Update()
     {
-        coin1.text = CoinsManager.Instance.coins.ToString("F1");
+        coin1.text = CoinsManager.Instance.Coins.ToString("F1");
         coin2.text = CoinsManager.Instance.tempCoins.ToString("F1");
     }
 }

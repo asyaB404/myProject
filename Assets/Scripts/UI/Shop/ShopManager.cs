@@ -89,12 +89,12 @@ public class ShopManager : MonoBehaviour
 
     public void RefreshCommodities()
     {
-        if(CoinsManager.Instance.coins < refreshPrice)
+        if(CoinsManager.Instance.Coins < refreshPrice)
         {
             return;
         }
 
-        CoinsManager.Instance.coins -= refreshPrice;
+        CoinsManager.Instance.Coins -= refreshPrice;
         refreshTimes++;
         if(refreshTimes >= priceList.Count)
         {

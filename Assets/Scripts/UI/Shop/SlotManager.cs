@@ -32,11 +32,11 @@ public class SlotManager : MonoBehaviour
     
     public void BuyCommodity()
     {
-        if (CoinsManager.Instance.coins < curCommodity.price)
+        if (CoinsManager.Instance.Coins < curCommodity.price)
         {
             return;
         }
-        CoinsManager.Instance.coins -= curCommodity.price;
+        CoinsManager.Instance.Coins -= curCommodity.price;
         curCommodity.EffectAfterGet(playerStats);
         InventoryManager.Instance.AddItem(curCommodity);
         ShopManager.Instance.UpdateUI();

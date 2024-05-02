@@ -5,7 +5,17 @@ using UnityEngine;
 
 public class CoinsManager : MonoBehaviour
 {
-    public float coins;
+    private float coins;
+    public float Coins
+    {
+        get { return coins; }
+        set
+        {
+            MyEventSystem.Instance.EventTrigger<bool>("coins_change", false);
+            coins = value;
+            MyEventSystem.Instance.EventTrigger<bool>("coins_change", true);
+        }
+    }
     public float tempCoins;
     public GameObject coinPrefab;
     public static CoinsManager Instance

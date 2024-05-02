@@ -32,7 +32,12 @@ public class PlayerStats : MonoBehaviour
                 return 0;
             return curHealth;
         }
-        set { curHealth = value; }
+        set
+        {
+            MyEventSystem.Instance.EventTrigger<bool>("hp_change", false);
+            curHealth = value;
+            MyEventSystem.Instance.EventTrigger<bool>("hp_change", true);
+        }
     }
 
     [SerializeField]
@@ -71,7 +76,12 @@ public class PlayerStats : MonoBehaviour
                 return 0;
             return defence;
         }
-        set { defence = value; }
+        set
+        {
+            MyEventSystem.Instance.EventTrigger<bool>("def_change", false);
+            defence = value;
+            MyEventSystem.Instance.EventTrigger<bool>("def_change", true);
+        }
     }
 
     [SerializeField]
@@ -84,7 +94,12 @@ public class PlayerStats : MonoBehaviour
                 return 0;
             return critical;
         }
-        set { critical = value; }
+        set
+        {
+            MyEventSystem.Instance.EventTrigger<bool>("cri_change", false);
+            critical = value;
+            MyEventSystem.Instance.EventTrigger<bool>("cri_change", true);
+        }
     }
 
     [Header("次要属性")]
@@ -98,7 +113,12 @@ public class PlayerStats : MonoBehaviour
                 return 0;
             return anodeEnergy;
         }
-        set { anodeEnergy = value; }
+        set
+        {
+            MyEventSystem.Instance.EventTrigger<bool>("energy_change", false);
+            anodeEnergy = value;
+            MyEventSystem.Instance.EventTrigger<bool>("energy_change", true);
+        }
     }
 
     [SerializeField]
@@ -111,7 +131,12 @@ public class PlayerStats : MonoBehaviour
                 return 0;
             return cathodeEnergy;
         }
-        set { cathodeEnergy = value; }
+        set
+        {
+            MyEventSystem.Instance.EventTrigger<bool>("energy_change", false);
+            cathodeEnergy = value;
+            MyEventSystem.Instance.EventTrigger<bool>("energy_change", true);
+        }
     }
 
     [SerializeField]
@@ -191,7 +216,13 @@ public class PlayerStats : MonoBehaviour
         }
         set { piercingAttack = value; }
     }
-    public UnityAction propUpdate;
+
+    private int swordCount;
+    public int SwordCount
+    {
+        get { return swordCount; }
+        set { swordCount = value; }
+    }
 
     public float invCD = 0.25f; //无敌帧
     public bool IsInv
@@ -263,7 +294,6 @@ public class PlayerStats : MonoBehaviour
                 obj.transform.Translate(direction * Time.deltaTime * (len + 20));
             }
         }
-        propUpdate?.Invoke();
     }
 
     public void Die()

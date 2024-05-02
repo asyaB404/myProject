@@ -17,11 +17,11 @@ public class Coin : MonoBehaviour
         if (other.CompareTag("Player") && !isTrigged)
         {
             isTrigged = true;
-            CoinsManager.Instance.coins += coins;
+            CoinsManager.Instance.Coins += coins;
             if (CoinsManager.Instance.tempCoins >= coins)
             {
                 CoinsManager.Instance.tempCoins -= coins;
-                CoinsManager.Instance.coins += coins;
+                CoinsManager.Instance.Coins += coins;
             }
             StartCoroutine(nameof(DestroyCoroutine));
         }

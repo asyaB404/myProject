@@ -3,40 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-
 public interface IEventInfos { }
 
 public class EventInfos<T, T1> : IEventInfos
 {
     public UnityAction<T, T1> unityActions;
+
     public EventInfos() { }
+
     public EventInfos(UnityAction<T, T1> unityActions)
     {
         this.unityActions = unityActions;
     }
-
 }
 
 public class EventInfos<T> : IEventInfos
 {
     public UnityAction<T> unityActions;
+
     public EventInfos() { }
+
     public EventInfos(UnityAction<T> unityActions)
     {
         this.unityActions = unityActions;
     }
-
 }
 
 public class EventInfos : IEventInfos
 {
     public UnityAction unityActions;
+
     public EventInfos() { }
+
     public EventInfos(UnityAction unityActions)
     {
         this.unityActions = unityActions;
     }
-
 }
 
 /// <summary>
@@ -45,9 +47,15 @@ public class EventInfos : IEventInfos
 public class MyEventSystem
 {
     private static MyEventSystem instance;
-    public static MyEventSystem Instance { get { instance ??= new(); return instance; } }
+    public static MyEventSystem Instance
+    {
+        get
+        {
+            instance ??= new();
+            return instance;
+        }
+    }
     private readonly Dictionary<string, IEventInfos> eventDict = new();
-
 
     public void AddEventListener(string eventName, UnityAction action)
     {
@@ -88,7 +96,6 @@ public class MyEventSystem
         }
     }
 
-
     public void RemoveEventListener(string eventName, UnityAction action)
     {
         if (eventDict.TryGetValue(eventName, out IEventInfos existingAction))
@@ -100,6 +107,7 @@ public class MyEventSystem
             Debug.LogWarning("-------->   " + eventName + "事件为空,无法被移除");
         }
     }
+
     public void RemoveEventListener<T>(string eventName, UnityAction<T> action)
     {
         if (eventDict.TryGetValue(eventName, out IEventInfos existingAction))
@@ -111,6 +119,7 @@ public class MyEventSystem
             Debug.LogWarning("-------->   " + eventName + "事件为空,无法被移除");
         }
     }
+
     public void RemoveEventListener<T, T1>(string eventName, UnityAction<T, T1> action)
     {
         if (eventDict.TryGetValue(eventName, out IEventInfos existingAction))
@@ -159,6 +168,10 @@ public class MyEventSystem
         }
     }
 
+    public void Clear(string eventName)
+    {
+        eventDict.Remove(eventName);
+    }
 
     public void Clear()
     {

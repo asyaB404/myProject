@@ -6,6 +6,6 @@ public class ShopCurSpiritUI : MonoBehaviour
 {
     public void UpdateSpirit()
     {
-        gameObject.GetComponent<UnityEngine.UI.Text>().text = CoinsManager.Instance.coins.ToString();
+        gameObject.GetComponent<UnityEngine.UI.Text>().text = CoinsManager.Instance.Coins.ToString();
     }
 }

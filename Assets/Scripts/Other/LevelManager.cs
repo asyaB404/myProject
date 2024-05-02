@@ -159,6 +159,7 @@ public class LevelManager : MonoBehaviour
         PlayerController.Instance.Idle();
         StopAllCoroutines();
         CancelInvoke();
+        MyEventSystem.Instance.Clear("coins_change");
         foreach (Transform monster in monstersParent)
         {
             monster.GetComponent<EnemyBase>().Die(false);
