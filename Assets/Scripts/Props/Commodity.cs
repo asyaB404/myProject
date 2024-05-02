@@ -35,11 +35,11 @@ public class Commodity : PropBase
         }
         else if (id == 20039)
         {
-            stats.AnodeEnergy += Mathf.FloorToInt(stats.CurHealth * 0.5f);
+            stats.AnodeEnergy += Mathf.FloorToInt(stats.MaxHealth * 0.5f);
         }
         else if (id == 20040)
         {
-            stats.PowerOfAnode += Mathf.FloorToInt(stats.CurHealth * 0.15f);
+            stats.PowerOfAnode += Mathf.FloorToInt(stats.MaxHealth * 0.1f);
         }
         else if (id == 20041)
         {
@@ -47,7 +47,7 @@ public class Commodity : PropBase
         }
         else if (id == 20042)
         {
-            stats.PowerOfCathode += Mathf.FloorToInt(stats.RecoverForHealth * 10);
+            stats.PowerOfCathode += Mathf.FloorToInt(stats.RecoverForHealth * 2);
         }
         else if (id == 20043)
         {
