@@ -4077,6 +4077,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6390814321096797517, guid: 9b6be14ee414341478edcba4665b917e, type: 3}
+      propertyPath: critical
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390814321096797517, guid: 9b6be14ee414341478edcba4665b917e, type: 3}
       propertyPath: curHealth
       value: 100
       objectReference: {fileID: 0}

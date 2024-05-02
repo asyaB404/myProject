@@ -35,19 +35,19 @@ public class Commodity : PropBase
         }
         else if (id == 20039)
         {
-            stats.AnodeEnergy += stats.CurHealth * 0.5f;
+            stats.AnodeEnergy += Mathf.FloorToInt(stats.CurHealth * 0.5f);
         }
         else if (id == 20040)
         {
-            stats.PowerOfAnode += stats.CurHealth * 0.08f;
+            stats.PowerOfAnode += Mathf.FloorToInt(stats.CurHealth * 0.15f);
         }
         else if (id == 20041)
         {
-            stats.CathodeEnergy += stats.RecoverForHealth * 20;
+            stats.CathodeEnergy += Mathf.FloorToInt(stats.RecoverForHealth * 20);
         }
         else if (id == 20042)
         {
-            stats.PowerOfCathode += stats.RecoverForHealth * 10;
+            stats.PowerOfCathode += Mathf.FloorToInt(stats.RecoverForHealth * 10);
         }
         else if (id == 20043)
         {
