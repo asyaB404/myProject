@@ -17,6 +17,7 @@ public class Coin : MonoBehaviour
         if (other.CompareTag("Player") && !isTrigged)
         {
             isTrigged = true;
+            MusicMgr.Instance.PlaySound("pickup", false, 3);
             CoinsManager.Instance.Coins += coins;
             if (CoinsManager.Instance.tempCoins >= coins)
             {

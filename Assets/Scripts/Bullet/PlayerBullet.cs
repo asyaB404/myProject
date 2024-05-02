@@ -30,6 +30,7 @@ public class PlayerBullet : MonoBehaviour
         EnemyBase enemyBase = collision.GetComponent<EnemyBase>();
         if (enemyBase != null && !enemyBase.isDie && penetrableCount > 0)
         {
+            MusicMgr.Instance.PlaySound("hit", false, 3);
             if (isSword)
                 if (type == EnergyType.Anode)
                     damage = PlayerController.Instance.playerStats.PowerOfAnode * 0.2f;
