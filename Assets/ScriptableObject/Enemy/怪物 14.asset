@@ -16,10 +16,10 @@ MonoBehaviour:
   itemName: "\u9634\u89D2\u517D"
   enemyType: 1
   energyType: 1
-  health: 22
+  health: 60
   recoverFromAtk: 6
   atkMul: 0.3
-  speed: 110
+  speed: 90
   atkSpeed: 0
   range: 40
   bulletRange: 65

@@ -19,7 +19,7 @@ MonoBehaviour:
   health: 500
   recoverFromAtk: 20
   atkMul: 0.5
-  speed: 120
-  atkSpeed: 100
+  speed: 100
+  atkSpeed: 120
   range: 130
   bulletRange: 180

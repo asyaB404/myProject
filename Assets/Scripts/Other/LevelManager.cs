@@ -199,6 +199,10 @@ public class LevelManager : MonoBehaviour
         }
         else if (wave == 11)
         {
+            StartSpawn(5, 1);
+            StartSpawn(6, 1);
+            StartSpawn(11, 1);
+            StartSpawn(12, 1);
             StartSpawn(13, 5);
             StartSpawn(14, 5);
             StartSpawn(19, 5);
@@ -207,6 +211,10 @@ public class LevelManager : MonoBehaviour
         }
         else if (wave == 12)
         {
+            StartSpawn(5, 1);
+            StartSpawn(6, 1);
+            StartSpawn(11, 1);
+            StartSpawn(12, 1);
             StartSpawn(13, 5);
             StartSpawn(14, 5);
             StartSpawn(15, 10);
@@ -219,6 +227,10 @@ public class LevelManager : MonoBehaviour
         }
         else if (wave == 13) 
         {
+            StartSpawn(5, 1);
+            StartSpawn(6, 1);
+            StartSpawn(11, 1);
+            StartSpawn(12, 1);
             StartSpawn(13, 6);
             StartSpawn(14, 6);
             StartSpawn(15, 6);
@@ -231,6 +243,10 @@ public class LevelManager : MonoBehaviour
         }
         else if (wave == 14)
         {
+            StartSpawn(5, 1);
+            StartSpawn(6, 1);
+            StartSpawn(11, 1);
+            StartSpawn(12, 1);
             StartSpawn(13, 6);
             StartSpawn(14, 3);
             StartSpawn(15, 6);
@@ -242,6 +258,10 @@ public class LevelManager : MonoBehaviour
         }
         else if (wave == 15) 
         {
+            StartSpawn(5, 1);
+            StartSpawn(6, 1);
+            StartSpawn(11, 1);
+            StartSpawn(12, 1);
             StartSpawn(13, 3);
             StartSpawn(14, 6);
             StartSpawn(15, 3);
@@ -258,6 +278,10 @@ public class LevelManager : MonoBehaviour
         }
         else if (wave == 16) 
         {
+            StartSpawn(5, 1);
+            StartSpawn(6, 1);
+            StartSpawn(11, 1);
+            StartSpawn(12, 1);
             StartSpawn(15, 3);
             StartSpawn(16, 3);
             StartSpawn(17, 3);
@@ -269,6 +293,10 @@ public class LevelManager : MonoBehaviour
         }
         else if (wave == 17) 
         {
+            StartSpawn(5, 1);
+            StartSpawn(6, 1);
+            StartSpawn(11, 1);
+            StartSpawn(12, 1);
             StartSpawn(15, 3);
             StartSpawn(16, 3);
             StartSpawn(17, 2);
@@ -281,6 +309,10 @@ public class LevelManager : MonoBehaviour
         }
         else if (wave == 18)
         {
+            StartSpawn(5, 1);
+            StartSpawn(6, 1);
+            StartSpawn(11, 1);
+            StartSpawn(12, 1);
             StartSpawn(15, 1);
             StartSpawn(16, 1);
             StartSpawn(17, 2);
@@ -292,6 +324,10 @@ public class LevelManager : MonoBehaviour
         }
         else if (wave == 19) 
         {
+            StartSpawn(5, 1);
+            StartSpawn(6, 1);
+            StartSpawn(11, 1);
+            StartSpawn(12, 1);
             StartSpawn(17, 1);
             StartSpawn(18, 1);
             StartSpawn(23, 1);
@@ -300,6 +336,10 @@ public class LevelManager : MonoBehaviour
         }
         else if (wave == 20) 
         {
+            StartSpawn(5, 1);
+            StartSpawn(6, 1);
+            StartSpawn(11, 1);
+            StartSpawn(12, 1);
             StartSpawn(17, 1);
             StartSpawn(18, 1);
             StartSpawn(23, 1);
