@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da759ba1de0047b79b3d14c214dec7bf, type: 3}
   m_Name: 20016
   m_EditorClassIdentifier: 
-  maxHealth: 30
+  maxHealth: 200
   curHealth: 0
   moveSpeed: 0
   recoverForHealth: 0
@@ -30,7 +30,7 @@ MonoBehaviour:
   type: 1
   commodityName: "\u6731\u96C0\u7FBD"
   icon: {fileID: 21300000, guid: a5d4df2dd2478214eb86138379788ce8, type: 3}
-  price: 15
+  price: 100
   quality: 5
-  description: "\u592A\u9633\u5F3A\u5316\uFF0C\u751F\u547D+30"
-  holdNum: 0
+  description: "\u592A\u9633\u5F3A\u5316\uFF0C\u751F\u547D+200"
+  holdNum: 1

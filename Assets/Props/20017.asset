@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   curHealth: 0
-  moveSpeed: 20
+  moveSpeed: 50
   recoverForHealth: 0
   Defence: 0
   Critical: 0
@@ -30,7 +30,7 @@ MonoBehaviour:
   type: 1
   commodityName: "\u767D\u864E\u638C"
   icon: {fileID: 21300000, guid: 60d82f0263af41b48a210b33dc0c6e1d, type: 3}
-  price: 15
+  price: 100
   quality: 5
-  description: "\u5C11\u9634\u5F3A\u5316\uFF0C\u901F\u5EA6+20"
+  description: "\u5C11\u9634\u5F3A\u5316\uFF0C\u901F\u5EA6+50"
   holdNum: 0

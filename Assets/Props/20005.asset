@@ -17,7 +17,7 @@ MonoBehaviour:
   moveSpeed: 0
   recoverForHealth: 0
   Defence: 0
-  Critical: 0.05
+  Critical: 0.03
   anodeEnergy: 0
   cathodeEnergy: 0
   powerOfCathode: 0
@@ -32,5 +32,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 7826cba71e4079b4a94e9727b7af9934, type: 3}
   price: 1
   quality: 2
-  description: "\u5C11\u9633\u5F3A\u5316\uFF0C\u66B4\u51FB+5%"
-  holdNum: 0
+  description: "\u5C11\u9633\u5F3A\u5316\uFF0C\u66B4\u51FB+3%"
+  holdNum: 4

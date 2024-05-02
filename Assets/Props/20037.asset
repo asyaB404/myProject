@@ -30,7 +30,7 @@ MonoBehaviour:
   type: 2
   commodityName: "\u51CC\u6CE2"
   icon: {fileID: 21300000, guid: fbeb253cba7616c47b23ef7a067f3eef, type: 3}
-  price: 12
+  price: 18
   quality: 3
   description: "\u6D88\u8017-4"
-  holdNum: 0
+  holdNum: 2

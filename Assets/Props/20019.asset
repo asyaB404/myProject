@@ -16,7 +16,7 @@ MonoBehaviour:
   curHealth: 0
   moveSpeed: 0
   recoverForHealth: 0
-  Defence: 10
+  Defence: 50
   Critical: 0
   anodeEnergy: 0
   cathodeEnergy: 0
@@ -30,7 +30,7 @@ MonoBehaviour:
   type: 1
   commodityName: "\u9EC4\u9F99\u9CDE"
   icon: {fileID: 21300000, guid: 98efc4165cd306c4ca3c92179841cd78, type: 3}
-  price: 15
+  price: 100
   quality: 5
-  description: "\u81F3\u9634\u5F3A\u5316\uFF0C\u9632\u5FA1+10"
+  description: "\u81F3\u9634\u5F3A\u5316\uFF0C\u9632\u5FA1+50"
   holdNum: 0
