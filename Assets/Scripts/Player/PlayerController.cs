@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
-    public static PlayerController instance;
+    private static PlayerController instance;
     public static PlayerController Instance
     {
         get { return instance; }
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     }
     public int facingRight = 1;
     public CameraPos cameraPos;
-    public Sword sword;
+    public Weapon sword;
 
     private void Awake()
     {

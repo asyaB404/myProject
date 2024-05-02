@@ -22,6 +22,9 @@ public class PlayerBullet : MonoBehaviour
     private float speed = 12f;
     private float timer;
 
+    [SerializeField]
+    private bool isSword;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         EnemyBase enemyBase = collision.GetComponent<EnemyBase>();
@@ -52,6 +55,10 @@ public class PlayerBullet : MonoBehaviour
 
     private void Update()
     {
+        if (isSword)
+        {
+            return;
+        }
         transform.Translate(Vector2.right * Time.deltaTime * speed);
         if (timer >= duration)
         {
@@ -76,5 +83,15 @@ public class PlayerBullet : MonoBehaviour
             sr.sprite = sprite1;
         else
             sr.sprite = sprite2;
+    }
+
+    public void InitForSword(EnergyType energyType)
+    {
+        type = energyType;
+        if (type == EnergyType.Cathode)
+            sr.sprite = sprite1;
+        else
+            sr.sprite = sprite2;
+        isSword = true;
     }
 }

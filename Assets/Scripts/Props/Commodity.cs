@@ -165,5 +165,9 @@ public class Commodity : PropBase
             );
             MyEventSystem.Instance.EventTrigger<bool>("coins_change", true);
         }
+        else if (id == 20050)
+        {
+            stats.SwordCount += 2;
+        }
     }
 }

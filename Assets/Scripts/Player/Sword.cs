@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
-    public Transform firePoint;
-    public Transform beforeFirePoint;
-    private Vector2 FireDirection
-    {
-        get { return firePoint.position - beforeFirePoint.position; }
-    }
+    public GameObject swordPrefab;
 
-    private void Update()
+    public void Refresh()
     {
-        Vector3 cpos = Utils.MouseWorldPos;
-        Vector2 vector21 = (cpos - beforeFirePoint.position).normalized;
-        Debug.DrawLine(firePoint.position, beforeFirePoint.position, Color.red);
-        Debug.DrawLine(cpos, beforeFirePoint.position, Color.blue);
-        float angle = Vector2.SignedAngle(FireDirection, vector21);
-        transform.Rotate(new(0, 0, angle / 5 * PlayerController.Instance.facingRight));
+        int size = PlayerController.Instance.playerStats.SwordCount;
+        float duration = 360 / size;
+        float temp = 0;
+        for (int i = 0; i < PlayerController.Instance.playerStats.SwordCount; i++)
+        {
+            GameObject sword = Instantiate(swordPrefab);
+            PlayerBullet swordcomp = sword.GetComponent<PlayerBullet>();
+            if (i % 2 == 0)
+                swordcomp.InitForSword(EnergyType.Anode);
+            else
+                swordcomp.InitForSword(EnergyType.Cathode);
+
+            sword.transform.localEulerAngles = new(0, 0, duration);
+            temp += duration;
+        }
     }
 }
