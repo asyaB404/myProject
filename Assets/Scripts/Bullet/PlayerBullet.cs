@@ -37,9 +37,9 @@ public class PlayerBullet : MonoBehaviour
                         + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f)),
                     Mathf.FloorToInt(damage).ToString()
                 );
-                if (playerStats.Critical.GetValue() > Random.Range(0f, 1f))
+                if (playerStats.Critical > Random.Range(0f, 1f))
                 {
-                    damage *= playerStats.criticalStrikeMultiplier.GetValue();
+                    damage *= playerStats.CriticalStrikeMultiplier;
                     text.color = Color.yellow;
                     text.text = Mathf.FloorToInt(damage).ToString();
                 }

@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
         moveInput.y = Input.GetAxisRaw("Vertical");
         moveInput = moveInput.normalized;
         animator.SetBool("isRun", moveInput != Vector2.zero);
-        float speed = playerStats.moveSpeed.GetValue();
+        float speed = playerStats.MoveSpeed;
         if (speed < 20)
         {
             speed = 20;
@@ -107,16 +107,16 @@ public class PlayerController : MonoBehaviour
     {
         if (shootCD1 > 0 || shootCD2 > 0)
         {
-            shootCD1 -= Time.deltaTime * playerStats.moveSpeed.GetValue() * 3 / 100;
-            shootCD2 -= Time.deltaTime * playerStats.moveSpeed.GetValue() * 3 / 100;
+            shootCD1 -= Time.deltaTime * playerStats.MoveSpeed * 3 / 100;
+            shootCD2 -= Time.deltaTime * playerStats.MoveSpeed * 3 / 100;
         }
 
         if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
         {
-            float scat = playerStats.attackScattering.GetValue();
+            float scat = playerStats.AttackScattering;
             if (
                 Input.GetMouseButton(1)
-                && playerStats.cathodeEnergy.GetValue() >= playerStats.energyConsumption.GetValue()
+                && playerStats.CathodeEnergy >= playerStats.EnergyConsumption
                 && shootCD1 <= 0
             )
             {
@@ -135,11 +135,11 @@ public class PlayerController : MonoBehaviour
                     rotation.z -= degree / (scat - 1);
                     Shoot0(rotation);
                 }
-                playerStats.cathodeEnergy.AddChange(-playerStats.energyConsumption.GetValue());
+                playerStats.CathodeEnergy -= playerStats.EnergyConsumption;
             }
             if (
                 Input.GetMouseButton(0)
-                && playerStats.anodeEnergy.GetValue() >= playerStats.energyConsumption.GetValue()
+                && playerStats.AnodeEnergy >= playerStats.EnergyConsumption
                 && shootCD2 <= 0
             )
             {
@@ -158,7 +158,7 @@ public class PlayerController : MonoBehaviour
                     rotation.z -= degree / (scat - 1);
                     Shoot1(rotation);
                 }
-                playerStats.anodeEnergy.AddChange(-playerStats.energyConsumption.GetValue());
+                playerStats.AnodeEnergy-= playerStats.EnergyConsumption;
             }
         }
     }
@@ -172,9 +172,9 @@ public class PlayerController : MonoBehaviour
         );
         PlayerBullet script = newBullet.GetComponent<PlayerBullet>();
         script.SetupBullet(
-            Mathf.RoundToInt(playerStats.piercingAttack.GetValue()),
+            Mathf.RoundToInt(playerStats.PiercingAttack),
             EnergyType.Cathode,
-            Mathf.RoundToInt(playerStats.powerOfCathode.GetValue())
+            Mathf.RoundToInt(playerStats.PowerOfCathode)
         );
     }
 
@@ -187,9 +187,9 @@ public class PlayerController : MonoBehaviour
         );
         PlayerBullet script = newBullet.GetComponent<PlayerBullet>();
         script.SetupBullet(
-            Mathf.RoundToInt(playerStats.piercingAttack.GetValue()),
+            Mathf.RoundToInt(playerStats.PiercingAttack),
             EnergyType.Anode,
-            Mathf.RoundToInt(playerStats.powerOfAnode.GetValue())
+            Mathf.RoundToInt(playerStats.PowerOfAnode)
         );
     }
 
@@ -200,21 +200,19 @@ public class PlayerController : MonoBehaviour
     {
         if (
             healCD > 0
-            && playerStats.curHealth.GetValue() < playerStats.maxHealth.GetValue()
-            && playerStats.recoverForHealth.GetValue() > 0
+            && playerStats.CurHealth < playerStats.MaxHealth
+            && playerStats.RecoverForHealth > 0
         )
         {
-            healCD -= Time.deltaTime * playerStats.recoverForHealth.GetValue();
+            healCD -= Time.deltaTime * playerStats.RecoverForHealth;
         }
         else if (healCD < 0)
         {
-            playerStats.curHealth.AddChange(1);
+            playerStats.CurHealth += 1;
             healCD = 1;
-            if (playerStats.curHealth.GetValue() > playerStats.maxHealth.GetValue())
+            if (playerStats.CurHealth > playerStats.MaxHealth)
             {
-                playerStats.curHealth.AddChange(
-                    playerStats.maxHealth.GetValue() - playerStats.curHealth.GetValue()
-                );
+                playerStats.CurHealth = playerStats.MaxHealth;
             }
         }
     }

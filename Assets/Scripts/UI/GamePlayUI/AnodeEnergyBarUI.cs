@@ -29,8 +29,8 @@ public class AnodeEnergyBarUI : MonoBehaviour
 
     private void UpdateEnergyBarUI()
     {
-        float anodeEnergy = playerStats.anodeEnergy.GetValue();
-        float cathodeEnergy = playerStats.cathodeEnergy.GetValue();
+        float anodeEnergy = playerStats.AnodeEnergy;
+        float cathodeEnergy = playerStats.CathodeEnergy;
         anodeEnergyBarSlider.maxValue = anodeEnergy + cathodeEnergy;
         anodeEnergyBarSlider.value = anodeEnergy;
 

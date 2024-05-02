@@ -32,19 +32,19 @@ public class PropBase : ScriptableObject
 
     public virtual void EffectAfterGet(PlayerStats stats)
     {
-        stats.maxHealth.AddChange(maxHealth);
-        stats.curHealth.AddChange(curHealth);
-        stats.moveSpeed.AddChange(moveSpeed);
-        stats.recoverForHealth.AddChange(recoverForHealth);
-        stats.Defence.AddChange(Defence);
-        stats.Critical.AddChange(Critical);
-        stats.anodeEnergy.AddChange(anodeEnergy);
-        stats.cathodeEnergy.AddChange(cathodeEnergy);
-        stats.powerOfCathode.AddChange(powerOfCathode);
-        stats.powerOfAnode.AddChange(powerOfAnode);
-        stats.criticalStrikeMultiplier.AddChange(criticalStrikeMultiplier);
-        stats.attackScattering.AddChange(attackScattering);
-        stats.energyConsumption.AddChange(energyConsumption);
-        stats.piercingAttack.AddChange(piercingAttack);
+        stats.MaxHealth += maxHealth;
+        stats.CurHealth += curHealth;
+        stats.MoveSpeed += moveSpeed;
+        stats.RecoverForHealth += recoverForHealth;
+        stats.Defence += Defence;
+        stats.Critical += Critical;
+        stats.AnodeEnergy += anodeEnergy;
+        stats.CathodeEnergy += cathodeEnergy;
+        stats.PowerOfCathode += powerOfCathode;
+        stats.PowerOfAnode += powerOfAnode;
+        stats.CriticalStrikeMultiplier += criticalStrikeMultiplier;
+        stats.AttackScattering += attackScattering;
+        stats.EnergyConsumption += energyConsumption;
+        stats.PiercingAttack += piercingAttack;
     }
 }

@@ -28,8 +28,8 @@ public class HealthBarUI : MonoBehaviour
 
     private void UpdateHealthBarUI()
     {
-        float maxHealth = playerStats.maxHealth.GetValue();
-        float curHealth = playerStats.curHealth.GetValue();
+        float maxHealth = playerStats.MaxHealth;
+        float curHealth = playerStats.CurHealth;
         healthBarSlider.maxValue = maxHealth;
         healthBarSlider.value = curHealth;
 

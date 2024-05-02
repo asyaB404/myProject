@@ -100,11 +100,11 @@ public class EnemyLine : MonoBehaviour, IEnemyBullet
             {
                 if (info.energyType == EnergyType.Anode)
                 {
-                    playerStats.anodeEnergy.AddChange(info.recoverFromAtk);
+                    playerStats.AnodeEnergy+=info.recoverFromAtk;
                 }
                 else
                 {
-                    playerStats.cathodeEnergy.AddChange(info.recoverFromAtk);
+                    playerStats.CathodeEnergy+=info.recoverFromAtk;
                 }
                 playerStats.TakeDamage(info.atkMul);
             }

@@ -9,22 +9,188 @@ public class PlayerStats : MonoBehaviour
     private SpriteRenderer sr;
 
     [Header("主要属性")]
-    public PlayerStat maxHealth;
-    public PlayerStat curHealth;
-    public PlayerStat moveSpeed;
-    public PlayerStat recoverForHealth;
-    public PlayerStat Defence;
-    public PlayerStat Critical;
+    [SerializeField]
+    private float maxHealth;
+    public float MaxHealth
+    {
+        get
+        {
+            if (maxHealth < 0)
+                return 0;
+            return maxHealth;
+        }
+        set { maxHealth = value; }
+    }
+
+    [SerializeField]
+    private float curHealth;
+    public float CurHealth
+    {
+        get
+        {
+            if (curHealth < 0)
+                return 0;
+            return curHealth;
+        }
+        set { curHealth = value; }
+    }
+
+    [SerializeField]
+    private float moveSpeed;
+    public float MoveSpeed
+    {
+        get
+        {
+            if (moveSpeed < 0)
+                return 0;
+            return moveSpeed;
+        }
+        set { moveSpeed = value; }
+    }
+
+    [SerializeField]
+    private float recoverForHealth;
+    public float RecoverForHealth
+    {
+        get
+        {
+            if (recoverForHealth < 0)
+                return 0;
+            return recoverForHealth;
+        }
+        set { recoverForHealth = value; }
+    }
+
+    [SerializeField]
+    private float defence;
+    public float Defence
+    {
+        get
+        {
+            if (defence < 0)
+                return 0;
+            return defence;
+        }
+        set { defence = value; }
+    }
+
+    [SerializeField]
+    private float critical;
+    public float Critical
+    {
+        get
+        {
+            if (critical < 0)
+                return 0;
+            return critical;
+        }
+        set { critical = value; }
+    }
 
     [Header("次要属性")]
-    public PlayerStat anodeEnergy; //阳
-    public PlayerStat cathodeEnergy; //阴
-    public PlayerStat powerOfCathode;
-    public PlayerStat powerOfAnode;
-    public PlayerStat criticalStrikeMultiplier; //暴击倍率
-    public PlayerStat attackScattering; //散射
-    public PlayerStat energyConsumption; //能量消耗
-    public PlayerStat piercingAttack; //穿透
+    [SerializeField]
+    private float anodeEnergy;
+    public float AnodeEnergy
+    {
+        get
+        {
+            if (anodeEnergy < 0)
+                return 0;
+            return anodeEnergy;
+        }
+        set { anodeEnergy = value; }
+    }
+
+    [SerializeField]
+    private float cathodeEnergy;
+    public float CathodeEnergy
+    {
+        get
+        {
+            if (cathodeEnergy < 0)
+                return 0;
+            return cathodeEnergy;
+        }
+        set { cathodeEnergy = value; }
+    }
+
+    [SerializeField]
+    private float powerOfCathode;
+    public float PowerOfCathode
+    {
+        get
+        {
+            if (powerOfCathode < 0)
+                return 0;
+            return powerOfCathode;
+        }
+        set { powerOfCathode = value; }
+    }
+
+    [SerializeField]
+    private float powerOfAnode;
+    public float PowerOfAnode
+    {
+        get
+        {
+            if (powerOfAnode < 0)
+                return 0;
+            return powerOfAnode;
+        }
+        set { powerOfAnode = value; }
+    }
+
+    [SerializeField]
+    private float criticalStrikeMultiplier;
+    public float CriticalStrikeMultiplier
+    {
+        get
+        {
+            if (criticalStrikeMultiplier < 0)
+                return 0;
+            return criticalStrikeMultiplier;
+        }
+        set { criticalStrikeMultiplier = value; }
+    }
+
+    [SerializeField]
+    private float attackScattering;
+    public float AttackScattering
+    {
+        get
+        {
+            if (attackScattering < 0)
+                return 0;
+            return attackScattering;
+        }
+        set { attackScattering = value; }
+    }
+
+    [SerializeField]
+    private float energyConsumption;
+    public float EnergyConsumption
+    {
+        get
+        {
+            if (energyConsumption < 0)
+                return 0;
+            return energyConsumption;
+        }
+        set { energyConsumption = value; }
+    }
+
+    [SerializeField]
+    private float piercingAttack;
+    public float PiercingAttack
+    {
+        get
+        {
+            if (piercingAttack < 0)
+                return 0;
+            return piercingAttack;
+        }
+        set { piercingAttack = value; }
+    }
     public UnityAction propUpdate;
 
     public float invCD = 0.25f; //无敌帧
@@ -45,19 +211,15 @@ public class PlayerStats : MonoBehaviour
             StartCoroutine(nameof(DamagedCoroutine));
             invTimer = invCD;
             float damage =
-                Mathf.Abs(
-                    Mathf.RoundToInt(anodeEnergy.GetValue())
-                        - Mathf.RoundToInt(cathodeEnergy.GetValue())
-                ) * attackMultiple;
+                Mathf.Abs(Mathf.RoundToInt(AnodeEnergy) - Mathf.RoundToInt(CathodeEnergy))
+                * attackMultiple;
             damage =
-                damage - Mathf.RoundToInt(Defence.GetValue()) > 0
-                    ? damage - Mathf.RoundToInt(Defence.GetValue())
-                    : 0;
+                damage - Mathf.RoundToInt(Defence) > 0 ? damage - Mathf.RoundToInt(Defence) : 0;
             WorldCanvas
                 .Instacne.ShowMessage(transform.position, Mathf.FloorToInt(damage).ToString())
                 .color = Color.red;
-            curHealth.AddChange(-damage);
-            if (curHealth.GetValue() < 0)
+            CurHealth -= damage;
+            if (CurHealth < 0)
                 Die();
         }
     }

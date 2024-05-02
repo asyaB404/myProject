@@ -27,35 +27,38 @@ public class Commodity : PropBase
         base.EffectAfterGet(stats);
         if (id == 20038)
         {
-            stats.energyConsumption.Set(1);
+            stats.EnergyConsumption = 1;
         }
         if (id == 20039)
         {
-            stats.anodeEnergy.AddChange(stats.curHealth.GetValue() * 0.5f);
+            stats.AnodeEnergy += stats.CurHealth * 0.5f;
         }
         if (id == 20040)
         {
-            stats.powerOfAnode.AddChange(stats.curHealth.GetValue() * 0.08f);
+            stats.PowerOfAnode += stats.CurHealth * 0.08f;
         }
         if (id == 20041)
         {
-            stats.cathodeEnergy.AddChange(stats.recoverForHealth.GetValue() * 20);
+            stats.CathodeEnergy += stats.RecoverForHealth * 20;
         }
         if (id == 20042)
         {
-            stats.powerOfCathode.AddChange(stats.recoverForHealth.GetValue() * 10);
+            stats.PowerOfCathode += stats.RecoverForHealth * 10;
         }
         if (id == 20043)
         {
-            if (stats.cathodeEnergy.GetValue() > stats.anodeEnergy.GetValue())
+            if (stats.CathodeEnergy > stats.AnodeEnergy)
             {
-                stats.anodeEnergy.Set(stats.cathodeEnergy.GetValue());
+                stats.AnodeEnergy = stats.CathodeEnergy;
             }
             else
             {
-                stats.cathodeEnergy.Set(stats.anodeEnergy.GetValue());
+                stats.CathodeEnergy = stats.AnodeEnergy;
             }
         }
-        if (id == 20044) { }
+        if (id == 20044)
+        {
+            stats.propUpdate += () => { };
+        }
     }
 }

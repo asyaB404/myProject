@@ -77,9 +77,7 @@ public class LevelManager : MonoBehaviour
         PlayerController.Instance.transform.position = Vector2.zero;
         PlayerController.Instance.CanControl = true;
         PlayerStats playerStats = PlayerController.Instance.playerStats;
-        playerStats.curHealth.AddChange(
-            playerStats.maxHealth.GetValue() - playerStats.curHealth.GetValue()
-        );
+        playerStats.CurHealth = playerStats.MaxHealth;
         isStart = true;
         wave++;
         if (wave <= 3)
