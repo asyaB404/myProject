@@ -33,13 +33,19 @@ public class EnemyBullet : MonoBehaviour, IEnemyBullet
             if (info.energyType == EnergyType.Anode)
             {
                 if (!playerStats.IsInv)
+                {
+                    MusicMgr.Instance.PlaySound("atk_yang");
                     playerStats.AnodeEnergy += info.recoverFromAtk;
+                }
                 animator.SetTrigger("1");
             }
             else
             {
                 if (!playerStats.IsInv)
+                {
                     playerStats.CathodeEnergy += info.recoverFromAtk;
+                    MusicMgr.Instance.PlaySound("atk_yin");
+                }
                 animator.SetTrigger("0");
             }
             rb.velocity = Vector2.zero;

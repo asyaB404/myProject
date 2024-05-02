@@ -50,9 +50,15 @@ public class EnemyBase : MonoBehaviour
             if (!playerStats.IsInv)
             {
                 if (info.energyType == EnergyType.Anode)
-                    playerStats.AnodeEnergy+=info.recoverFromAtk;
+                {
+                    MusicMgr.Instance.PlaySound("atk_yang");
+                    playerStats.AnodeEnergy += info.recoverFromAtk;
+                }
                 else
-                    playerStats.CathodeEnergy+=info.recoverFromAtk;
+                {
+                    MusicMgr.Instance.PlaySound("atk_yin");
+                    playerStats.CathodeEnergy += info.recoverFromAtk;
+                }
                 playerStats.TakeDamage(info.atkMul);
             }
         }

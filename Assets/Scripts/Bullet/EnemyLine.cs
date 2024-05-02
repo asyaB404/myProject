@@ -101,10 +101,12 @@ public class EnemyLine : MonoBehaviour, IEnemyBullet
                 if (info.energyType == EnergyType.Anode)
                 {
                     playerStats.AnodeEnergy+=info.recoverFromAtk;
+                    MusicMgr.Instance.PlaySound("atk_yang");
                 }
                 else
                 {
                     playerStats.CathodeEnergy+=info.recoverFromAtk;
+                    MusicMgr.Instance.PlaySound("atk_yin");
                 }
                 playerStats.TakeDamage(info.atkMul);
             }
