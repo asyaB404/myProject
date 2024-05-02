@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: "\u9634\u89D2\u517D"
   enemyType: 1
   energyType: 1
-  health: 60
+  health: 5000
   recoverFromAtk: 6
   atkMul: 0.3
   speed: 90
