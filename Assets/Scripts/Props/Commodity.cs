@@ -169,5 +169,31 @@ public class Commodity : PropBase
         {
             stats.SwordCount += 2;
         }
+        else if (id == 20051)
+        {
+            MyEventSystem.Instance.AddEventListener<EnemyBase>(
+                "monsDie",
+                (EnemyBase enemy) =>
+                {
+                    if (enemy.info.energyType == EnergyType.Cathode)
+                    {
+                        stats.CathodeEnergy += 5;
+                    }
+                }
+            );
+        }
+        else if (id == 20052)
+        {
+            MyEventSystem.Instance.AddEventListener<EnemyBase>(
+                "monsDie",
+                (EnemyBase enemy) =>
+                {
+                    if (enemy.info.energyType == EnergyType.Anode)
+                    {
+                        stats.AnodeEnergy += 5;
+                    }
+                }
+            );
+        }
     }
 }

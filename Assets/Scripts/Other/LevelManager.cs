@@ -88,7 +88,7 @@ public class LevelManager : MonoBehaviour
             timer = 40;
         else if (wave <= 19)
             timer = 50;
-        else 
+        else
             timer = 60;
         if (wave == 1)
         {
@@ -215,31 +215,31 @@ public class LevelManager : MonoBehaviour
 
     private void OnEnable()
     {
-        MyEventSystem.Instance.AddEventListener<Vector2>("monsDie", DropCoin);
+        MyEventSystem.Instance.AddEventListener<EnemyBase>("monsDie", DropCoin);
     }
 
     private void OnDisable()
     {
-        MyEventSystem.Instance.RemoveEventListener<Vector2>("monsDie", DropCoin);
+        MyEventSystem.Instance.RemoveEventListener<EnemyBase>("monsDie", DropCoin);
     }
 
-    private void DropCoin(Vector2 pos)
+    private void DropCoin(EnemyBase enemy)
     {
         if (wave <= 3)
         {
-            CoinsManager.Instance.GenerateCoin(pos, 1, 0.5f);
+            CoinsManager.Instance.GenerateCoin(enemy.transform.position, 1, 0.5f);
         }
         else if (wave <= 10)
         {
-            CoinsManager.Instance.GenerateCoin(pos, 1, 1f);
+            CoinsManager.Instance.GenerateCoin(enemy.transform.position, 1, 1f);
         }
         else if (wave <= 15)
         {
-            CoinsManager.Instance.GenerateCoin(pos, 1, 1.5f);
+            CoinsManager.Instance.GenerateCoin(enemy.transform.position, 1, 1.5f);
         }
         else if (wave <= 20)
         {
-            CoinsManager.Instance.GenerateCoin(pos, 1, 2f);
+            CoinsManager.Instance.GenerateCoin(enemy.transform.position, 1, 2f);
         }
     }
 }
