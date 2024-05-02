@@ -115,41 +115,197 @@ public class LevelManager : MonoBehaviour
         }
         else if (wave == 4)
         {
-            StartSpawn(1, 5);
-            StartSpawn(2, 5);
-            StartSpawn(3, 5);
-            StartSpawn(4, 5);
-            StartSpawn(7, 5);
-            StartSpawn(8, 5);
-            StartSpawn(9, 5);
-            StartSpawn(10, 5);
+            StartSpawn(1, 6);
+            StartSpawn(2, 6);
+            StartSpawn(3, 6);
+            StartSpawn(4, 6);
+            StartSpawn(7, 6);
+            StartSpawn(8, 6);
+            StartSpawn(9, 6);
+            StartSpawn(10, 6);
         }
         else if (wave == 5)
         {
-            StartSpawn(1, 5);
+            StartSpawn(1, 6);
             StartSpawn(2, 3);
-            StartSpawn(3, 5);
+            StartSpawn(3, 6);
             StartSpawn(4, 3);
             StartSpawn(7, 3);
-            StartSpawn(8, 5);
+            StartSpawn(8, 6);
             StartSpawn(9, 3);
-            StartSpawn(10, 5);
+            StartSpawn(10, 6);
         }
-        else if (wave == 6) { }
-        else if (wave == 7) { }
-        else if (wave == 8) { }
-        else if (wave == 9) { }
-        else if (wave == 10) { }
-        else if (wave == 11) { }
-        else if (wave == 12) { }
-        else if (wave == 13) { }
-        else if (wave == 14) { }
-        else if (wave == 15) { }
-        else if (wave == 16) { }
-        else if (wave == 17) { }
-        else if (wave == 18) { }
-        else if (wave == 19) { }
-        else if (wave == 20) { }
+        else if (wave == 6)
+        {
+            StartSpawn(1, 3);
+            StartSpawn(2, 6);
+            StartSpawn(3, 3);
+            StartSpawn(4, 6);
+            StartSpawn(5, 5);
+            StartSpawn(6, 5);
+            StartSpawn(7, 6);
+            StartSpawn(8, 3);
+            StartSpawn(9, 6);
+            StartSpawn(10, 3);
+            StartSpawn(11, 5);
+            StartSpawn(12, 5);
+
+        }
+        else if (wave == 7) 
+        {
+            StartSpawn(3, 3);
+            StartSpawn(4, 3);
+            StartSpawn(5, 3);
+            StartSpawn(6, 3);
+            StartSpawn(9, 3);
+            StartSpawn(10, 3);
+            StartSpawn(11, 3);
+            StartSpawn(12, 3);
+
+        }
+        else if (wave == 8) 
+        {
+            StartSpawn(3, 3);
+            StartSpawn(4, 3);
+            StartSpawn(5, 2);
+            StartSpawn(6, 2);
+            StartSpawn(9, 3);
+            StartSpawn(10, 3);
+            StartSpawn(11, 2);
+            StartSpawn(12, 2);
+
+        }
+        else if (wave == 9) 
+        {
+            StartSpawn(3, 1);
+            StartSpawn(4, 1);
+            StartSpawn(5, 2);
+            StartSpawn(6, 2);
+            StartSpawn(9, 1);
+            StartSpawn(10, 1);
+            StartSpawn(11, 2);
+            StartSpawn(12, 2);
+
+        }
+        else if (wave == 10)
+        {
+            StartSpawn(5, 1);
+            StartSpawn(6, 1);
+            StartSpawn(11, 1);
+            StartSpawn(12, 1);
+            StartSpawn(13, 3);
+            StartSpawn(14, 3);
+
+        }
+        else if (wave == 11)
+        {
+            StartSpawn(13, 5);
+            StartSpawn(14, 5);
+            StartSpawn(19, 5);
+            StartSpawn(20, 5);
+
+        }
+        else if (wave == 12)
+        {
+            StartSpawn(13, 5);
+            StartSpawn(14, 5);
+            StartSpawn(15, 10);
+            StartSpawn(16, 10);
+            StartSpawn(19, 5);
+            StartSpawn(20, 5);
+            StartSpawn(21, 10);
+            StartSpawn(22, 10);
+
+        }
+        else if (wave == 13) 
+        {
+            StartSpawn(13, 6);
+            StartSpawn(14, 6);
+            StartSpawn(15, 6);
+            StartSpawn(16, 6);
+            StartSpawn(19, 6);
+            StartSpawn(20, 6);
+            StartSpawn(21, 6);
+            StartSpawn(22, 6);
+
+        }
+        else if (wave == 14)
+        {
+            StartSpawn(13, 6);
+            StartSpawn(14, 3);
+            StartSpawn(15, 6);
+            StartSpawn(16, 3);
+            StartSpawn(19, 3);
+            StartSpawn(20, 6);
+            StartSpawn(21, 3);
+            StartSpawn(22, 6);
+        }
+        else if (wave == 15) 
+        {
+            StartSpawn(13, 3);
+            StartSpawn(14, 6);
+            StartSpawn(15, 3);
+            StartSpawn(16, 6);
+            StartSpawn(17, 5);
+            StartSpawn(18, 5);
+            StartSpawn(19, 6);
+            StartSpawn(20, 3);
+            StartSpawn(21, 6);
+            StartSpawn(22, 3);
+            StartSpawn(23, 5);
+            StartSpawn(24, 5);
+
+        }
+        else if (wave == 16) 
+        {
+            StartSpawn(15, 3);
+            StartSpawn(16, 3);
+            StartSpawn(17, 3);
+            StartSpawn(18, 3);
+            StartSpawn(21, 3);
+            StartSpawn(22, 3);
+            StartSpawn(23, 3);
+            StartSpawn(24, 3);
+        }
+        else if (wave == 17) 
+        {
+            StartSpawn(15, 3);
+            StartSpawn(16, 3);
+            StartSpawn(17, 2);
+            StartSpawn(18, 2);
+            StartSpawn(21, 3);
+            StartSpawn(22, 3);
+            StartSpawn(23, 2);
+            StartSpawn(24, 2);
+
+        }
+        else if (wave == 18)
+        {
+            StartSpawn(15, 1);
+            StartSpawn(16, 1);
+            StartSpawn(17, 2);
+            StartSpawn(18, 2);
+            StartSpawn(21, 1);
+            StartSpawn(22, 1);
+            StartSpawn(23, 2);
+            StartSpawn(24, 2);
+        }
+        else if (wave == 19) 
+        {
+            StartSpawn(17, 1);
+            StartSpawn(18, 1);
+            StartSpawn(23, 1);
+            StartSpawn(24, 1);
+
+        }
+        else if (wave == 20) 
+        {
+            StartSpawn(17, 1);
+            StartSpawn(18, 1);
+            StartSpawn(23, 1);
+            StartSpawn(24, 1);
+
+        }
     }
 
     public void LevelClear()
