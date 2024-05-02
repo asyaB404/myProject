@@ -44,7 +44,7 @@ public class MusicMgr
         else
         {
             audioClip = GameObject.Instantiate(
-                Resources.Load<AudioClip>("Sounds/" + name + MyRandom.Instance.NextInt(1, i))
+                Resources.Load<AudioClip>("Sounds/" + name + MyRandom.Instance.NextInt(1, i + 1))
             );
         }
         source.clip = audioClip;
