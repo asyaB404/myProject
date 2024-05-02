@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CoinsManager : MonoBehaviour
 {
+    [SerializeField]
     private float coins;
     public float Coins
     {
