@@ -23,7 +23,7 @@ public class Sword : MonoBehaviour
 
     private void Update()
     {
-        transform.Rotate(0, 0, 720 * Time.deltaTime * PlayerController.Instance.facingRight);
+        transform.Rotate(0, 0, 180 * Time.deltaTime * PlayerController.Instance.facingRight);
     }
 
     [ContextMenu("test")]

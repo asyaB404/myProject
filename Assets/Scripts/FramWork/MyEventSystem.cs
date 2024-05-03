@@ -136,7 +136,7 @@ public class MyEventSystem
     {
         if (eventDict.TryGetValue(eventName, out IEventInfos existingAction))
         {
-            (existingAction as EventInfos).unityActions.Invoke();
+            (existingAction as EventInfos).unityActions?.Invoke();
         }
         else
         {
@@ -148,7 +148,7 @@ public class MyEventSystem
     {
         if (eventDict.TryGetValue(eventName, out IEventInfos existingAction))
         {
-            (existingAction as EventInfos<T>).unityActions.Invoke(eventData);
+            (existingAction as EventInfos<T>).unityActions?.Invoke(eventData);
         }
         else
         {
@@ -160,7 +160,7 @@ public class MyEventSystem
     {
         if (eventDict.TryGetValue(eventName, out IEventInfos existingAction))
         {
-            (existingAction as EventInfos<T, T1>).unityActions.Invoke(eventData, eventData1);
+            (existingAction as EventInfos<T, T1>).unityActions?.Invoke(eventData, eventData1);
         }
         else
         {

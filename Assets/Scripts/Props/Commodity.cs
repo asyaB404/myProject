@@ -142,34 +142,25 @@ public class Commodity : PropBase
                     }
                 }
             );
-            MyEventSystem.Instance.EventTrigger<bool>("hp_change", true);
         }
         else if (id == 20049)
         {
-            MyEventSystem.Instance.AddEventListener<bool>(
-                "coins_change",
-                (flag) =>
-                {
-                    float temp = CoinsManager.Instance.Coins;
-                    if (!flag)
-                    {
-                        stats.PowerOfAnode -= temp;
-                        stats.PowerOfCathode -= temp;
-                    }
-                    else
-                    {
-                        stats.PowerOfAnode += temp;
-                        stats.PowerOfCathode += temp;
-                    }
-                }
-            );
-            MyEventSystem.Instance.EventTrigger<bool>("coins_change", true);
+            float coins = CoinsManager.Instance.Coins;
+            stats.PowerOfAnode += coins;
+            stats.PowerOfCathode += coins;
+            void Fun()
+            {
+                stats.PowerOfAnode -= coins;
+                stats.PowerOfCathode -= coins;
+                MyEventSystem.Instance.RemoveEventListener("level_clear", Fun);
+            }
+            MyEventSystem.Instance.AddEventListener("level_clear", Fun);
         }
         else if (id == 20050)
         {
             stats.SwordCount += 2;
         }
-        else if (id == 20051)
+        else if (id == 20052)
         {
             MyEventSystem.Instance.AddEventListener<EnemyBase>(
                 "monsDie",
@@ -182,7 +173,7 @@ public class Commodity : PropBase
                 }
             );
         }
-        else if (id == 20052)
+        else if (id == 20053)
         {
             MyEventSystem.Instance.AddEventListener<EnemyBase>(
                 "monsDie",

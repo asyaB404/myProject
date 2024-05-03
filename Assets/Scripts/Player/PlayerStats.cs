@@ -235,7 +235,6 @@ public class PlayerStats : MonoBehaviour
         get { return invTimer > 0; }
     }
     private float invTimer;
-    private bool invFlag;
 
     public float pullingRange = 1.5f;
     public bool isOpenPullingCoins = true;
@@ -244,7 +243,6 @@ public class PlayerStats : MonoBehaviour
     {
         if (invTimer <= 0)
         {
-            StartCoroutine(nameof(DamagedCoroutine));
             invTimer = invCD;
             float damage =
                 Mathf.Abs(Mathf.RoundToInt(AnodeEnergy) - Mathf.RoundToInt(CathodeEnergy))
@@ -258,20 +256,6 @@ public class PlayerStats : MonoBehaviour
             if (CurHealth < 0)
                 Die();
         }
-    }
-
-    IEnumerator DamagedCoroutine()
-    {
-        InvokeRepeating(nameof(DamagedEffect), 0, 0.1f);
-        yield return new WaitForSeconds(invCD);
-        CancelInvoke();
-        sr.color = Color.white;
-    }
-
-    private void DamagedEffect()
-    {
-        sr.color = invFlag ? Color.white : Color.clear;
-        invFlag = !invFlag;
     }
 
     private void OnDrawGizmos()

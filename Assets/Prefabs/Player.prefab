@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1376555248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1376555249}
+  - component: {fileID: 1376555250}
+  m_Layer: 7
+  m_Name: Sword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1376555249
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376555248}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6390814321096797514}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1376555250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376555248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7032913c81aa084438973f777688e059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordPrefab: {fileID: 6127303566398043706, guid: 1fabd7262b756284d93f40afb8cf7cd1, type: 3}
 --- !u!1 &1697220671
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +56,7 @@ GameObject:
   - component: {fileID: 1697220674}
   - component: {fileID: 1697220673}
   - component: {fileID: 1697220672}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: render
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +98,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fd07819cb684d2d47bf376a0f526e247, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -74,7 +119,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f82550979da26cc4fb4acd23d869de36, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8d7fe1ba8d48814b9f9a7cca9ef3d0c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -95,7 +140,7 @@ Animator:
   m_GameObject: {fileID: 1697220671}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f5ddbd0fbb1da474598cc132cacd0ed5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9f7017e4af7c03e48aa199ee57f4772c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -116,7 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1882943310}
   - component: {fileID: 1882943311}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +196,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.017325997, y: 1.0579859}
+  m_Offset: {x: 0, y: -0.13}
   m_Size: {x: 1.0519333, y: 2.3782046}
   m_Direction: 0
 --- !u!1 &6390814320438619235
@@ -163,7 +208,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6390814320438619234}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -178,7 +223,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6390814320438619235}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.33, y: 0, z: 0}
+  m_LocalPosition: {x: 0.183, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -196,8 +241,8 @@ GameObject:
   - component: {fileID: 6390814320855230114}
   - component: {fileID: 6390814320855230112}
   - component: {fileID: 6390814320855230113}
-  m_Layer: 0
-  m_Name: Sword
+  m_Layer: 7
+  m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,7 +256,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6390814320855230115}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.165, y: 0.734, z: 0}
+  m_LocalPosition: {x: 0.1, y: -0.259, z: 0}
   m_LocalScale: {x: 1.7, y: 0.36546186, z: 0.36546186}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -295,7 +340,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6390814320973770290}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
@@ -310,7 +355,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6390814320973770291}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.102, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -330,10 +375,10 @@ GameObject:
   - component: {fileID: 6390814321096797517}
   - component: {fileID: 6390814321096797512}
   - component: {fileID: 6390814321096797513}
-  - component: {fileID: 6390814321426132033}
-  m_Layer: 0
+  - component: {fileID: 1915967315}
+  m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -354,6 +399,7 @@ Transform:
   - {fileID: 6390814321252609198}
   - {fileID: 1697220674}
   - {fileID: 1882943310}
+  - {fileID: 1376555249}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -371,12 +417,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 6390814321096797517}
   bullet: {fileID: 8040177556469624636, guid: 93ecb41bfb2c42b4782381be4adb0ca4, type: 3}
-  shootMode: 0
+  animator: {fileID: 1697220672}
+  rb: {fileID: 6390814321096797512}
   canControl: 1
   facingRight: 1
   cameraPos: {fileID: 6390814321252609197}
   sword: {fileID: 6390814320855230113}
-  shootCD: 0
+  moveInput: {x: 0, y: 0}
+  shootCD1: 0
+  shootCD2: 0
 --- !u!114 &6390814321096797517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,48 +438,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20469df893518e24884cc6538d62d820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth:
-    val: 100
-    changes: []
-  curHealth:
-    val: 100
-    changes: []
-  moveSpeed:
-    val: 100
-    changes: []
-  recoverForHealth:
-    val: 0
-    changes: []
-  Defence:
-    val: 3
-    changes: []
-  Critical:
-    val: 0
-    changes: []
-  anodeEnergy:
-    val: 10
-    changes: []
-  cathodeEnergy:
-    val: 10
-    changes: []
-  powerOfCathode:
-    val: 5
-    changes: []
-  powerOfAnode:
-    val: 5
-    changes: []
-  criticalStrikeMultiplier:
-    val: 1.5
-    changes: []
-  attackScattering:
-    val: 1
-    changes: []
-  energyConsumption:
-    val: 1
-    changes: []
-  piercingAttack:
-    val: 1
-    changes: []
+  sr: {fileID: 1697220673}
+  maxHealth: 100
+  curHealth: 100
+  moveSpeed: 100
+  recoverForHealth: 0
+  defence: 3
+  critical: 0.05
+  anodeEnergy: 10
+  cathodeEnergy: 10
+  powerOfCathode: 5
+  powerOfAnode: 5
+  criticalStrikeMultiplier: 1.5
+  attackScattering: 1
+  energyConsumption: 1
+  piercingAttack: 1
+  swordCount: 0
+  invCD: 0.25
+  pullingRange: 1.5
+  isOpenPullingCoins: 1
 --- !u!50 &6390814321096797512
 Rigidbody2D:
   serializedVersion: 4
@@ -465,10 +491,10 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.024094611, y: 0.9895127}
+  m_Offset: {x: 0, y: -0.15}
   m_Size: {x: 0.6022952, y: 1.8724048}
   m_Direction: 0
---- !u!114 &6390814321426132033
+--- !u!114 &1915967315
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -477,12 +503,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6390814321096797518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 815976ff2132f8546a0238db36708c76, type: 3}
+  m_Script: {fileID: 11500000, guid: c62c2444369e8d04abe4cb9838416f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: 0
-  pullingRange: 1.5
-  isOpen: 1
+  commodity: {fileID: 11400000, guid: 0dd1ba621b4f4c04296c887553729ca8, type: 2}
+  playerStats: {fileID: 0}
 --- !u!1 &6390814321252609199
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,7 +518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6390814321252609198}
   - component: {fileID: 6390814321252609197}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}

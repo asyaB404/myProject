@@ -326,7 +326,7 @@ public class LevelManager : MonoBehaviour
         PlayerController.Instance.Idle();
         StopAllCoroutines();
         CancelInvoke();
-        MyEventSystem.Instance.Clear("coins_change");
+        MyEventSystem.Instance.EventTrigger("level_clear");
         foreach (Transform monster in monstersParent)
         {
             monster.GetComponent<EnemyBase>().Die(false);
@@ -394,7 +394,7 @@ public class LevelManager : MonoBehaviour
     {
         if (wave <= 3)
         {
-            CoinsManager.Instance.GenerateCoin(enemy.transform.position, 1, 0.5f);
+            CoinsManager.Instance.GenerateCoin(enemy.transform.position, 1, 1);
         }
         else if (wave <= 10)
         {
