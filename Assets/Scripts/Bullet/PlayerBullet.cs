@@ -30,7 +30,6 @@ public class PlayerBullet : MonoBehaviour
         EnemyBase enemyBase = collision.GetComponent<EnemyBase>();
         if (enemyBase != null && !enemyBase.isDie && penetrableCount > 0)
         {
-            MusicMgr.Instance.PlaySound("hit", false, 3);
             if (isSword)
                 if (type == EnergyType.Anode)
                     damage = PlayerController.Instance.playerStats.PowerOfAnode * 0.2f;
@@ -53,6 +52,7 @@ public class PlayerBullet : MonoBehaviour
                     text.color = Color.yellow;
                     text.text = Mathf.FloorToInt(damage).ToString();
                 }
+                MusicMgr.Instance.PlaySound("hit", false, 3);
                 enemy.TakeDamage(damage);
             }
             if (penetrableCount <= 0 && !isSword)
