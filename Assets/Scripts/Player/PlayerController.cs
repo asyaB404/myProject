@@ -158,7 +158,7 @@ public class PlayerController : MonoBehaviour
                     rotation.z -= degree / (scat - 1);
                     Shoot1(rotation);
                 }
-                playerStats.AnodeEnergy-= playerStats.EnergyConsumption;
+                playerStats.AnodeEnergy -= playerStats.EnergyConsumption;
             }
         }
     }

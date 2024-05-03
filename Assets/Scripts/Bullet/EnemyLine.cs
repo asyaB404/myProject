@@ -24,6 +24,7 @@ public class EnemyLine : MonoBehaviour, IEnemyBullet
     public void Init(Vector2 diretion, EnemyInfo info)
     {
         this.info = info;
+        transform.parent = LevelManager.Instance.bulletParent;
         float angle = Vector2.SignedAngle(Vector2.right, diretion);
         transform.Rotate(new(0, 0, angle));
         if (info.energyType == EnergyType.Cathode)
@@ -100,12 +101,12 @@ public class EnemyLine : MonoBehaviour, IEnemyBullet
             {
                 if (info.energyType == EnergyType.Anode)
                 {
-                    playerStats.AnodeEnergy+=info.recoverFromAtk;
+                    playerStats.AnodeEnergy += info.recoverFromAtk;
                     MusicMgr.Instance.PlaySound("atk_yang");
                 }
                 else
                 {
-                    playerStats.CathodeEnergy+=info.recoverFromAtk;
+                    playerStats.CathodeEnergy += info.recoverFromAtk;
                     MusicMgr.Instance.PlaySound("atk_yin");
                 }
                 playerStats.TakeDamage(info.atkMul);
