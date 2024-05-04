@@ -32,5 +32,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: ab8abcc6002d1f9448e8d1654f6a484c, type: 3}
   price: 1
   quality: 5
-  description: "\u57FA\u4E8E\u5F53\u524D\u9B42\u9B44\u6570\u589E\u52A0\u653B\u51FB\u529B\uFF0C\u4EC5\u6301\u7EED1\u56DE\u5408"
+  description: "\u71C3\u9B42\u5316\u52B2\uFF0C\u57FA\u4E8E\u5F53\u524D\u9B42\u9B44\u6570\u589E\u52A0\u653B\u51FB\u529B\uFF0C\u4EC5\u6301\u7EED1\u56DE\u5408"
   holdNum: 0

@@ -21,5 +21,5 @@ MonoBehaviour:
   atkMul: 0.2
   speed: 30
   atkSpeed: 90
-  range: 100
-  bulletRange: 130
+  range: 70
+  bulletRange: 90
