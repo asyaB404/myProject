@@ -158,8 +158,6 @@ public class Commodity : PropBase
         }
         else if (id == 20050)
         {
-            stats.CathodeEnergy -= 50;
-            stats.AnodeEnergy -= 50;
             stats.SwordCount += 2;
         }
         else if (id == 20052)
