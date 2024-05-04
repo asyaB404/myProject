@@ -50,12 +50,30 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void UpdateBackGroundMusic()
+    {
+        MusicMgr.Instance.StopMusic();
+        if(currentState == UIState.GamePlay)
+        {
+            MusicMgr.Instance.PlayBkMusic("bgm_level");
+        }
+        else if(currentState == UIState.Shop)
+        {
+            MusicMgr.Instance.PlayBkMusic("bgm_shop");
+        }
+        else
+        {
+            MusicMgr.Instance.PlayBkMusic("bgm_theme");
+        }
+    }
+
     public void ShowShopUI()
     {
         Time.timeScale = 0;
-        currentState = UIState.Shop;
         ShopUI.SetActive(true);
         ShopManager.Instance.OnEnter();
+        currentState = UIState.Shop;
+        UpdateBackGroundMusic();
     }
 
     public void HideShopUI()
@@ -85,6 +103,7 @@ public class UIManager : MonoBehaviour
     public void ShowGameOverUI()
     {
         currentState = UIState.GameOver;
+        UpdateBackGroundMusic();
         Time.timeScale = 0;
         GameOverUI.SetActive(true);
     }

@@ -15,7 +15,6 @@ public class NextWaveButton : MonoBehaviour
             {
                 LevelManager.Instance.StartNextLevel();
                 UIManager.Instance.HideShopUI();
-                UIManager.Instance.currentState = UIState.GamePlay;
             });
     }
 
@@ -31,6 +30,7 @@ public class NextWaveButton : MonoBehaviour
     public void OnPointerEnter()
     {
         SelectedIcon.SetActive(true);
+        MusicMgr.Instance.PlaySound("hover");
     }
 
     public void OnPointerExit()
