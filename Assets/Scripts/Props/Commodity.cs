@@ -69,13 +69,13 @@ public class Commodity : PropBase
                     float temp = Mathf.Abs(stats.AnodeEnergy - stats.CathodeEnergy);
                     if (!flag)
                     {
-                        stats.PowerOfAnode -= temp;
-                        stats.PowerOfCathode -= temp;
+                        stats.powerOfAnode -= temp;
+                        stats.powerOfCathode -= temp;
                     }
                     else
                     {
-                        stats.PowerOfAnode += temp;
-                        stats.PowerOfCathode += temp;
+                        stats.powerOfAnode += temp;
+                        stats.powerOfCathode += temp;
                     }
                 }
             );
@@ -90,11 +90,11 @@ public class Commodity : PropBase
                     float temp = stats.Defence * 0.01f;
                     if (!flag)
                     {
-                        stats.CriticalStrikeMultiplier -= temp;
+                        stats.criticalStrikeMultiplier -= temp;
                     }
                     else
                     {
-                        stats.CriticalStrikeMultiplier += temp;
+                        stats.criticalStrikeMultiplier += temp;
                     }
                 }
             );
@@ -109,11 +109,11 @@ public class Commodity : PropBase
                     float temp = 1 - stats.Critical;
                     if (!flag)
                     {
-                        stats.CriticalStrikeMultiplier -= temp;
+                        stats.criticalStrikeMultiplier -= temp;
                     }
                     else
                     {
-                        stats.CriticalStrikeMultiplier += temp;
+                        stats.criticalStrikeMultiplier += temp;
                     }
                 }
             );

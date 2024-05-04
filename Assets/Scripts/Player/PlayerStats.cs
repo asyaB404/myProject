@@ -166,7 +166,7 @@ public class PlayerStats : MonoBehaviour
     }
 
     [SerializeField]
-    private float criticalStrikeMultiplier;
+    public float criticalStrikeMultiplier;
     public float CriticalStrikeMultiplier
     {
         get
