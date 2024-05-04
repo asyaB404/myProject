@@ -29,7 +29,7 @@ MonoBehaviour:
   id: 20051
   type: 1
   commodityName: "\u516B\u5366\u9635"
-  icon: {fileID: 21300000, guid: 0e7770b32b53a584099d461853f9f9a9, type: 3}
+  icon: {fileID: 21300000, guid: 2a1adbe34847f0c448450c618b4a4424, type: 3}
   price: 10
   quality: 4
   description: "\u751F\u547D+20\uFF0C\u901F\u5EA6+10\uFF0C\u6062\u590D+2\uFF0C\u9632\u5FA1+2\uFF0C\u66B4\u51FB+10%"
