@@ -15,6 +15,7 @@ public class NextWaveButton : MonoBehaviour
             {
                 LevelManager.Instance.StartNextLevel();
                 UIManager.Instance.HideShopUI();
+                UIManager.Instance.currentState = UIState.GamePlay;
             });
     }
 

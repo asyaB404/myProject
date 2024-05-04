@@ -3,9 +3,19 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+public enum UIState
+{
+    MainPage,
+    Shop,
+    GamePlay,
+    GameOver
+}
+
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
+
+    public UIState currentState = UIState.GamePlay;
 
     public GameObject PauseUI;
     public GameObject ShopUI;
@@ -29,7 +39,7 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Time.timeScale == 1)
+            if (PauseUI.activeSelf == false)
             {
                 ShowPauseUI();
             }
@@ -43,6 +53,7 @@ public class UIManager : MonoBehaviour
     public void ShowShopUI()
     {
         Time.timeScale = 0;
+        currentState = UIState.Shop;
         ShopUI.SetActive(true);
         ShopManager.Instance.OnEnter();
     }
@@ -55,13 +66,26 @@ public class UIManager : MonoBehaviour
 
     public void ShowPauseUI()
     {
-        Time.timeScale = 0;
+        if(currentState == UIState.GamePlay)
+        {
+            Time.timeScale = 0;
+        }
         PauseUI.SetActive(true);
     }
 
     public void HidePauseUI()
     {
-        Time.timeScale = 1;
+        if(currentState == UIState.GamePlay)
+        {
+            Time.timeScale = 1;
+        }
         PauseUI.SetActive(false);
+    }
+
+    public void ShowGameOverUI()
+    {
+        currentState = UIState.GameOver;
+        Time.timeScale = 0;
+        GameOverUI.SetActive(true);
     }
 }

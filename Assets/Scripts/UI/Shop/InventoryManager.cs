@@ -17,8 +17,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
     public List<Commodity> inventory = new List<Commodity>();
-
-    public List<GameObject> inventorySlots = new List<GameObject>();
+    public List<GameObject> inventoryRows = new List<GameObject>();
 
     private void Awake()
     {
@@ -43,6 +42,33 @@ public class InventoryManager : MonoBehaviour
     {
         foreach(Commodity item in inventory)
         {
+            bool hasItemInRow = false;
+            foreach(GameObject row in inventoryRows)
+            {
+                if(row.GetComponent<InventoryRow>().HasItem(item))
+                {
+                    row.GetComponent<InventoryRow>().AddItem(item);
+                    hasItemInRow = true;
+                    break;
+                }
+            }
+            if(hasItemInRow)
+            {
+                continue;
+            }
+            else
+            {
+                foreach(GameObject row in inventoryRows)
+                {
+                    if(row.GetComponent<InventoryRow>().HasEmptySlot())
+                    {
+                        row.GetComponent<InventoryRow>().AddItem(item);
+                        break;
+                    }
+                }
+            }
+
+            /*
             foreach(GameObject slot in inventorySlots)
             {
                 if(slot.GetComponent<InventorySlot>().curItem == null)
@@ -57,7 +83,7 @@ public class InventoryManager : MonoBehaviour
                     break;
                 }
             }
+            */
         }
-
     }
 }
