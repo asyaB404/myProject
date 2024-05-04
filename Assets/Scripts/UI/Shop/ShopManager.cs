@@ -117,11 +117,8 @@ public class ShopManager : MonoBehaviour
 
     public void RefreshRandomPool()
     {
-        if(LevelManager.Instance.wave == 1)
-        {
-            minQuality = 1;
-            maxQuality = 1;
-        } else if (LevelManager.Instance.wave >= 2 && LevelManager.Instance.wave<=5)
+    
+        if (LevelManager.Instance.wave >= 1 && LevelManager.Instance.wave<=5)
         {
             minQuality = 1;
             maxQuality = 2;
@@ -129,11 +126,11 @@ public class ShopManager : MonoBehaviour
         {
             minQuality = 1;
             maxQuality = 3;
-        } else if (LevelManager.Instance.wave >= 11 && LevelManager.Instance.wave <= 15)
+        } else if (LevelManager.Instance.wave >= 11 && LevelManager.Instance.wave <= 13)
         {
             minQuality = 2;
             maxQuality = 4;
-        } else if (LevelManager.Instance.wave >= 16 && LevelManager.Instance.wave <= 17)
+        } else if (LevelManager.Instance.wave >= 14 && LevelManager.Instance.wave <= 16)
         {
             minQuality = 2;
             maxQuality = 5;

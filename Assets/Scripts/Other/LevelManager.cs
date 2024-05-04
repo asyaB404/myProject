@@ -293,13 +293,9 @@ public class LevelManager : MonoBehaviour
         }
         else if (wave == 20)
         {
-            StartSpawn(15, 1);
-            StartSpawn(16, 1);
             StartSpawn(17, 1);
-            StartSpawn(18, 1);
-            StartSpawn(21, 1);
-            StartSpawn(22, 1);
-            StartSpawn(23, 1);
+            StartSpawn(18, 0.5f);
+            StartSpawn(23, 0.5f);
             StartSpawn(24, 1);
         }
     }
@@ -381,21 +377,13 @@ public class LevelManager : MonoBehaviour
 
     private void DropCoin(EnemyBase enemy)
     {
-        if (wave <= 3)
-        {
-            CoinsManager.Instance.GenerateCoin(enemy.transform.position, 1, 1);
-        }
-        else if (wave <= 10)
-        {
-            CoinsManager.Instance.GenerateCoin(enemy.transform.position, 1, 1);
-        }
-        else if (wave <= 15)
+        if (wave <= 16)
         {
             CoinsManager.Instance.GenerateCoin(enemy.transform.position, 1, 1);
         }
         else if (wave <= 20)
         {
-            CoinsManager.Instance.GenerateCoin(enemy.transform.position, 1, 1);
+            CoinsManager.Instance.GenerateCoin(enemy.transform.position, 1, 2);
         }
     }
 }
