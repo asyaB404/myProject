@@ -41,7 +41,7 @@ public class Sword : MonoBehaviour
             duration = 360 / size;
 
         float temp = 0;
-        for (int i = 0; i < PlayerController.Instance.playerStats.SwordCount; i++)
+        for (int i = 0; i < size; i++)
         {
             GameObject sword = Instantiate(swordPrefab, transform);
             PlayerBullet swordcomp = sword.GetComponentInChildren<PlayerBullet>(true);
@@ -50,7 +50,7 @@ public class Sword : MonoBehaviour
             else
                 swordcomp.InitForSword(EnergyType.Cathode);
 
-            sword.transform.localEulerAngles = new(0, 0, temp);
+            sword.transform.localEulerAngles = Vector3.forward * temp;
             temp += duration;
         }
     }

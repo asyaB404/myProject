@@ -37,7 +37,7 @@ public class RushState : EnemyState
             .DOScale(Vector3.one * 1.4f, 0.25f)
             .OnComplete(() => transform.DOScale(Vector3.one, 0.25f).SetEase(Ease.OutBounce));
         yield return new WaitForSeconds(0.5f);
-        enemy.rb.velocity = dir * enemy.info.speed * GameData.GlobalMoveSpeed * 2f;
+        enemy.rb.velocity = dir * enemy.info.speed * GameData.GlobalMoveSpeed * 3f;
         yield return new WaitForSeconds(info.bulletRange * GameData.GlobalBulletFlyTime);
         enemy.AutoFilp();
         stateMachine.ChangeState(new CloseState(stateMachine, enemy));
