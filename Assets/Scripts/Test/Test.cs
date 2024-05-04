@@ -17,4 +17,13 @@ public class Test : MonoBehaviour
     {
         commodity.EffectAfterGet(playerStats);
     }
+
+    [ContextMenuItem("test", nameof(Test2))]
+    public int e;
+
+    public void Test2()
+    {
+        playerStats.CathodeEnergy = e;
+        playerStats.AnodeEnergy = playerStats.CathodeEnergy;
+    }
 }
