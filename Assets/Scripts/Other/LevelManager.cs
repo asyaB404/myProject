@@ -149,9 +149,8 @@ public class LevelManager : MonoBehaviour
             StartSpawn(10, 3);
             StartSpawn(11, 5);
             StartSpawn(12, 5);
-
         }
-        else if (wave == 7) 
+        else if (wave == 7)
         {
             StartSpawn(3, 3);
             StartSpawn(4, 3);
@@ -161,9 +160,8 @@ public class LevelManager : MonoBehaviour
             StartSpawn(10, 3);
             StartSpawn(11, 3);
             StartSpawn(12, 3);
-
         }
-        else if (wave == 8) 
+        else if (wave == 8)
         {
             StartSpawn(3, 3);
             StartSpawn(4, 3);
@@ -173,9 +171,8 @@ public class LevelManager : MonoBehaviour
             StartSpawn(10, 3);
             StartSpawn(11, 2);
             StartSpawn(12, 2);
-
         }
-        else if (wave == 9) 
+        else if (wave == 9)
         {
             StartSpawn(3, 1);
             StartSpawn(4, 1);
@@ -185,7 +182,6 @@ public class LevelManager : MonoBehaviour
             StartSpawn(10, 1);
             StartSpawn(11, 2);
             StartSpawn(12, 2);
-
         }
         else if (wave == 10)
         {
@@ -195,7 +191,6 @@ public class LevelManager : MonoBehaviour
             StartSpawn(12, 1);
             StartSpawn(13, 3);
             StartSpawn(14, 3);
-
         }
         else if (wave == 11)
         {
@@ -207,11 +202,9 @@ public class LevelManager : MonoBehaviour
             StartSpawn(14, 5);
             StartSpawn(19, 5);
             StartSpawn(20, 5);
-
         }
         else if (wave == 12)
         {
- 
             StartSpawn(13, 5);
             StartSpawn(14, 5);
             StartSpawn(15, 10);
@@ -220,11 +213,9 @@ public class LevelManager : MonoBehaviour
             StartSpawn(20, 5);
             StartSpawn(21, 10);
             StartSpawn(22, 10);
-
         }
-        else if (wave == 13) 
+        else if (wave == 13)
         {
-
             StartSpawn(13, 6);
             StartSpawn(14, 6);
             StartSpawn(15, 6);
@@ -233,11 +224,9 @@ public class LevelManager : MonoBehaviour
             StartSpawn(20, 6);
             StartSpawn(21, 6);
             StartSpawn(22, 6);
-
         }
         else if (wave == 14)
         {
-  
             StartSpawn(13, 6);
             StartSpawn(14, 3);
             StartSpawn(15, 6);
@@ -247,7 +236,7 @@ public class LevelManager : MonoBehaviour
             StartSpawn(21, 3);
             StartSpawn(22, 6);
         }
-        else if (wave == 15) 
+        else if (wave == 15)
         {
             StartSpawn(13, 3);
             StartSpawn(14, 6);
@@ -261,9 +250,8 @@ public class LevelManager : MonoBehaviour
             StartSpawn(22, 3);
             StartSpawn(23, 5);
             StartSpawn(24, 5);
-
         }
-        else if (wave == 16) 
+        else if (wave == 16)
         {
             StartSpawn(15, 3);
             StartSpawn(16, 3);
@@ -274,7 +262,7 @@ public class LevelManager : MonoBehaviour
             StartSpawn(23, 3);
             StartSpawn(24, 3);
         }
-        else if (wave == 17) 
+        else if (wave == 17)
         {
             StartSpawn(15, 3);
             StartSpawn(16, 3);
@@ -284,7 +272,6 @@ public class LevelManager : MonoBehaviour
             StartSpawn(22, 3);
             StartSpawn(23, 2);
             StartSpawn(24, 2);
-
         }
         else if (wave == 18)
         {
@@ -297,15 +284,14 @@ public class LevelManager : MonoBehaviour
             StartSpawn(23, 2);
             StartSpawn(24, 2);
         }
-        else if (wave == 19) 
+        else if (wave == 19)
         {
             StartSpawn(17, 1);
             StartSpawn(18, 1);
             StartSpawn(23, 1);
             StartSpawn(24, 1);
-
         }
-        else if (wave == 20) 
+        else if (wave == 20)
         {
             StartSpawn(15, 1);
             StartSpawn(16, 1);
@@ -315,7 +301,6 @@ public class LevelManager : MonoBehaviour
             StartSpawn(22, 1);
             StartSpawn(23, 1);
             StartSpawn(24, 1);
-
         }
     }
 
@@ -346,6 +331,10 @@ public class LevelManager : MonoBehaviour
 
     private void ClearCallBack()
     {
+        PlayerController.Instance.playerStats.CurHealth = PlayerController
+            .Instance
+            .playerStats
+            .MaxHealth;
         UIManager.Instance.ShowShopUI();
     }
 

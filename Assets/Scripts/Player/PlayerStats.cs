@@ -140,7 +140,7 @@ public class PlayerStats : MonoBehaviour
     }
 
     [SerializeField]
-    private float powerOfCathode;
+    public float powerOfCathode;
     public float PowerOfCathode
     {
         get
@@ -153,7 +153,7 @@ public class PlayerStats : MonoBehaviour
     }
 
     [SerializeField]
-    private float powerOfAnode;
+    public float powerOfAnode;
     public float PowerOfAnode
     {
         get

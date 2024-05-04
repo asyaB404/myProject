@@ -132,13 +132,13 @@ public class Commodity : PropBase
                     float temp = (stats.MaxHealth - stats.CurHealth) * 0.5f;
                     if (!flag)
                     {
-                        stats.PowerOfAnode -= temp;
-                        stats.PowerOfCathode -= temp;
+                        stats.powerOfAnode -= temp;
+                        stats.powerOfCathode -= temp;
                     }
                     else
                     {
-                        stats.PowerOfAnode += temp;
-                        stats.PowerOfCathode += temp;
+                        stats.powerOfAnode += temp;
+                        stats.powerOfCathode += temp;
                     }
                 }
             );
@@ -170,7 +170,7 @@ public class Commodity : PropBase
                 {
                     if (enemy.info.energyType == EnergyType.Cathode)
                     {
-                        stats.CathodeEnergy += 5;
+                        stats.CathodeEnergy += 1;
                     }
                 }
             );
@@ -183,7 +183,7 @@ public class Commodity : PropBase
                 {
                     if (enemy.info.energyType == EnergyType.Anode)
                     {
-                        stats.AnodeEnergy += 5;
+                        stats.AnodeEnergy += 1;
                     }
                 }
             );

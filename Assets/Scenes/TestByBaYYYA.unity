@@ -5503,7 +5503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62c2444369e8d04abe4cb9838416f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  commodity: {fileID: 11400000, guid: aacd5535ef0d4fa49bec9b2338610bb1, type: 2}
+  commodity: {fileID: 11400000, guid: d8c2946a49cbc854ab3de7266d044fbc, type: 2}
   playerStats: {fileID: 0}
 --- !u!1 &1181011458
 GameObject:
