@@ -5,7 +5,6 @@ using UnityEngine;
 
 public enum UIState
 {
-    MainPage,
     Shop,
     GamePlay,
     GameOver
@@ -15,9 +14,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
-    public UIState currentState = UIState.MainPage;
-
-    public GameObject MainPageUI;
+    public UIState currentState = UIState.GamePlay;
     public GameObject GamePlayUI;
     public GameObject PauseUI;
     public GameObject ShopUI;
@@ -39,7 +36,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        ShowMainPageUI();
+        ShowGamePlayUI();
     }
 
     void Update()
@@ -72,20 +69,6 @@ public class UIManager : MonoBehaviour
         {
             MusicMgr.Instance.PlayBkMusic("bgm_theme");
         }
-    }
-
-    public void ShowMainPageUI()
-    {
-        Time.timeScale = 0;
-        MainPageUI.SetActive(true);
-        currentState = UIState.MainPage;
-        UpdateBackGroundMusic();
-    }
-
-    public void HideMainPageUI()
-    {
-        Time.timeScale = 1;
-        MainPageUI.SetActive(false);
     }
 
     public void ShowGamePlayUI()

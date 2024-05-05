@@ -15,7 +15,7 @@ public class CursorManager : MonoBehaviour
 
     public void Update()
     {
-        if(UIManager.Instance.currentState != UIState.GamePlay)
+        if(UIManager.Instance == null || UIManager.Instance.currentState != UIState.GamePlay)
         {
             if (Input.GetMouseButtonDown(0))
             {

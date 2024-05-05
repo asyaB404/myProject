@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        // StartNextLevel(); // 注释，测试主界面
+        StartNextLevel();
     }
 
     public bool t;
