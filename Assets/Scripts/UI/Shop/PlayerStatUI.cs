@@ -19,10 +19,10 @@ public class PlayerStatUI : MonoBehaviour
         transform.GetChild(2).GetComponent<UnityEngine.UI.Text>().text = playerStats.RecoverForHealth.ToString();
         transform.GetChild(3).GetComponent<UnityEngine.UI.Text>().text = playerStats.Defence.ToString();
         transform.GetChild(4).GetComponent<UnityEngine.UI.Text>().text = playerStats.Critical.ToString("F2");
-        transform.GetChild(5).GetComponent<UnityEngine.UI.Text>().text = playerStats.AnodeEnergy.ToString();
-        transform.GetChild(6).GetComponent<UnityEngine.UI.Text>().text = playerStats.CathodeEnergy.ToString();
-        transform.GetChild(7).GetComponent<UnityEngine.UI.Text>().text = playerStats.PowerOfAnode.ToString();
-        transform.GetChild(8).GetComponent<UnityEngine.UI.Text>().text = playerStats.PowerOfCathode.ToString();
+        transform.GetChild(5).GetComponent<UnityEngine.UI.Text>().text = playerStats.AnodeEnergy.ToString("F0");
+        transform.GetChild(6).GetComponent<UnityEngine.UI.Text>().text = playerStats.CathodeEnergy.ToString("F0");
+        transform.GetChild(7).GetComponent<UnityEngine.UI.Text>().text = playerStats.PowerOfAnode.ToString("F0");
+        transform.GetChild(8).GetComponent<UnityEngine.UI.Text>().text = playerStats.PowerOfCathode.ToString("F0");
         transform.GetChild(9).GetComponent<UnityEngine.UI.Text>().text = playerStats.CriticalStrikeMultiplier.ToString("F2");
         transform.GetChild(10).GetComponent<UnityEngine.UI.Text>().text = playerStats.AttackScattering.ToString();
         transform.GetChild(11).GetComponent<UnityEngine.UI.Text>().text = playerStats.EnergyConsumption.ToString();

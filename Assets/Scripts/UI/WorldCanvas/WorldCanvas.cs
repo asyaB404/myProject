@@ -32,7 +32,7 @@ public class WorldCanvas : MonoBehaviour
         text.text = message;
         float d = 1.25f;
         uiobj.transform.localScale = Vector3.zero;
-        uiobj.transform.DOScale(0.015f, d / 4);
+        uiobj.transform.DOScale(0.010f, d / 4);
         uiobj
             .transform.DOLocalMoveY(uiobj.transform.position.y + 1.1f, d)
             .OnComplete(() => Destroy(uiobj));

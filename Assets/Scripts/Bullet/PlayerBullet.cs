@@ -32,9 +32,9 @@ public class PlayerBullet : MonoBehaviour
         {
             if (isSword)
                 if (type == EnergyType.Anode)
-                    damage = PlayerController.Instance.playerStats.PowerOfAnode * 0.2f;
+                    damage = PlayerController.Instance.playerStats.PowerOfAnode * 1f;
                 else
-                    damage = PlayerController.Instance.playerStats.PowerOfCathode * 0.2f;
+                    damage = PlayerController.Instance.playerStats.PowerOfCathode * 1f;
             else
                 penetrableCount--;
             EnemyBase enemy = collision.GetComponent<EnemyBase>();

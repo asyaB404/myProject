@@ -146,6 +146,9 @@ public class Commodity : PropBase
                     }
                 }
             );
+            float temp = (stats.MaxHealth - stats.CurHealth) * 0.5f;
+            stats.powerOfAnode += temp;
+            stats.powerOfCathode += temp;
         }
         else if (id == 20049)
         {
