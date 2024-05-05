@@ -15,8 +15,10 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
-    public UIState currentState = UIState.GamePlay;
+    public UIState currentState = UIState.MainPage;
 
+    public GameObject MainPageUI;
+    public GameObject GamePlayUI;
     public GameObject PauseUI;
     public GameObject ShopUI;
     public GameObject GameOverUI;
@@ -33,6 +35,11 @@ public class UIManager : MonoBehaviour
             Destroy(instance.gameObject);
         }
         instance = this;
+    }
+
+    void Start()
+    {
+        ShowMainPageUI();
     }
 
     void Update()
@@ -65,6 +72,33 @@ public class UIManager : MonoBehaviour
         {
             MusicMgr.Instance.PlayBkMusic("bgm_theme");
         }
+    }
+
+    public void ShowMainPageUI()
+    {
+        Time.timeScale = 0;
+        MainPageUI.SetActive(true);
+        currentState = UIState.MainPage;
+        UpdateBackGroundMusic();
+    }
+
+    public void HideMainPageUI()
+    {
+        Time.timeScale = 1;
+        MainPageUI.SetActive(false);
+    }
+
+    public void ShowGamePlayUI()
+    {
+        Time.timeScale = 1;
+        currentState = UIState.GamePlay;
+        GamePlayUI.SetActive(true);
+        UpdateBackGroundMusic();
+    }
+
+    public void HideGamePlayUI()
+    {
+        GamePlayUI.SetActive(false);
     }
 
     public void ShowShopUI()
@@ -100,11 +134,18 @@ public class UIManager : MonoBehaviour
         PauseUI.SetActive(false);
     }
 
-    public void ShowGameOverUI()
+    public void ShowGameOverUI(bool isVictory)
     {
+        Time.timeScale = 0;
         currentState = UIState.GameOver;
         UpdateBackGroundMusic();
-        Time.timeScale = 0;
         GameOverUI.SetActive(true);
+        GameOverUI.GetComponent<GameOverUI>().SetBaseMap(isVictory);
     }
+
+    public void HideGameOverUI()
+    {
+        GameOverUI.SetActive(false);
+    }
+
 }

@@ -40,6 +40,7 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 2ab8da40617b6294197a1a0d33b568eb, type: 3}
+  - {fileID: 21300000, guid: f51f9e40dd5ba89469cd15b861907f13, type: 3}
   - {fileID: 21300000, guid: 87f0ff80193911c48bd7fcfc78758519, type: 3}
   - {fileID: 21300000, guid: 616be22181597b44e9ba012d1f41d090, type: 3}
   - {fileID: 21300000, guid: 0b9095617bc8ef64d9834e75c754a577, type: 3}
@@ -71,6 +72,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 1fd3f4f863760b546aa0b1b4bde36b3f, type: 3}
   - {fileID: 21300000, guid: 489ec7493e464be429f982e89984d00c, type: 3}
   - {fileID: 21300000, guid: 994a2389508dfde4e87e88248d77a6fc, type: 3}
+  - {fileID: 21300000, guid: eb6798b9c1357a94f895a90b2b99732c, type: 3}
   - {fileID: 21300000, guid: dabf3ef91e1a3ee4b8e2836ffd417cd1, type: 3}
   - {fileID: 21300000, guid: 1b7f074a783bb73469046ac3c096603a, type: 3}
   - {fileID: 21300000, guid: ef6dfb5ae0395a84fb09a6c85b727cc1, type: 3}
@@ -92,6 +94,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 8726ae9f49c558442b79701552967153, type: 3}
   m_PackedSpriteNamesToIndex:
   - 20031
+  - 20052
   - "20022\u5927\u9B42\u7389"
   - 20026
   - "20015\u5C11\u9633\u5251"
@@ -123,6 +126,7 @@ SpriteAtlas:
   - 20032
   - 20027
   - 20047
+  - 20053
   - "20001\u7EA2\u53C2"
   - 20036
   - 20041

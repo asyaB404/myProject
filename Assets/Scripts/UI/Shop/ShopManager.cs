@@ -43,8 +43,14 @@ public class ShopManager : MonoBehaviour
         {
             Destroy(instance.gameObject);
         }
+    
         instance = this;
 
+        Reset();
+    }
+
+    public void Reset()
+    {
         foreach(Commodity commodity in commodities)
         {
             commodity.holdNum = 0;
