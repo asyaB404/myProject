@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameSetting
   m_EditorClassIdentifier: 
   volume_GBM: 1
-  volume_SE: 1
+  volume_SE: 0.5
   multiple_maxHeath: 1
   multiple_moveSpeed: 1
   multiple_recoverForHealth: 1
