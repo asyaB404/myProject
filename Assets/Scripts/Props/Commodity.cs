@@ -79,7 +79,9 @@ public class Commodity : PropBase
                     }
                 }
             );
-            MyEventSystem.Instance.EventTrigger<bool>("energy_change", true);
+            float temp = Mathf.Abs(stats.AnodeEnergy - stats.CathodeEnergy);
+            stats.powerOfAnode += temp;
+            stats.powerOfCathode += temp;
         }
         else if (id == 20045)
         {
@@ -98,7 +100,8 @@ public class Commodity : PropBase
                     }
                 }
             );
-            MyEventSystem.Instance.EventTrigger<bool>("def_change", true);
+            float temp = stats.Defence * 0.01f;
+            stats.criticalStrikeMultiplier += temp;
         }
         else if (id == 20046)
         {
@@ -117,7 +120,8 @@ public class Commodity : PropBase
                     }
                 }
             );
-            MyEventSystem.Instance.EventTrigger<bool>("cri_change", true);
+            float temp = 1 - stats.Critical;
+            stats.criticalStrikeMultiplier += temp;
         }
         else if (id == 20047)
         {
