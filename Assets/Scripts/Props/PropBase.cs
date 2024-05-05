@@ -33,7 +33,7 @@ public class PropBase : ScriptableObject
     public virtual void EffectAfterGet(PlayerStats stats)
     {
         stats.MaxHealth += maxHealth;
-        stats.CurHealth = stats.MaxHealth;
+        stats.curHealth = stats.MaxHealth;
         stats.MoveSpeed += moveSpeed;
         stats.RecoverForHealth += recoverForHealth;
         stats.Defence += Defence;

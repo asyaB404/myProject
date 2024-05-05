@@ -23,7 +23,7 @@ public class PlayerStats : MonoBehaviour
     }
 
     [SerializeField]
-    private float curHealth;
+    public float curHealth;
     public float CurHealth
     {
         get
