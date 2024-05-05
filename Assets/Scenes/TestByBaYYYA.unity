@@ -387,10 +387,10 @@ MonoBehaviour:
   m_Horizontal: 1
   m_Vertical: 1
   m_MovementType: 1
-  m_Elasticity: 0.1
+  m_Elasticity: 0.01
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 2
+  m_ScrollSensitivity: 20
   m_Viewport: {fileID: 434699861}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
@@ -4798,7 +4798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commodity: {fileID: 11400000, guid: 06071a10f6f228f4f8027105c189f2ca, type: 2}
   playerStats: {fileID: 0}
-  e: 0
+  e: 10
 --- !u!1 &1181011458
 GameObject:
   m_ObjectHideFlags: 0
