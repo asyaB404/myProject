@@ -18,7 +18,7 @@ MonoBehaviour:
   energyType: 1
   health: 100
   recoverFromAtk: 8
-  atkMul: 0.5
+  atkMul: 0.3
   speed: 80
   atkSpeed: 0
   range: 0
