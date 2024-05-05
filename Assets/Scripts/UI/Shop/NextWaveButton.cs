@@ -30,6 +30,7 @@ public class NextWaveButton : MonoBehaviour
     public void OnPointerEnter()
     {
         SelectedIcon.SetActive(true);
+        MusicMgr.Instance.PlaySound("hover");
     }
 
     public void OnPointerExit()

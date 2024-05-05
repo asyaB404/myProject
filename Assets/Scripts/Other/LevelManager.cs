@@ -74,6 +74,9 @@ public class LevelManager : MonoBehaviour
 
     public void StartNextLevel()
     {
+        UIManager.Instance.currentState = UIState.GamePlay;
+        UIManager.Instance.UpdateBackGroundMusic(); // 暂且放在这里
+
         PlayerController.Instance.transform.position = Vector2.zero;
         PlayerController.Instance.CanControl = true;
         PlayerStats playerStats = PlayerController.Instance.playerStats;
