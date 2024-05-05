@@ -21,10 +21,10 @@ public class CursorManager : MonoBehaviour
             {
                 MouseDown();
             }
-            if (Input.GetMouseButtonUp(0))
-            {
-                MouseUp();
-            }
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            MouseUp();
         }
     }
 
