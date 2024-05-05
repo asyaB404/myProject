@@ -2455,7 +2455,6 @@ GameObject:
   - component: {fileID: 522265695}
   - component: {fileID: 522265694}
   - component: {fileID: 522265693}
-  - component: {fileID: 522265697}
   - component: {fileID: 522265696}
   m_Layer: 5
   m_Name: ExitButton
@@ -2607,18 +2606,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &522265697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 522265691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f8c754073bd85144ba9f19fc125c828, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &551233854 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8075619159412703709, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
@@ -3491,6 +3478,7 @@ GameObject:
   - component: {fileID: 749630848}
   - component: {fileID: 749630847}
   - component: {fileID: 749630846}
+  - component: {fileID: 749630849}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -3613,6 +3601,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749630844}
   m_CullTransparentMesh: 1
+--- !u!114 &749630849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749630844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1059381985}
+          m_TargetAssemblyTypeName: MainPage, Assembly-CSharp
+          m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &836152831
 GameObject:
   m_ObjectHideFlags: 0
@@ -4987,7 +5004,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8075619159073633741, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
   m_PrefabInstance: {fileID: 1458237739}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1160063918
+--- !u!114 &1160063921
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6513,6 +6530,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -6638,11 +6659,27 @@ PrefabInstance:
     m_TransformParent: {fileID: 687172020}
     m_Modifications:
     - target: {fileID: 8075619158169867350, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075619158169867350, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8075619158621386105, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075619158621386105, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075619158621386105, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
+      propertyPath: m_Value
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
@@ -7351,7 +7388,6 @@ GameObject:
   - component: {fileID: 1617471260}
   - component: {fileID: 1617471259}
   - component: {fileID: 1617471258}
-  - component: {fileID: 1617471262}
   - component: {fileID: 1617471261}
   m_Layer: 5
   m_Name: GameStartButton
@@ -7503,18 +7539,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1617471262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1617471256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b83318feaf9f5f4408b1351d7be804aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1620081400
 GameObject:
   m_ObjectHideFlags: 0

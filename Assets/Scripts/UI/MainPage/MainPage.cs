@@ -50,7 +50,6 @@ public class MainPage : MonoBehaviour
 
     public void HideSettingUI()
     {
-        SettingUI.GetComponent<SettingUI>().UpdateGameSetting();
         SettingUI.SetActive(false);
     }
 

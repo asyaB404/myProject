@@ -15,16 +15,16 @@ MonoBehaviour:
   volume_GBM: 1
   volume_SE: 1
   multiple_maxHeath: 1
-  multiple_moveSpeed: 2
-  multiple_recoverForHealth: 3
-  multiple_defense: 4
-  multiple_critial: 5
-  multiple_anodeEnergy: 6
-  multiple_cathodeEnergy: 7
-  multiple_powerOfAnode: 8
-  multiple_powerOfCathode: 9
-  multiple_criticalStrikeMultipiler: 10
-  multiple_attackScatter: 11
-  multiple_energyConsumption: 12
-  multiple_piercingAttack: 13
+  multiple_moveSpeed: 1
+  multiple_recoverForHealth: 1
+  multiple_defense: 1
+  multiple_critial: 1
+  multiple_anodeEnergy: 1
+  multiple_cathodeEnergy: 1
+  multiple_powerOfAnode: 1
+  multiple_powerOfCathode: 1
+  multiple_criticalStrikeMultipiler: 1
+  multiple_attackScatter: 1
+  multiple_energyConsumption: 1
+  multiple_piercingAttack: 1
   initialCoins: 0

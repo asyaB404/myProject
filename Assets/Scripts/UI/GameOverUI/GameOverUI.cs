@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameOverUI : MonoBehaviour
 {
@@ -13,11 +14,11 @@ public class GameOverUI : MonoBehaviour
     {
         if (isVictory)
         {
-            BaseMap.GetComponent<SpriteRenderer>().sprite = baseMap_Victory;
+            BaseMap.GetComponent<Image>().sprite = baseMap_Victory;
         }
         else
         {
-            BaseMap.GetComponent<SpriteRenderer>().sprite = baseMap_Fail;
+            BaseMap.GetComponent<Image>().sprite = baseMap_Fail;
         }
     }
 }

@@ -126,9 +126,15 @@ public class UIManager : MonoBehaviour
         GameOverUI.GetComponent<GameOverUI>().SetBaseMap(isVictory);
     }
 
-    public void HideGameOverUI()
+    public void BackToMainPage()
     {
-        GameOverUI.SetActive(false);
+        Time.timeScale = 1;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainPage");
+    }
+
+    public void PlayHoverSound()
+    {
+        MusicMgr.Instance.PlaySound("hover");
     }
 
 }

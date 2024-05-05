@@ -287,6 +287,8 @@ public class PlayerStats : MonoBehaviour
 
     public void Die()
     {
+        Debug.Log("Die");
+        UIManager.Instance.ShowGameOverUI(false);
         StopAllCoroutines();
         CancelInvoke();
     }
