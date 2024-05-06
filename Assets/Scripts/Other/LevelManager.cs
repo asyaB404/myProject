@@ -394,5 +394,15 @@ public class LevelManager : MonoBehaviour
         {
             CoinsManager.Instance.GenerateCoin(enemy.transform.position, 1, 2);
         }
+        else if(wave <= 25)
+        {
+            if (MyRandom.Instance.NextFloat() < 0.5)
+                CoinsManager.Instance.GenerateCoin(enemy.transform.position, 1, 1);
+        }
+        else if (wave > 25)
+        {
+            if (MyRandom.Instance.NextFloat() < 0.25)
+                CoinsManager.Instance.GenerateCoin(enemy.transform.position, 1, 1);
+        }
     }
 }
