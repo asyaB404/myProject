@@ -294,7 +294,7 @@ public class LevelManager : MonoBehaviour
             StartSpawn(23, 1);
             StartSpawn(24, 1);
         }
-        else if (wave == 20)
+        else
         {
             StartSpawn(17, 1);
             StartSpawn(18, 0.5f);
@@ -330,7 +330,7 @@ public class LevelManager : MonoBehaviour
 
     private void ClearCallBack()
     {
-        if(wave == 20)
+        if (wave == 20)
         {
             UIManager.Instance.ShowGameOverUI(true);
             return;
