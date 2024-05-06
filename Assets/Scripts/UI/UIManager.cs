@@ -63,7 +63,7 @@ public class UIManager : MonoBehaviour
         }
         else if (currentState == UIState.Shop)
         {
-            MusicMgr.Instance.PlayBkMusic("bgm_shop");
+            MusicMgr.Instance.PlayBkMusic("bgm_shop_half");
         }
         else
         {
@@ -106,6 +106,7 @@ public class UIManager : MonoBehaviour
             Time.timeScale = 0;
         }
         PauseUI.SetActive(true);
+        PauseUI.GetComponent<PauseUI>().UpdateSoundBar();
     }
 
     public void HidePauseUI()

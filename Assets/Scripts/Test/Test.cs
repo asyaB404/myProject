@@ -7,6 +7,7 @@ public class Test : MonoBehaviour
     [ContextMenuItem("test", nameof(Test1))]
     public Commodity commodity;
     public PlayerStats playerStats;
+    public GameSetting gameSetting;
 
     private void Awake()
     {
@@ -15,7 +16,7 @@ public class Test : MonoBehaviour
 
     public void Test1()
     {
-        commodity.EffectAfterGet(playerStats);
+        commodity.EffectAfterGet(playerStats, gameSetting);
     }
 
     [ContextMenuItem("test", nameof(Test2))]

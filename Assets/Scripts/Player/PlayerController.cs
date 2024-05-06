@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
         }
         instance = this;
         playerStats = GetComponent<PlayerStats>();
+        playerStats.LoadGameSetting();
     }
 
     public void Filp()

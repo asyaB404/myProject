@@ -8,6 +8,9 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     private SpriteRenderer sr;
 
+    [SerializeField]
+    private GameSetting gameSetting;
+
     [Header("主要属性")]
     [SerializeField]
     private float maxHealth;
@@ -145,8 +148,8 @@ public class PlayerStats : MonoBehaviour
     {
         get
         {
-            if (powerOfCathode < 0)
-                return 0;
+            if (powerOfCathode < 1)
+                return 1;
             return powerOfCathode;
         }
         set { powerOfCathode = value; }
@@ -158,8 +161,8 @@ public class PlayerStats : MonoBehaviour
     {
         get
         {
-            if (powerOfAnode < 0)
-                return 0;
+            if (powerOfAnode < 1)
+                return 1;
             return powerOfAnode;
         }
         set { powerOfAnode = value; }
@@ -197,8 +200,8 @@ public class PlayerStats : MonoBehaviour
     {
         get
         {
-            if (energyConsumption < 0)
-                return 0;
+            if (energyConsumption < 1)
+                return 1;
             return energyConsumption;
         }
         set { energyConsumption = value; }
@@ -293,5 +296,22 @@ public class PlayerStats : MonoBehaviour
         Debug.Log("Die");
         UIManager.Instance.ShowGameOverUI(false);
         MyEventSystem.Instance.Clear();
+    }
+
+    public void LoadGameSetting()
+    {
+        maxHealth = gameSetting.default_maxHeath * gameSetting.multiple_maxHeath;
+        moveSpeed = gameSetting.default_moveSpeed * gameSetting.multiple_moveSpeed;
+        recoverForHealth = gameSetting.default_recoverForHealth * gameSetting.multiple_recoverForHealth;
+        defence = gameSetting.default_defense * gameSetting.multiple_defense;
+        critical = gameSetting.default_critial * gameSetting.multiple_critial;
+        anodeEnergy = gameSetting.default_anodeEnergy * gameSetting.multiple_anodeEnergy;
+        cathodeEnergy = gameSetting.default_cathodeEnergy * gameSetting.multiple_cathodeEnergy;
+        powerOfAnode = gameSetting.default_powerOfAnode * gameSetting.multiple_powerOfAnode;
+        powerOfCathode = gameSetting.default_powerOfCathode * gameSetting.multiple_powerOfCathode;
+        criticalStrikeMultiplier = gameSetting.default_criticalStrikeMultipiler * gameSetting.multiple_criticalStrikeMultipiler;
+        attackScattering = gameSetting.default_attackScatter * gameSetting.multiple_attackScatter;
+        energyConsumption = gameSetting.default_energyConsumption * gameSetting.multiple_energyConsumption;
+        piercingAttack = gameSetting.default_piercingAttack * gameSetting.multiple_piercingAttack;
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class SlotManager : MonoBehaviour
 {
+    public GameSetting gameSetting;
     public Commodity curCommodity;
     public PlayerStats playerStats;
 
@@ -37,7 +38,7 @@ public class SlotManager : MonoBehaviour
             return;
         }
         CoinsManager.Instance.Coins -= curCommodity.price;
-        curCommodity.EffectAfterGet(playerStats);
+        curCommodity.EffectAfterGet(playerStats, gameSetting);
         InventoryManager.Instance.AddItem(curCommodity);
         ShopManager.Instance.UpdateUI();
         gameObject.SetActive(false);

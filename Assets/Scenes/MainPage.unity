@@ -238,8 +238,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -172.07, y: 123}
-  m_SizeDelta: {x: 184.1355, y: 70.2259}
+  m_AnchoredPosition: {x: -132, y: 123}
+  m_SizeDelta: {x: 124.2222, y: 79.07}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &14182564
 MonoBehaviour:
@@ -263,12 +263,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1cab5f1f67b6881499e3c3d8292749e3, type: 3}
-    m_FontSize: 64
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 64
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1870,86 +1870,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455504939}
   m_CullTransparentMesh: 1
---- !u!1 &478041094
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 478041095}
-  - component: {fileID: 478041097}
-  - component: {fileID: 478041096}
-  m_Layer: 5
-  m_Name: About
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &478041095
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 478041094}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 496657760}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000022888, y: 200}
-  m_SizeDelta: {x: 173.7672, y: 67.3281}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &478041096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 478041094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 1cab5f1f67b6881499e3c3d8292749e3, type: 3}
-    m_FontSize: 64
-    m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 4
-    m_MaxSize: 64
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "\u5173\u4E8E"
---- !u!222 &478041097
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 478041094}
-  m_CullTransparentMesh: 1
 --- !u!1 &494340338
 GameObject:
   m_ObjectHideFlags: 0
@@ -2140,11 +2060,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 478041095}
+  - {fileID: 1500604043}
   - {fileID: 1743873695}
+  - {fileID: 849463378}
   - {fileID: 2083600074}
+  - {fileID: 733724312}
   - {fileID: 1268342658}
   - {fileID: 1990306477}
+  - {fileID: 1281815731}
   m_Father: {fileID: 1286082142}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2620,6 +2543,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1059381985}
+        m_TargetAssemblyTypeName: MainPage, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &522265694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2678,22 +2613,6 @@ MonoBehaviour:
         - m_Target: {fileID: 1059381985}
           m_TargetAssemblyTypeName: MainPage, Assembly-CSharp
           m_MethodName: PlayHoverSound
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1059381985}
-          m_TargetAssemblyTypeName: MainPage, Assembly-CSharp
-          m_MethodName: PlayClickSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3563,6 +3482,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724935756}
   m_CullTransparentMesh: 1
+--- !u!1 &733724311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 733724312}
+  - component: {fileID: 733724314}
+  - component: {fileID: 733724313}
+  m_Layer: 5
+  m_Name: Programmer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &733724312
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733724311}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 496657760}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -9.5929, y: 0.000011683}
+  m_SizeDelta: {x: 284.0942, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &733724313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733724311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 1cab5f1f67b6881499e3c3d8292749e3, type: 3}
+    m_FontSize: 40
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 48
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Basya  Y0suzume
+--- !u!222 &733724314
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733724311}
+  m_CullTransparentMesh: 1
 --- !u!1 &749630844
 GameObject:
   m_ObjectHideFlags: 0
@@ -3650,6 +3649,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1059381985}
         m_TargetAssemblyTypeName: MainPage, Assembly-CSharp
         m_MethodName: HideSettingUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1059381985}
+        m_TargetAssemblyTypeName: MainPage, Assembly-CSharp
+        m_MethodName: PlayClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3805,6 +3816,86 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836152831}
+  m_CullTransparentMesh: 1
+--- !u!1 &849463377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 849463378}
+  - component: {fileID: 849463380}
+  - component: {fileID: 849463379}
+  m_Layer: 5
+  m_Name: Designer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &849463378
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849463377}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 496657760}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -75.818985, y: 80}
+  m_SizeDelta: {x: 151.64, y: 49.999}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &849463379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849463377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 1cab5f1f67b6881499e3c3d8292749e3, type: 3}
+    m_FontSize: 40
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 48
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\u6241\u6241\u5B50"
+--- !u!222 &849463380
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849463377}
   m_CullTransparentMesh: 1
 --- !u!1 &863262546
 GameObject:
@@ -4155,6 +4246,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1059381985}
+        m_TargetAssemblyTypeName: MainPage, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &937385695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4213,22 +4316,6 @@ MonoBehaviour:
         - m_Target: {fileID: 1059381985}
           m_TargetAssemblyTypeName: MainPage, Assembly-CSharp
           m_MethodName: PlayHoverSound
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1059381985}
-          m_TargetAssemblyTypeName: MainPage, Assembly-CSharp
-          m_MethodName: PlayClickSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -5777,12 +5864,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 496657760}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -184.54, y: -79}
-  m_SizeDelta: {x: 180, y: 50}
+  m_AnchoredPosition: {x: -213.09, y: -80}
+  m_SizeDelta: {x: 122.9, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1268342659
 MonoBehaviour:
@@ -5811,7 +5898,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -5972,6 +6059,86 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275005519}
+  m_CullTransparentMesh: 1
+--- !u!1 &1281815730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1281815731}
+  - component: {fileID: 1281815733}
+  - component: {fileID: 1281815732}
+  m_Layer: 5
+  m_Name: Programmer (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1281815731
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281815730}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 496657760}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -17.07, y: -80}
+  m_SizeDelta: {x: 269.14, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1281815732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281815730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 1cab5f1f67b6881499e3c3d8292749e3, type: 3}
+    m_FontSize: 40
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 48
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\u5A34  \uFF0C"
+--- !u!222 &1281815733
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281815730}
   m_CullTransparentMesh: 1
 --- !u!1 &1286082141
 GameObject:
@@ -6412,6 +6579,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1059381985}
+        m_TargetAssemblyTypeName: MainPage, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1384357885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6470,22 +6649,6 @@ MonoBehaviour:
         - m_Target: {fileID: 1059381985}
           m_TargetAssemblyTypeName: MainPage, Assembly-CSharp
           m_MethodName: PlayHoverSound
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1059381985}
-          m_TargetAssemblyTypeName: MainPage, Assembly-CSharp
-          m_MethodName: PlayClickSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6822,7 +6985,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8075619158169867350, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.99900097
       objectReference: {fileID: 0}
     - target: {fileID: 8075619158169867350, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6830,7 +6993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8075619158621386105, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.99900097
       objectReference: {fileID: 0}
     - target: {fileID: 8075619158621386105, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6838,11 +7001,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8075619158621386105, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0.99900097
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_Value
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
+      propertyPath: m_MaxValue
+      value: 1.001
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -6906,7 +7073,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159412703709, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 317.6527
+      value: 276.8606
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159412703709, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_SizeDelta.y
@@ -6942,7 +7109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159412703709, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 78.824
+      value: 68.541
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159412703709, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -6971,7 +7138,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8075619158169867350, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.99900097
       objectReference: {fileID: 0}
     - target: {fileID: 8075619158169867350, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6979,7 +7146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8075619158621386105, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.99900097
       objectReference: {fileID: 0}
     - target: {fileID: 8075619158621386105, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6987,11 +7154,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8075619158621386105, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0.99900097
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_Value
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
+      propertyPath: m_MaxValue
+      value: 1.001
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -7079,7 +7250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159412703709, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 317.6527
+      value: 276.86
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159412703709, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_SizeDelta.y
@@ -7115,7 +7286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159412703709, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 78.824
+      value: 68.541
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159412703709, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7135,6 +7306,86 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
+--- !u!1 &1500604042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1500604043}
+  - component: {fileID: 1500604045}
+  - component: {fileID: 1500604044}
+  m_Layer: 5
+  m_Name: About
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1500604043
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500604042}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 496657760}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.000081062, y: 184}
+  m_SizeDelta: {x: 174.5622, y: 79.9083}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1500604044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500604042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 1cab5f1f67b6881499e3c3d8292749e3, type: 3}
+    m_FontSize: 64
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 64
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\u5173\u4E8E"
+--- !u!222 &1500604045
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500604042}
+  m_CullTransparentMesh: 1
 --- !u!1 &1503361464
 GameObject:
   m_ObjectHideFlags: 0
@@ -7783,6 +8034,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1059381985}
+        m_TargetAssemblyTypeName: MainPage, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1617471259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7841,22 +8104,6 @@ MonoBehaviour:
         - m_Target: {fileID: 1059381985}
           m_TargetAssemblyTypeName: MainPage, Assembly-CSharp
           m_MethodName: PlayHoverSound
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1059381985}
-          m_TargetAssemblyTypeName: MainPage, Assembly-CSharp
-          m_MethodName: PlayClickSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8301,8 +8548,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -184.54, y: 73}
-  m_SizeDelta: {x: 180, y: 50}
+  m_AnchoredPosition: {x: -213.0889, y: 80}
+  m_SizeDelta: {x: 122.9022, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1743873696
 MonoBehaviour:
@@ -8331,7 +8578,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -8946,8 +9193,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -172.07, y: -0.000023723}
-  m_SizeDelta: {x: 184.1355, y: 70.2259}
+  m_AnchoredPosition: {x: -132, y: -0.00006601}
+  m_SizeDelta: {x: 124.22, y: 79.072}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1935242399
 MonoBehaviour:
@@ -8971,12 +9218,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1cab5f1f67b6881499e3c3d8292749e3, type: 3}
-    m_FontSize: 64
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 64
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -9117,7 +9364,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 496657760}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9144,22 +9391,6 @@ MonoBehaviour:
         - m_Target: {fileID: 1059381985}
           m_TargetAssemblyTypeName: MainPage, Assembly-CSharp
           m_MethodName: PlayHoverSound
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1059381985}
-          m_TargetAssemblyTypeName: MainPage, Assembly-CSharp
-          m_MethodName: PlayClickSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -9216,6 +9447,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1059381985}
         m_TargetAssemblyTypeName: MainPage, Assembly-CSharp
         m_MethodName: HideAboutUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1059381985}
+        m_TargetAssemblyTypeName: MainPage, Assembly-CSharp
+        m_MethodName: PlayClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9522,12 +9765,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 496657760}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -184.54, y: 0.000013351}
-  m_SizeDelta: {x: 180, y: 50}
+  m_AnchoredPosition: {x: -213.09, y: 0}
+  m_SizeDelta: {x: 122.9, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2083600075
 MonoBehaviour:
@@ -9556,7 +9799,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 48
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0

@@ -22,9 +22,9 @@ public class Commodity : PropBase
     public int holdNum;
 
     //没时间重构道具框架了，只能堆屎山了
-    public override void EffectAfterGet(PlayerStats stats)
+    public override void EffectAfterGet(PlayerStats stats, GameSetting gameSetting)
     {
-        base.EffectAfterGet(stats);
+        base.EffectAfterGet(stats, gameSetting);
         if (id < 20038)
         {
             return;
@@ -35,19 +35,19 @@ public class Commodity : PropBase
         }
         else if (id == 20039)
         {
-            stats.AnodeEnergy += Mathf.FloorToInt(stats.MaxHealth * 0.5f);
+            stats.AnodeEnergy += Mathf.FloorToInt(stats.MaxHealth * 0.5f) * gameSetting.multiple_anodeEnergy;
         }
         else if (id == 20040)
         {
-            stats.PowerOfAnode += Mathf.FloorToInt(stats.MaxHealth * 0.1f);
+            stats.PowerOfAnode += Mathf.FloorToInt(stats.MaxHealth * 0.1f) * gameSetting.multiple_powerOfAnode;
         }
         else if (id == 20041)
         {
-            stats.CathodeEnergy += Mathf.FloorToInt(stats.RecoverForHealth * 20);
+            stats.CathodeEnergy += Mathf.FloorToInt(stats.RecoverForHealth * 20) * gameSetting.multiple_cathodeEnergy;
         }
         else if (id == 20042)
         {
-            stats.PowerOfCathode += Mathf.FloorToInt(stats.RecoverForHealth * 2);
+            stats.PowerOfCathode += Mathf.FloorToInt(stats.RecoverForHealth * 2) * gameSetting.multiple_powerOfCathode;
         }
         else if (id == 20043)
         {
@@ -80,8 +80,8 @@ public class Commodity : PropBase
                 }
             );
             float temp = Mathf.Abs(stats.AnodeEnergy - stats.CathodeEnergy);
-            stats.powerOfAnode += temp;
-            stats.powerOfCathode += temp;
+            stats.powerOfAnode += temp * gameSetting.multiple_powerOfAnode;
+            stats.powerOfCathode += temp * gameSetting.multiple_powerOfCathode;
         }
         else if (id == 20045)
         {
@@ -101,7 +101,7 @@ public class Commodity : PropBase
                 }
             );
             float temp = stats.Defence * 0.01f;
-            stats.criticalStrikeMultiplier += temp;
+            stats.criticalStrikeMultiplier += temp * gameSetting.multiple_criticalStrikeMultipiler;
         }
         else if (id == 20046)
         {
@@ -121,11 +121,11 @@ public class Commodity : PropBase
                 }
             );
             float temp = 1 - stats.Critical;
-            stats.criticalStrikeMultiplier += temp;
+            stats.criticalStrikeMultiplier += temp * gameSetting.multiple_criticalStrikeMultipiler;
         }
         else if (id == 20047)
         {
-            stats.CriticalStrikeMultiplier += (stats.MoveSpeed - 110) * 0.01f;
+            stats.CriticalStrikeMultiplier += (stats.MoveSpeed - 110) * 0.01f * gameSetting.multiple_criticalStrikeMultipiler;
         }
         else if (id == 20048)
         {
@@ -147,18 +147,18 @@ public class Commodity : PropBase
                 }
             );
             float temp = (stats.MaxHealth - stats.CurHealth) * 0.5f;
-            stats.powerOfAnode += temp;
-            stats.powerOfCathode += temp;
+            stats.powerOfAnode += temp * gameSetting.multiple_powerOfAnode;
+            stats.powerOfCathode += temp * gameSetting.multiple_powerOfCathode;
         }
         else if (id == 20049)
         {
             float coins = CoinsManager.Instance.Coins;
-            stats.PowerOfAnode += coins;
-            stats.PowerOfCathode += coins;
+            stats.PowerOfAnode += coins * gameSetting.multiple_powerOfAnode;
+            stats.PowerOfCathode += coins * gameSetting.multiple_powerOfCathode;
             void Fun()
             {
-                stats.PowerOfAnode -= coins;
-                stats.PowerOfCathode -= coins;
+                stats.PowerOfAnode -= coins * gameSetting.multiple_powerOfAnode;
+                stats.PowerOfCathode -= coins * gameSetting.multiple_powerOfCathode;
                 MyEventSystem.Instance.RemoveEventListener("level_clear", Fun);
             }
             MyEventSystem.Instance.AddEventListener("level_clear", Fun);
@@ -175,7 +175,7 @@ public class Commodity : PropBase
                 {
                     if (enemy.info.energyType == EnergyType.Cathode)
                     {
-                        stats.CathodeEnergy += 1;
+                        stats.CathodeEnergy += 1 * gameSetting.multiple_cathodeEnergy;
                     }
                 }
             );
@@ -188,7 +188,7 @@ public class Commodity : PropBase
                 {
                     if (enemy.info.energyType == EnergyType.Anode)
                     {
-                        stats.AnodeEnergy += 1;
+                        stats.AnodeEnergy += 1 * gameSetting.multiple_anodeEnergy;
                     }
                 }
             );

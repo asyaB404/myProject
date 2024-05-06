@@ -12,8 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32fcd293f940f4542b682040b4b0ab5a, type: 3}
   m_Name: GameSetting
   m_EditorClassIdentifier: 
-  volume_GBM: 1
+  volume_BGM: 1
   volume_SE: 0.5
+  default_maxHeath: 100
+  default_moveSpeed: 100
+  default_recoverForHealth: 0
+  default_defense: 3
+  default_critial: 0.05
+  default_anodeEnergy: 10
+  default_cathodeEnergy: 10
+  default_powerOfAnode: 5
+  default_powerOfCathode: 5
+  default_criticalStrikeMultipiler: 1.5
+  default_attackScatter: 1
+  default_energyConsumption: 1
+  default_piercingAttack: 1
   multiple_maxHeath: 1
   multiple_moveSpeed: 1
   multiple_recoverForHealth: 1
