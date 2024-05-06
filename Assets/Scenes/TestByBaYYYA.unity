@@ -2300,6 +2300,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1047483995331783086, guid: b1eb5d16cfa574c47b2d74b1e7b816f6, type: 3}
+      propertyPath: gameSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: 05d4b4a07923c69489390414b0baa9b8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1eb5d16cfa574c47b2d74b1e7b816f6, type: 3}
 --- !u!224 &561928015 stripped
@@ -5024,6 +5028,10 @@ PrefabInstance:
       value: Slot
       objectReference: {fileID: 0}
     - target: {fileID: 1047483995331783086, guid: b1eb5d16cfa574c47b2d74b1e7b816f6, type: 3}
+      propertyPath: gameSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: 05d4b4a07923c69489390414b0baa9b8, type: 2}
+    - target: {fileID: 1047483995331783086, guid: b1eb5d16cfa574c47b2d74b1e7b816f6, type: 3}
       propertyPath: qualityColor.Array.data[0].a
       value: 0.4
       objectReference: {fileID: 0}
@@ -6071,7 +6079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf196ab5936b6db429364e6261802c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSetting: {fileID: 0}
+  gameSetting: {fileID: 11400000, guid: 05d4b4a07923c69489390414b0baa9b8, type: 2}
   coins: 0
   tempCoins: 0
   coinPrefab: {fileID: 3342097771164768623, guid: 1dd5cbb9584cbd2489c8d730df268461, type: 3}
@@ -9089,6 +9097,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1047483995331783086, guid: b1eb5d16cfa574c47b2d74b1e7b816f6, type: 3}
+      propertyPath: gameSetting
+      value: 
+      objectReference: {fileID: 11400000, guid: 05d4b4a07923c69489390414b0baa9b8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1eb5d16cfa574c47b2d74b1e7b816f6, type: 3}
 --- !u!224 &1980045958 stripped
