@@ -6,6 +6,9 @@ using UnityEngine;
 public class CoinsManager : MonoBehaviour
 {
     [SerializeField]
+    private GameSetting gameSetting;
+
+    [SerializeField]
     private float coins;
     public float Coins
     {
@@ -32,6 +35,8 @@ public class CoinsManager : MonoBehaviour
             Destroy(instance.gameObject);
         }
         instance = this;
+
+        LoadGameSetting();
     }
 
     public void GenerateCoin(Vector2 position, int count = 1, float value = 1)
@@ -67,5 +72,10 @@ public class CoinsManager : MonoBehaviour
                     coin.DoDestroy();
                 });
         }
+    }
+
+    public void LoadGameSetting()
+    {
+        coins = gameSetting.initialCoins;
     }
 }
