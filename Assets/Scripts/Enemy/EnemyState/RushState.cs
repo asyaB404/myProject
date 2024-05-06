@@ -33,9 +33,10 @@ public class RushState : EnemyState
     {
         Transform transform = enemy.transform;
         transform.DOKill();
+        Vector3 scale = enemy.transform.localScale;
         transform
-            .DOScale(Vector3.one * 1.4f, 0.25f)
-            .OnComplete(() => transform.DOScale(Vector3.one, 0.25f).SetEase(Ease.OutBounce));
+            .DOScale(scale * 1.4f, 0.25f)
+            .OnComplete(() => transform.DOScale(scale, 0.25f).SetEase(Ease.OutBounce));
         yield return new WaitForSeconds(0.5f);
         enemy.rb.velocity = dir * enemy.info.speed * GameData.GlobalMoveSpeed * 3f;
         yield return new WaitForSeconds(info.bulletRange * GameData.GlobalBulletFlyTime);

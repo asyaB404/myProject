@@ -24,7 +24,6 @@ public abstract class EnemyState
 
     public virtual void OnExit()
     {
-        enemy.transform.localScale = Vector3.one;
         enemy.rb.velocity = Vector2.zero;
     }
 }

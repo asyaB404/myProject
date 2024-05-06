@@ -25,15 +25,16 @@ public class RangeState : EnemyState
             shootCD += Time.deltaTime * info.atkSpeed / 100;
             if (shootCD >= 1)
             {
+                Vector3 scale = enemy.transform.localScale;
                 enemy.anim.SetTrigger("fire");
                 shootCD = 0 - (enemy as Enemy2).Shootduration;
                 enemy
-                    .transform.DOScale(Vector3.one * 1.25f, 0.2f)
+                    .transform.DOScale(scale * 1.25f, 0.2f)
                     // 缩放变大完成后执行缩放恢复动画
                     .OnComplete(
                         () =>
                             enemy
-                                .transform.DOScale(Vector3.one, 0.2f)
+                                .transform.DOScale(scale, 0.2f)
                                 .SetEase(Ease.OutBounce)
                                 .OnComplete(() =>
                                 {
