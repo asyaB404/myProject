@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class UIManager : MonoBehaviour
     public GameObject ShopUI;
     public GameObject GameOverUI;
     public GameObject VictoryUI;
+
+    public GameObject WaveCountText;
 
     public static UIManager Instance
     {
@@ -116,6 +119,7 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 0;
         currentState = UIState.GameOver;
+        WaveCountText.GetComponent<Text>().text = LevelManager.Instance.wave.ToString();
         UpdateBackGroundMusic();
         GameOverUI.SetActive(true);
     }
