@@ -10354,7 +10354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sr: {fileID: 1364336745}
-  gameSetting: {fileID: 0}
+  gameSetting: {fileID: 11400000, guid: 05d4b4a07923c69489390414b0baa9b8, type: 2}
   maxHealth: 100
   curHealth: 100
   moveSpeed: 100
