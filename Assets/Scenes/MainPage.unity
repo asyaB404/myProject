@@ -1774,7 +1774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2893,7 +2893,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -647, y: -360}
+  m_AnchoredPosition: {x: -720, y: -430}
   m_SizeDelta: {x: 364, y: 103}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &522265693
@@ -4596,7 +4596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -647, y: -240}
+  m_AnchoredPosition: {x: -720.00006, y: -190}
   m_SizeDelta: {x: 364, y: 103}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &937385694
@@ -5162,7 +5162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5444,7 +5444,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 17e523e227ffc454ca9ff6a675e8c0e0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9b9941013db058a4eaf80e3cd5da9e62, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5732,6 +5732,18 @@ MonoBehaviour:
         - m_Target: {fileID: 1059381985}
           m_TargetAssemblyTypeName: MainPage, Assembly-CSharp
           m_MethodName: PlayHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 984234990}
+          m_TargetAssemblyTypeName: SettingUI, Assembly-CSharp
+          m_MethodName: UpdateGameSetting
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6687,7 +6699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6764,7 +6776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7092,7 +7104,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -647, y: 0}
+  m_AnchoredPosition: {x: -720.00006, y: -310}
   m_SizeDelta: {x: 364, y: 103}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1384357884
@@ -8082,7 +8094,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8075619158169867350, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.99900097
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8075619158169867350, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8090,7 +8102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8075619158621386105, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.99900097
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8075619158621386105, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8098,7 +8110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8075619158621386105, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.99900097
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_Value
@@ -8106,7 +8118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_MaxValue
-      value: 1.001
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -8114,6 +8126,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
@@ -8125,11 +8141,19 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateGameSetting
+      value: UpdateMusicMgr
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SettingUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: SettingUI, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
@@ -8235,7 +8259,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8075619158169867350, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.99900097
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8075619158169867350, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8243,7 +8267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8075619158621386105, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.99900097
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8075619158621386105, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8251,7 +8275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8075619158621386105, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.99900097
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_Value
@@ -8259,7 +8283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_MaxValue
-      value: 1.001
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -8291,7 +8315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateGameSetting
+      value: UpdateMusicMgr
       objectReference: {fileID: 0}
     - target: {fileID: 8075619159073633779, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -8823,6 +8847,35 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8075619159073633741, guid: 8320fa7bd29fb6142bf53e55ef17a5a5, type: 3}
   m_PrefabInstance: {fileID: 1455601131}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1574844420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574844419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 984234990}
+          m_TargetAssemblyTypeName: SettingUI, Assembly-CSharp
+          m_MethodName: UpdateGameSetting
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1577533766
 GameObject:
   m_ObjectHideFlags: 0
@@ -9247,7 +9300,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -647, y: 120}
+  m_AnchoredPosition: {x: -720, y: 50}
   m_SizeDelta: {x: 364, y: 103}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1617471258
@@ -9982,7 +10035,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -647, y: -120}
+  m_AnchoredPosition: {x: -720, y: -70}
   m_SizeDelta: {x: 364, y: 103}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1749853922

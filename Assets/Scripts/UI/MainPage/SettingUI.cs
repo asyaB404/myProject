@@ -15,11 +15,15 @@ public class SettingUI : MonoBehaviour
         SoundBar_SE.GetComponent<Slider>().value = gameSetting.volume_SE;
     }
 
+    public void UpdateMusicMgr()
+    {
+        MusicMgr.Instance.BkValue = SoundBar_BGM.GetComponent<Slider>().value;
+        MusicMgr.Instance.SoundValue = SoundBar_BGM.GetComponent<Slider>().value;
+    }
+
     public void UpdateGameSetting()
     {
         gameSetting.volume_BGM = SoundBar_BGM.GetComponent<Slider>().value > 1 ? 1 : SoundBar_BGM.GetComponent<Slider>().value;
-        MusicMgr.Instance.BkValue = gameSetting.volume_BGM;
         gameSetting.volume_SE = SoundBar_SE.GetComponent<Slider>().value > 1 ? 1 : SoundBar_SE.GetComponent<Slider>().value;
-        MusicMgr.Instance.SoundValue = gameSetting.volume_SE;
     }
 }
