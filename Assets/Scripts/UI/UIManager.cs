@@ -41,7 +41,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && currentState != UIState.GameOver)
         {
             if (PauseUI.activeSelf == false)
             {
@@ -57,11 +57,11 @@ public class UIManager : MonoBehaviour
     public void UpdateBackGroundMusic()
     {
         MusicMgr.Instance.StopMusic();
-        if(currentState == UIState.GamePlay)
+        if (currentState == UIState.GamePlay)
         {
             MusicMgr.Instance.PlayBkMusic("bgm_level");
         }
-        else if(currentState == UIState.Shop)
+        else if (currentState == UIState.Shop)
         {
             MusicMgr.Instance.PlayBkMusic("bgm_shop");
         }
@@ -101,7 +101,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowPauseUI()
     {
-        if(currentState == UIState.GamePlay)
+        if (currentState == UIState.GamePlay)
         {
             Time.timeScale = 0;
         }
@@ -110,7 +110,7 @@ public class UIManager : MonoBehaviour
 
     public void HidePauseUI()
     {
-        if(currentState == UIState.GamePlay)
+        if (currentState == UIState.GamePlay)
         {
             Time.timeScale = 1;
         }
@@ -141,5 +141,4 @@ public class UIManager : MonoBehaviour
     {
         MusicMgr.Instance.PlaySound("click");
     }
-
 }

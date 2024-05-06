@@ -6,6 +6,7 @@ public class MusicMgr
 {
     public GameObject soundOBJ = null;
     private readonly List<AudioSource> soundList = new();
+    private readonly Dictionary<string, AudioClip> soundDict = new();
     private float soundValue = 1;
 
     /// <summary>
@@ -18,7 +19,10 @@ public class MusicMgr
             soundValue = value;
             foreach (var source in soundList)
             {
-                source.volume = value;
+                if (source)
+                {
+                    source.volume = value;
+                }
             }
         }
     }
@@ -37,17 +41,22 @@ public class MusicMgr
 
         AudioSource source = soundOBJ.AddComponent<AudioSource>();
         AudioClip audioClip;
+        name = "Sounds/" + name;
         if (i == 0)
         {
-            audioClip = GameObject.Instantiate(Resources.Load<AudioClip>("Sounds/" + name));
+            if (!soundDict.ContainsKey(name))
+                LoadRes(name);
+            audioClip = soundDict[name];
         }
         else
         {
-            audioClip = GameObject.Instantiate(
-                Resources.Load<AudioClip>("Sounds/" + name + MyRandom.Instance.NextInt(1, i + 1))
-            );
+            name += MyRandom.Instance.NextInt(1, i + 1);
+            if (!soundDict.ContainsKey(name))
+                LoadRes(name);
+            audioClip = soundDict[name];
         }
-        source.clip = audioClip;
+
+        source.clip = GameObject.Instantiate(audioClip);
         soundList.Add(source);
         source.volume = soundValue;
         source.loop = isLoop;
@@ -76,7 +85,10 @@ public class MusicMgr
         set
         {
             bkValue = value;
-            bkMusic.volume = bkValue;
+            if (bkMusic)
+            {
+                bkMusic.volume = bkValue;
+            }
         }
     }
 
@@ -91,6 +103,12 @@ public class MusicMgr
         }
     }
 
+    private void LoadRes(string name)
+    {
+        soundDict[name] = Resources.Load<AudioClip>(name);
+        Debug.Log("加载资源" + soundDict[name]);
+    }
+
     /// <summary>
     /// 播放背景音乐
     /// </summary>
@@ -102,8 +120,12 @@ public class MusicMgr
             bkMusic = new GameObject("BkMusic").AddComponent<AudioSource>();
             bkMusic.transform.position = Camera.main.transform.position;
         }
-        AudioClip audioClip = GameObject.Instantiate(Resources.Load<AudioClip>("Sounds/" + name));
-        bkMusic.clip = audioClip;
+        AudioClip audioClip;
+        name = "Sounds/" + name;
+        if (!soundDict.ContainsKey(name))
+            LoadRes(name);
+        audioClip = soundDict[name];
+        bkMusic.clip = GameObject.Instantiate(audioClip);
         bkMusic.volume = bkValue;
         bkMusic.loop = true;
         bkMusic.Play();

@@ -285,11 +285,13 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    [ContextMenu("die")]
     public void Die()
     {
-        Debug.Log("Die");
-        UIManager.Instance.ShowGameOverUI(false);
         StopAllCoroutines();
         CancelInvoke();
+        Debug.Log("Die");
+        UIManager.Instance.ShowGameOverUI(false);
+        MyEventSystem.Instance.Clear();
     }
 }

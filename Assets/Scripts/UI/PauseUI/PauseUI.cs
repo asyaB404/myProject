@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseUI : MonoBehaviour
 {
@@ -26,6 +27,11 @@ public class PauseUI : MonoBehaviour
     public void OnContinueButtonPress()
     {
         UIManager.Instance.HidePauseUI();
+    }
+
+    public void ReStart()
+    {
+        SceneManager.LoadScene("TestByBaYYYA");
     }
 
     public void OnQuitButtonPress()
