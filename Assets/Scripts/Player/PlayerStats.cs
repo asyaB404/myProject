@@ -294,7 +294,7 @@ public class PlayerStats : MonoBehaviour
         StopAllCoroutines();
         CancelInvoke();
         Debug.Log("Die");
-        UIManager.Instance.ShowGameOverUI(false);
+        UIManager.Instance.ShowGameOverUI();
         MyEventSystem.Instance.Clear();
     }
 

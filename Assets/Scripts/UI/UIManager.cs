@@ -3,13 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public enum UIState
-{
-    Shop,
-    GamePlay,
-    GameOver
-}
-
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
@@ -19,6 +12,7 @@ public class UIManager : MonoBehaviour
     public GameObject PauseUI;
     public GameObject ShopUI;
     public GameObject GameOverUI;
+    public GameObject VictoryUI;
 
     public static UIManager Instance
     {
@@ -118,13 +112,33 @@ public class UIManager : MonoBehaviour
         PauseUI.SetActive(false);
     }
 
-    public void ShowGameOverUI(bool isVictory)
+    public void ShowGameOverUI()
     {
         Time.timeScale = 0;
         currentState = UIState.GameOver;
         UpdateBackGroundMusic();
         GameOverUI.SetActive(true);
-        GameOverUI.GetComponent<GameOverUI>().SetBaseMap(isVictory);
+    }
+
+    public void ShowVictoryUI()
+    {
+        Time.timeScale = 0;
+        currentState = UIState.GameOver;
+        UpdateBackGroundMusic();
+        VictoryUI.SetActive(true);
+    }
+
+    public void InfinityMode()
+    {
+        if(VictoryUI)
+        {
+            VictoryUI.SetActive(false);
+        }
+        PlayerController.Instance.playerStats.CurHealth = PlayerController
+            .Instance
+            .playerStats
+            .MaxHealth;
+        ShowShopUI();
     }
 
     public void BackToMainPage()

@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "GameSetting", fileName = "New Setting")]
 public class GameSetting : ScriptableObject
 {
+    [Header("难度")]
+    public Difficulty difficulty = Difficulty.Normal;
     [Header("音量")]
     public float volume_BGM = 1;
     public float volume_SE = 1;
@@ -26,6 +28,9 @@ public class GameSetting : ScriptableObject
     public float default_energyConsumption = 1;
     public float default_piercingAttack = 1;
 
+    [Header("初始魂魄")]
+    public float default_coins = 0;
+
     [Header("作弊器参数")]
     [Header("主要属性")]
     public int multiple_maxHeath = 1;
@@ -46,5 +51,61 @@ public class GameSetting : ScriptableObject
 
     [Header("初始魂魄")]
     public int initialCoins = 0;
+
+    public void SetDifficulty(Difficulty difficulty)
+    {
+        this.difficulty = difficulty;
+        if(difficulty == Difficulty.Easy)
+        {
+            default_maxHeath = 100;
+            default_moveSpeed = 100;
+            default_recoverForHealth = 0;
+            default_defense = 3;
+            default_critial = 0.05F;
+            default_anodeEnergy = 10;
+            default_cathodeEnergy = 10;
+            default_powerOfAnode = 10;
+            default_powerOfCathode = 10;
+            default_criticalStrikeMultipiler = 1.5F;
+            default_attackScatter = 1;
+            default_energyConsumption = 1;
+            default_piercingAttack = 1;
+            default_coins = 50;
+        } 
+        else if (difficulty == Difficulty.Normal)
+        {
+            default_maxHeath = 100;
+            default_moveSpeed = 100;
+            default_recoverForHealth = 0;
+            default_defense = 3;
+            default_critial = 0.05F;
+            default_anodeEnergy = 10;
+            default_cathodeEnergy = 10;
+            default_powerOfAnode = 5;
+            default_powerOfCathode = 5;
+            default_criticalStrikeMultipiler = 1.5F;
+            default_attackScatter = 1;
+            default_energyConsumption = 1;
+            default_piercingAttack = 1;
+            default_coins = 30;
+        }
+        else
+        {
+            default_maxHeath = 100;
+            default_moveSpeed = 100;
+            default_recoverForHealth = 0;
+            default_defense = 3;
+            default_critial = 0.05F;
+            default_anodeEnergy = 10;
+            default_cathodeEnergy = 10;
+            default_powerOfAnode = 5;
+            default_powerOfCathode = 5;
+            default_criticalStrikeMultipiler = 1.5F;
+            default_attackScatter = 1;
+            default_energyConsumption = 1;
+            default_piercingAttack = 1;
+            default_coins = 0;
+        }
+    }
     
 }

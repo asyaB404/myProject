@@ -76,6 +76,6 @@ public class CoinsManager : MonoBehaviour
 
     public void LoadGameSetting()
     {
-        coins = gameSetting.initialCoins;
+        coins = gameSetting.default_coins + gameSetting.initialCoins;
     }
 }

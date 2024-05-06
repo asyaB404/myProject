@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class MainPage : MonoBehaviour
 {
     public GameSetting gameSetting;
+    public GameObject DifficultyUI;
     public GameObject SettingUI;
+    public GameObject HowToPlayUI;
     public GameObject AboutUI;
     public GameObject CheaterUI;
 
@@ -41,17 +44,55 @@ public class MainPage : MonoBehaviour
             {
                 HideAboutUI();
             }
+            if (HowToPlayUI.activeSelf == true)
+            {
+                HideHowToPlayUI();
+            }
+            if (CheaterUI.activeSelf == true)
+            {
+                HideCheaterUI();
+            }
+            if (DifficultyUI.activeSelf == true)
+            {
+                HideDifficultyUI();
+            }
         }
     }
 
-    public void GameStart()
+    public void GameStart(Difficulty difficulty)
     {
+        gameSetting.SetDifficulty(difficulty);
         SceneManager.LoadScene("TestByBaYYYA");
+    }
+
+    public void GameStartEasy()
+    {
+        GameStart(Difficulty.Easy);
+    }
+
+    public void GameStartNormal()
+    {
+        GameStart(Difficulty.Normal);
+    }
+
+    public void GameStartHard()
+    {
+        GameStart(Difficulty.Hard);
     }
 
     public void Exit()
     {
         Application.Quit();
+    }
+
+    public void ShowDifficultyUI()
+    {
+        DifficultyUI.SetActive(true);
+    }
+
+    public void HideDifficultyUI()
+    {
+        DifficultyUI.SetActive(false);
     }
 
     public void ShowSettingUI()
@@ -85,6 +126,16 @@ public class MainPage : MonoBehaviour
     public void HideAboutUI()
     {
         AboutUI.SetActive(false);
+    }
+
+    public void ShowHowToPlayUI()
+    {
+        HowToPlayUI.SetActive(true);
+    }
+
+    public void HideHowToPlayUI()
+    {
+        HowToPlayUI.SetActive(false);
     }
 
     public void PlayHoverSound()
