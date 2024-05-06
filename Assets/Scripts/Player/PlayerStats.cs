@@ -148,8 +148,8 @@ public class PlayerStats : MonoBehaviour
     {
         get
         {
-            if (powerOfCathode < 0)
-                return 0;
+            if (powerOfCathode < 1)
+                return 1;
             return powerOfCathode;
         }
         set { powerOfCathode = value; }
@@ -161,8 +161,8 @@ public class PlayerStats : MonoBehaviour
     {
         get
         {
-            if (powerOfAnode < 0)
-                return 0;
+            if (powerOfAnode < 1)
+                return 1;
             return powerOfAnode;
         }
         set { powerOfAnode = value; }
@@ -200,8 +200,8 @@ public class PlayerStats : MonoBehaviour
     {
         get
         {
-            if (energyConsumption < 0)
-                return 0;
+            if (energyConsumption < 1)
+                return 1;
             return energyConsumption;
         }
         set { energyConsumption = value; }
