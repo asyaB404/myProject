@@ -253,7 +253,7 @@ public class PlayerStats : MonoBehaviour
                 .Instacne.ShowMessage(transform.position, Mathf.FloorToInt(damage).ToString())
                 .color = Color.red;
             CurHealth -= damage;
-            if (CurHealth < 0)
+            if (CurHealth <= 0)
                 Die();
         }
     }
