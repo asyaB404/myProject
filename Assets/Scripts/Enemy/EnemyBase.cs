@@ -35,7 +35,7 @@ public class EnemyBase : MonoBehaviour
 
     public virtual void Start()
     {
-        curHealth = info.health;
+        curHealth = info.Health;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         stateMachine = new EnemyStateMachine();
@@ -52,14 +52,14 @@ public class EnemyBase : MonoBehaviour
                 if (info.energyType == EnergyType.Anode)
                 {
                     MusicMgr.Instance.PlaySound("atk_yang");
-                    playerStats.AnodeEnergy += info.recoverFromAtk;
+                    playerStats.AnodeEnergy += info.RecoverFromAtk;
                 }
                 else
                 {
                     MusicMgr.Instance.PlaySound("atk_yin");
-                    playerStats.CathodeEnergy += info.recoverFromAtk;
+                    playerStats.CathodeEnergy += info.RecoverFromAtk;
                 }
-                playerStats.TakeDamage(info.atkMul);
+                playerStats.TakeDamage(info.AtkMul);
             }
         }
     }

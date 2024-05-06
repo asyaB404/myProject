@@ -35,7 +35,7 @@ public class EnemyBullet : MonoBehaviour, IEnemyBullet
                 if (!playerStats.IsInv)
                 {
                     MusicMgr.Instance.PlaySound("atk_yang");
-                    playerStats.AnodeEnergy += info.recoverFromAtk;
+                    playerStats.AnodeEnergy += info.RecoverFromAtk;
                 }
                 animator.SetTrigger("1");
             }
@@ -43,13 +43,13 @@ public class EnemyBullet : MonoBehaviour, IEnemyBullet
             {
                 if (!playerStats.IsInv)
                 {
-                    playerStats.CathodeEnergy += info.recoverFromAtk;
+                    playerStats.CathodeEnergy += info.RecoverFromAtk;
                     MusicMgr.Instance.PlaySound("atk_yin");
                 }
                 animator.SetTrigger("0");
             }
             rb.velocity = Vector2.zero;
-            playerStats.TakeDamage(info.atkMul);
+            playerStats.TakeDamage(info.AtkMul);
         }
     }
 

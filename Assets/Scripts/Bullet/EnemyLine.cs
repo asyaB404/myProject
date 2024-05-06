@@ -101,15 +101,15 @@ public class EnemyLine : MonoBehaviour, IEnemyBullet
             {
                 if (info.energyType == EnergyType.Anode)
                 {
-                    playerStats.AnodeEnergy += info.recoverFromAtk;
+                    playerStats.AnodeEnergy += info.RecoverFromAtk;
                     MusicMgr.Instance.PlaySound("atk_yang");
                 }
                 else
                 {
-                    playerStats.CathodeEnergy += info.recoverFromAtk;
+                    playerStats.CathodeEnergy += info.RecoverFromAtk;
                     MusicMgr.Instance.PlaySound("atk_yin");
                 }
-                playerStats.TakeDamage(info.atkMul);
+                playerStats.TakeDamage(info.AtkMul);
             }
         }
     }
