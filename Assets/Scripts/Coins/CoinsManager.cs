@@ -40,10 +40,8 @@ public class CoinsManager : MonoBehaviour
         {
             GameObject coin = Instantiate(coinPrefab, transform);
             coin.GetComponent<Coin>().coins = value;
-            coin.transform.position = new(
-                position.x + Random.Range(0, 0.2f),
-                position.y + Random.Range(0, 0.2f)
-            );
+            coin.transform.position =
+                position + new Vector2(Random.Range(-0.25f, 0.25f), Random.Range(-0.25f, 0.25f));
         }
     }
 

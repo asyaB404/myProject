@@ -346,12 +346,13 @@ public class LevelManager : MonoBehaviour
     {
         while (isStart)
         {
-            yield return new WaitForSeconds(duration);
+            yield return new WaitForSeconds(duration * 0.2f);
             GameObject enemy = Instantiate(
                 Resources.Load<GameObject>("Prefabs/Enemy/Monster" + id),
                 monstersParent
             );
             enemy.transform.position = GetRandomPos();
+            yield return new WaitForSeconds(duration * 0.8f);
         }
     }
 
