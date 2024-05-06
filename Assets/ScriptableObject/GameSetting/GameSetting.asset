@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32fcd293f940f4542b682040b4b0ab5a, type: 3}
+  m_Name: GameSetting
+  m_EditorClassIdentifier: 
+  volume_GBM: 1
+  volume_SE: 0.5
+  multiple_maxHeath: 1
+  multiple_moveSpeed: 1
+  multiple_recoverForHealth: 1
+  multiple_defense: 1
+  multiple_critial: 1
+  multiple_anodeEnergy: 1
+  multiple_cathodeEnergy: 1
+  multiple_powerOfAnode: 1
+  multiple_powerOfCathode: 1
+  multiple_criticalStrikeMultipiler: 1
+  multiple_attackScatter: 1
+  multiple_energyConsumption: 1
+  multiple_piercingAttack: 1
+  initialCoins: 0

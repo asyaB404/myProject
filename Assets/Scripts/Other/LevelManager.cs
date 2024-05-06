@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        // StartNextLevel(); // 注释，测试主界面
+        StartNextLevel();
     }
 
     public bool t;
@@ -330,6 +330,11 @@ public class LevelManager : MonoBehaviour
 
     private void ClearCallBack()
     {
+        if(wave == 20)
+        {
+            UIManager.Instance.ShowGameOverUI(true);
+            return;
+        }
         PlayerController.Instance.playerStats.CurHealth = PlayerController
             .Instance
             .playerStats
