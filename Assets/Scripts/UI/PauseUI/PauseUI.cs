@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseUI : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class PauseUI : MonoBehaviour
     {
         Time.timeScale = 1;
         gameObject.SetActive(false);
+    }
+
+    public void ReStart()
+    {
+        SceneManager.LoadScene("TestByBaYYYA");
     }
 
     public void OnQuitButtonPress()
