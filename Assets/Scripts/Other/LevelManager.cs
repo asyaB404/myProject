@@ -332,8 +332,8 @@ public class LevelManager : MonoBehaviour
     {
         if (wave == 20)
         {
-            UIManager.Instance.ShowGameOverUI(true);
-            return;
+            // UIManager.Instance.ShowGameOverUI(true);
+            // return;
         }
         PlayerController.Instance.playerStats.CurHealth = PlayerController
             .Instance
