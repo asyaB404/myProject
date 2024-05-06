@@ -69,6 +69,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 61a79fe6fe26b0f4dbeccc4b61003b2e, type: 3}
   - {fileID: 21300000, guid: 43eb3f97c5b780041aa23575d63501dc, type: 3}
   - {fileID: 21300000, guid: 4f42420829580534b8b8b26ad1f4b24e, type: 3}
+  - {fileID: 21300000, guid: 1f1613a8a99991244856ea3c984fb74f, type: 3}
   - {fileID: 21300000, guid: b81fc0c8f9144384786922a409519c34, type: 3}
   - {fileID: 21300000, guid: 256deec8439b77f4b83b9500f1ab93cc, type: 3}
   - {fileID: 21300000, guid: 56161849782bc28498615b6bf9469ce9, type: 3}
@@ -84,6 +85,8 @@ SpriteAtlas:
   - {fileID: 21300000, guid: ad8c891bcd196e443946f0f8d03cdec2, type: 3}
   - {fileID: 21300000, guid: 3e7fcc2b42d58e24380b9fdacd3cf073, type: 3}
   - {fileID: 21300000, guid: 92fa596b21162a6429afd2c68c78681e, type: 3}
+  - {fileID: 21300000, guid: ff95829b8f387c14b8a3b0305e19727e, type: 3}
+  - {fileID: 21300000, guid: a5d08c3c05f9fb447befaa0e1028c802, type: 3}
   - {fileID: 21300000, guid: c2eb90ac9cac9d445b47384db50f7c0e, type: 3}
   - {fileID: 21300000, guid: 6348b5ecfa648bb459a9846362863f43, type: 3}
   - {fileID: 21300000, guid: 6f713f1d00c51734295b68f19a752552, type: 3}
@@ -94,6 +97,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: cbe1175ee28da664aa48845ab6c17379, type: 3}
   - {fileID: 21300000, guid: 00b74cbe00a6e974297ce47aecc37928, type: 3}
   - {fileID: 21300000, guid: a3adcafe1f876cc4b87e6c8efabd02f1, type: 3}
+  - {fileID: 21300000, guid: 9c4042ffb15894346b3e4f9b3730a872, type: 3}
   - {fileID: 21300000, guid: 61fbc5ff8cdb0014db1007cc5a44c931, type: 3}
   - {fileID: 21300000, guid: 965f6dffca7d54c4a9860fbf120bb2bd, type: 3}
   m_PackedSpriteNamesToIndex:
@@ -112,6 +116,7 @@ SpriteAtlas:
   - "\u7EE7\u7EED\u6E38\u620F"
   - "\u5E95\u68461.2"
   - "\u5931\u8D25 \u5E95\u56FE"
+  - "\u9000\u51FA\u6E38\u620F 1"
   - "\u5F53\u524D\u5C5E\u6027\u5E95\u6846"
   - "\u8840\u6761"
   - "\u7075\u9F9B"
@@ -127,6 +132,8 @@ SpriteAtlas:
   - "\u6218\u6597\u754C\u9762UI\u793A\u610F"
   - "\u5C5E\u6027\u5217\u8868"
   - "\u58F0\u97F3"
+  - "\u5F53\u524D\u5C5E\u6027 1"
+  - "\u7EE7\u7EED\u6E38\u620F 1"
   - "\u5546\u5E97UI\u793A\u610F"
   - "\u5E95\u68461.1"
   - "UI\u793A\u610F"
@@ -137,6 +144,7 @@ SpriteAtlas:
   - "\u9B42\u9B44UI"
   - "\u5F53\u524D\u5DF2\u62E5\u6709 _ 1"
   - "\u6309\u94AE"
+  - "\u8FD4\u56DE\u4E3B\u9875 1"
   - "\u5E95\u56FE"
   - "\u5E95\u68461"
   m_RenderDataMap: {}

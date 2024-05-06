@@ -7,7 +7,7 @@ public class MainPage : MonoBehaviour
 {
     public GameSetting gameSetting;
     public GameObject SettingUI;
-    // public GameObject AboutUI;
+    public GameObject AboutUI;
     public GameObject CheaterUI;
 
     void Start()
@@ -28,6 +28,18 @@ public class MainPage : MonoBehaviour
             else
             {
                 HideCheaterUI();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (SettingUI.activeSelf == true)
+            {
+                HideSettingUI();
+            }
+            if (AboutUI.activeSelf == true)
+            {
+                HideAboutUI();
             }
         }
     }
@@ -65,8 +77,23 @@ public class MainPage : MonoBehaviour
         CheaterUI.SetActive(false);
     }
 
+    public void ShowAboutUI()
+    {
+        AboutUI.SetActive(true);
+    }
+
+    public void HideAboutUI()
+    {
+        AboutUI.SetActive(false);
+    }
+
     public void PlayHoverSound()
     {
         MusicMgr.Instance.PlaySound("hover");
+    }
+    
+    public void PlayClickSound()
+    {
+        MusicMgr.Instance.PlaySound("click");
     }
 }
