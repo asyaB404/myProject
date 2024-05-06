@@ -106,6 +106,7 @@ public class UIManager : MonoBehaviour
             Time.timeScale = 0;
         }
         PauseUI.SetActive(true);
+        PauseUI.GetComponent<PauseUI>().UpdateSoundBar();
     }
 
     public void HidePauseUI()
