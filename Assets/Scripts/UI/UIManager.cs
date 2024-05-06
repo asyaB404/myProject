@@ -63,7 +63,7 @@ public class UIManager : MonoBehaviour
         }
         else if (currentState == UIState.Shop)
         {
-            MusicMgr.Instance.PlayBkMusic("bgm_shop");
+            MusicMgr.Instance.PlayBkMusic("bgm_shop_half");
         }
         else
         {
