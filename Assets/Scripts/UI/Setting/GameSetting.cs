@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameSetting : ScriptableObject
 {
     [Header("音量")]
-    public float volume_GBM = 1;
+    public float volume_BGM = 1;
     public float volume_SE = 1;
 
     [Header("作弊器参数")]
