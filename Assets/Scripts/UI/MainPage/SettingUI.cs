@@ -11,14 +11,14 @@ public class SettingUI : MonoBehaviour
 
     public void UpdateSoundBar()
     {
-        SoundBar_BGM.GetComponent<Slider>().value = gameSetting.volume_GBM;
+        SoundBar_BGM.GetComponent<Slider>().value = gameSetting.volume_BGM;
         SoundBar_SE.GetComponent<Slider>().value = gameSetting.volume_SE;
     }
 
     public void UpdateGameSetting()
     {
-        gameSetting.volume_GBM = SoundBar_BGM.GetComponent<Slider>().value;
-        MusicMgr.Instance.BkValue = gameSetting.volume_GBM;
+        gameSetting.volume_BGM = SoundBar_BGM.GetComponent<Slider>().value;
+        MusicMgr.Instance.BkValue = gameSetting.volume_BGM;
         gameSetting.volume_SE = SoundBar_SE.GetComponent<Slider>().value;
         MusicMgr.Instance.SoundValue = gameSetting.volume_SE;
     }

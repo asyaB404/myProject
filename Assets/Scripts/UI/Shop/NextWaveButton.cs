@@ -13,6 +13,7 @@ public class NextWaveButton : MonoBehaviour
         GetComponent<Button>()
             .onClick.AddListener(() =>
             {
+                MusicMgr.Instance.PlaySound("click");
                 LevelManager.Instance.StartNextLevel();
                 UIManager.Instance.HideShopUI();
             });

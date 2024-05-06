@@ -137,4 +137,9 @@ public class UIManager : MonoBehaviour
         MusicMgr.Instance.PlaySound("hover");
     }
 
+    public void PlayClickSound()
+    {
+        MusicMgr.Instance.PlaySound("click");
+    }
+
 }

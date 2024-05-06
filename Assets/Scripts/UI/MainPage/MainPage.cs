@@ -13,7 +13,7 @@ public class MainPage : MonoBehaviour
     void Start()
     {
         MusicMgr.Instance.PlayBkMusic("bgm_theme");
-        MusicMgr.Instance.BkValue = gameSetting.volume_GBM;
+        MusicMgr.Instance.BkValue = gameSetting.volume_BGM;
         MusicMgr.Instance.SoundValue = gameSetting.volume_SE;
     }
 
