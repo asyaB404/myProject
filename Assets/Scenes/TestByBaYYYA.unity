@@ -9119,6 +9119,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1017963529}
     m_Modifications:
+    - target: {fileID: 1623999744, guid: b1eb5d16cfa574c47b2d74b1e7b816f6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623999744, guid: b1eb5d16cfa574c47b2d74b1e7b816f6, type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623999744, guid: b1eb5d16cfa574c47b2d74b1e7b816f6, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1047483994962940061, guid: b1eb5d16cfa574c47b2d74b1e7b816f6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2

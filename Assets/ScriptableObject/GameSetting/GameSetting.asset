@@ -40,4 +40,4 @@ MonoBehaviour:
   multiple_attackScatter: 1
   multiple_energyConsumption: 1
   multiple_piercingAttack: 1
-  initialCoins: 200
+  initialCoins: 0
