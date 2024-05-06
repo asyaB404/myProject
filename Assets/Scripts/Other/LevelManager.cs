@@ -394,5 +394,9 @@ public class LevelManager : MonoBehaviour
         {
             CoinsManager.Instance.GenerateCoin(enemy.transform.position, 1, 2);
         }
+        else if(wave > 20)
+        {
+            CoinsManager.Instance.GenerateCoin(enemy.transform.position, 1, 1);
+        }
     }
 }
