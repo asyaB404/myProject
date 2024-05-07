@@ -252,7 +252,7 @@ public class PlayerStats : MonoBehaviour
                 * attackMultiple;
             damage =
                 damage - Mathf.RoundToInt(Defence) > 0 ? damage - Mathf.RoundToInt(Defence) : 0;
-            if (damage > 0)
+            if (damage >= 1)
                 WorldCanvas
                     .Instacne.ShowMessage(transform.position, Mathf.FloorToInt(damage).ToString())
                     .color = Color.red;
