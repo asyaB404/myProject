@@ -33,21 +33,21 @@ public class GameSetting : ScriptableObject
 
     [Header("作弊器参数")]
     [Header("主要属性")]
-    public int multiple_maxHeath = 1;
-    public int multiple_moveSpeed = 1;
-    public int multiple_recoverForHealth = 1;
-    public int multiple_defense = 1;
-    public int multiple_critial = 1;
+    public int addition_maxHeath = 0;
+    public int addition_moveSpeed = 0;
+    public int addition_recoverForHealth = 0;
+    public int addition_defense = 0;
+    public int addition_critial = 0;
 
     [Header("次要属性")]
-    public int multiple_anodeEnergy = 1;
-    public int multiple_cathodeEnergy = 1;
-    public int multiple_powerOfAnode = 1;
-    public int multiple_powerOfCathode = 1;
-    public int multiple_criticalStrikeMultipiler = 1;
-    public int multiple_attackScatter = 1;
-    public int multiple_energyConsumption = 1;
-    public int multiple_piercingAttack = 1;
+    public int addition_anodeEnergy = 0;
+    public int addition_cathodeEnergy = 0;
+    public int addition_powerOfAnode = 0;
+    public int addition_powerOfCathode = 0;
+    public int addition_criticalStrikeMultipiler = 0;
+    public int addition_attackScatter = 0;
+    public int addition_energyConsumption = 0;
+    public int addition_piercingAttack = 0;
 
     [Header("初始魂魄")]
     public int initialCoins = 0;

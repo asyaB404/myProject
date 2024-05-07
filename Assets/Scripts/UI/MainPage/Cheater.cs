@@ -25,37 +25,37 @@ public class Cheater : MonoBehaviour
 
     public void ReadGameSetting()
     {
-        Text_maxHealth.text = gameSetting.multiple_maxHeath.ToString();
-        Text_moveSpeed.text = gameSetting.multiple_moveSpeed.ToString();
-        Text_recoverForHealth.text = gameSetting.multiple_recoverForHealth.ToString();
-        Text_defense.text = gameSetting.multiple_defense.ToString();
-        Text_critial.text = gameSetting.multiple_critial.ToString();
-        Text_anodeEnergy.text = gameSetting.multiple_anodeEnergy.ToString();
-        Text_cathodeEnergy.text = gameSetting.multiple_cathodeEnergy.ToString();
-        Text_powerOfAnode.text = gameSetting.multiple_powerOfAnode.ToString();
-        Text_powerOfCathode.text = gameSetting.multiple_powerOfCathode.ToString();
-        Text_criticalStrikeMultipiler.text = gameSetting.multiple_criticalStrikeMultipiler.ToString();
-        Text_attackScatter.text = gameSetting.multiple_attackScatter.ToString();
-        Text_energyConsumption.text = gameSetting.multiple_energyConsumption.ToString();
-        Text_piercingAttack.text = gameSetting.multiple_piercingAttack.ToString();
+        Text_maxHealth.text = gameSetting.addition_maxHeath.ToString();
+        Text_moveSpeed.text = gameSetting.addition_moveSpeed.ToString();
+        Text_recoverForHealth.text = gameSetting.addition_recoverForHealth.ToString();
+        Text_defense.text = gameSetting.addition_defense.ToString();
+        Text_critial.text = gameSetting.addition_critial.ToString();
+        Text_anodeEnergy.text = gameSetting.addition_anodeEnergy.ToString();
+        Text_cathodeEnergy.text = gameSetting.addition_cathodeEnergy.ToString();
+        Text_powerOfAnode.text = gameSetting.addition_powerOfAnode.ToString();
+        Text_powerOfCathode.text = gameSetting.addition_powerOfCathode.ToString();
+        Text_criticalStrikeMultipiler.text = gameSetting.addition_criticalStrikeMultipiler.ToString();
+        Text_attackScatter.text = gameSetting.addition_attackScatter.ToString();
+        Text_energyConsumption.text = gameSetting.addition_energyConsumption.ToString();
+        Text_piercingAttack.text = gameSetting.addition_piercingAttack.ToString();
         Text_initialCoins.text = gameSetting.initialCoins.ToString();
     }
 
     public void UpdateGameSetting()
     {
-        gameSetting.multiple_maxHeath = Text_maxHealth.text == null ? 1 : int.Parse(Text_maxHealth.text);
-        gameSetting.multiple_moveSpeed = Text_moveSpeed.text == null ? 1 : int.Parse(Text_moveSpeed.text);
-        gameSetting.multiple_recoverForHealth = Text_recoverForHealth.text == null ? 1 : int.Parse(Text_recoverForHealth.text);
-        gameSetting.multiple_defense = Text_defense.text == null ? 1 : int.Parse(Text_defense.text);
-        gameSetting.multiple_critial = Text_critial.text == null ? 1 : int.Parse(Text_critial.text);
-        gameSetting.multiple_anodeEnergy = Text_anodeEnergy.text == null ? 1 : int.Parse(Text_anodeEnergy.text);
-        gameSetting.multiple_cathodeEnergy = Text_cathodeEnergy.text == null ? 1 : int.Parse(Text_cathodeEnergy.text);
-        gameSetting.multiple_powerOfAnode = Text_powerOfAnode.text == null ? 1 : int.Parse(Text_powerOfAnode.text);
-        gameSetting.multiple_powerOfCathode = Text_powerOfCathode.text == null ? 1 : int.Parse(Text_powerOfCathode.text);
-        gameSetting.multiple_criticalStrikeMultipiler = Text_criticalStrikeMultipiler.text == null ? 1 : int.Parse(Text_criticalStrikeMultipiler.text);
-        gameSetting.multiple_attackScatter = Text_attackScatter.text == null ? 1 : int.Parse(Text_attackScatter.text);
-        gameSetting.multiple_energyConsumption = Text_energyConsumption.text == null ? 1 : int.Parse(Text_energyConsumption.text);
-        gameSetting.multiple_piercingAttack = Text_piercingAttack.text == null ? 1 : int.Parse(Text_piercingAttack.text);
+        gameSetting.addition_maxHeath = Text_maxHealth.text == null ? 0 : int.Parse(Text_maxHealth.text);
+        gameSetting.addition_moveSpeed = Text_moveSpeed.text == null ? 0 : int.Parse(Text_moveSpeed.text);
+        gameSetting.addition_recoverForHealth = Text_recoverForHealth.text == null ? 0 : int.Parse(Text_recoverForHealth.text);
+        gameSetting.addition_defense = Text_defense.text == null ? 0 : int.Parse(Text_defense.text);
+        gameSetting.addition_critial = Text_critial.text == null ? 0 : int.Parse(Text_critial.text);
+        gameSetting.addition_anodeEnergy = Text_anodeEnergy.text == null ? 0 : int.Parse(Text_anodeEnergy.text);
+        gameSetting.addition_cathodeEnergy = Text_cathodeEnergy.text == null ? 0 : int.Parse(Text_cathodeEnergy.text);
+        gameSetting.addition_powerOfAnode = Text_powerOfAnode.text == null ? 0 : int.Parse(Text_powerOfAnode.text);
+        gameSetting.addition_powerOfCathode = Text_powerOfCathode.text == null ? 0 : int.Parse(Text_powerOfCathode.text);
+        gameSetting.addition_criticalStrikeMultipiler = Text_criticalStrikeMultipiler.text == null ? 0 : int.Parse(Text_criticalStrikeMultipiler.text);
+        gameSetting.addition_attackScatter = Text_attackScatter.text == null ? 0 : int.Parse(Text_attackScatter.text);
+        gameSetting.addition_energyConsumption = Text_energyConsumption.text == null ? 0 : int.Parse(Text_energyConsumption.text);
+        gameSetting.addition_piercingAttack = Text_piercingAttack.text == null ? 0 : int.Parse(Text_piercingAttack.text);
         gameSetting.initialCoins = Text_initialCoins.text == null ? 0 : int.Parse(Text_initialCoins.text);
     }
 }

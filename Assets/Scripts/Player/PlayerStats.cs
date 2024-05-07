@@ -323,22 +323,22 @@ public class PlayerStats : MonoBehaviour
 
     public void LoadGameSetting()
     {
-        maxHealth = gameSetting.default_maxHeath * gameSetting.multiple_maxHeath;
-        moveSpeed = gameSetting.default_moveSpeed * gameSetting.multiple_moveSpeed;
+        maxHealth = gameSetting.default_maxHeath + gameSetting.addition_maxHeath;
+        moveSpeed = gameSetting.default_moveSpeed + gameSetting.addition_moveSpeed;
         recoverForHealth =
-            gameSetting.default_recoverForHealth * gameSetting.multiple_recoverForHealth;
-        defence = gameSetting.default_defense * gameSetting.multiple_defense;
-        critical = gameSetting.default_critial * gameSetting.multiple_critial;
-        anodeEnergy = gameSetting.default_anodeEnergy * gameSetting.multiple_anodeEnergy;
-        cathodeEnergy = gameSetting.default_cathodeEnergy * gameSetting.multiple_cathodeEnergy;
-        powerOfAnode = gameSetting.default_powerOfAnode * gameSetting.multiple_powerOfAnode;
-        powerOfCathode = gameSetting.default_powerOfCathode * gameSetting.multiple_powerOfCathode;
+            gameSetting.default_recoverForHealth + gameSetting.addition_recoverForHealth;
+        defence = gameSetting.default_defense + gameSetting.addition_defense;
+        critical = gameSetting.default_critial + gameSetting.addition_critial;
+        anodeEnergy = gameSetting.default_anodeEnergy + gameSetting.addition_anodeEnergy;
+        cathodeEnergy = gameSetting.default_cathodeEnergy + gameSetting.addition_cathodeEnergy;
+        powerOfAnode = gameSetting.default_powerOfAnode + gameSetting.addition_powerOfAnode;
+        powerOfCathode = gameSetting.default_powerOfCathode + gameSetting.addition_powerOfCathode;
         criticalStrikeMultiplier =
             gameSetting.default_criticalStrikeMultipiler
-            * gameSetting.multiple_criticalStrikeMultipiler;
-        attackScattering = gameSetting.default_attackScatter * gameSetting.multiple_attackScatter;
+            + gameSetting.addition_criticalStrikeMultipiler;
+        attackScattering = gameSetting.default_attackScatter + gameSetting.addition_attackScatter;
         energyConsumption =
-            gameSetting.default_energyConsumption * gameSetting.multiple_energyConsumption;
-        piercingAttack = gameSetting.default_piercingAttack * gameSetting.multiple_piercingAttack;
+            gameSetting.default_energyConsumption + gameSetting.addition_energyConsumption;
+        piercingAttack = gameSetting.default_piercingAttack + gameSetting.addition_piercingAttack;
     }
 }
