@@ -252,9 +252,10 @@ public class PlayerStats : MonoBehaviour
                 * attackMultiple;
             damage =
                 damage - Mathf.RoundToInt(Defence) > 0 ? damage - Mathf.RoundToInt(Defence) : 0;
-            WorldCanvas
-                .Instacne.ShowMessage(transform.position, Mathf.FloorToInt(damage).ToString())
-                .color = Color.red;
+            if (damage > 0)
+                WorldCanvas
+                    .Instacne.ShowMessage(transform.position, Mathf.FloorToInt(damage).ToString())
+                    .color = Color.red;
             CurHealth -= damage;
             if (CurHealth <= 0)
                 Die();
