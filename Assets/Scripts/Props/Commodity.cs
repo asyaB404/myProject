@@ -35,19 +35,19 @@ public class Commodity : PropBase
         }
         else if (id == 20039)
         {
-            stats.AnodeEnergy += Mathf.FloorToInt(stats.MaxHealth * 0.5f) * gameSetting.multiple_anodeEnergy;
+            stats.AnodeEnergy += Mathf.FloorToInt(stats.MaxHealth * 0.5f);
         }
         else if (id == 20040)
         {
-            stats.PowerOfAnode += Mathf.FloorToInt(stats.MaxHealth * 0.1f) * gameSetting.multiple_powerOfAnode;
+            stats.PowerOfAnode += Mathf.FloorToInt(stats.MaxHealth * 0.1f);
         }
         else if (id == 20041)
         {
-            stats.CathodeEnergy += Mathf.FloorToInt(stats.RecoverForHealth * 20) * gameSetting.multiple_cathodeEnergy;
+            stats.CathodeEnergy += Mathf.FloorToInt(stats.RecoverForHealth * 20);
         }
         else if (id == 20042)
         {
-            stats.PowerOfCathode += Mathf.FloorToInt(stats.RecoverForHealth * 2) * gameSetting.multiple_powerOfCathode;
+            stats.PowerOfCathode += Mathf.FloorToInt(stats.RecoverForHealth * 2);
         }
         else if (id == 20043)
         {
@@ -80,8 +80,8 @@ public class Commodity : PropBase
                 }
             );
             float temp = Mathf.Abs(stats.AnodeEnergy - stats.CathodeEnergy);
-            stats.powerOfAnode += temp * gameSetting.multiple_powerOfAnode;
-            stats.powerOfCathode += temp * gameSetting.multiple_powerOfCathode;
+            stats.powerOfAnode += temp;
+            stats.powerOfCathode += temp;
         }
         else if (id == 20045)
         {
@@ -101,7 +101,7 @@ public class Commodity : PropBase
                 }
             );
             float temp = stats.Defence * 0.01f;
-            stats.criticalStrikeMultiplier += temp * gameSetting.multiple_criticalStrikeMultipiler;
+            stats.criticalStrikeMultiplier += temp;
         }
         else if (id == 20046)
         {
@@ -121,11 +121,11 @@ public class Commodity : PropBase
                 }
             );
             float temp = 1 - stats.Critical;
-            stats.criticalStrikeMultiplier += temp * gameSetting.multiple_criticalStrikeMultipiler;
+            stats.criticalStrikeMultiplier += temp;
         }
         else if (id == 20047)
         {
-            stats.CriticalStrikeMultiplier += (stats.MoveSpeed - 110) * 0.01f * gameSetting.multiple_criticalStrikeMultipiler;
+            stats.CriticalStrikeMultiplier += (stats.MoveSpeed - 110) * 0.01f;
         }
         else if (id == 20048)
         {
@@ -147,18 +147,18 @@ public class Commodity : PropBase
                 }
             );
             float temp = (stats.MaxHealth - stats.CurHealth) * 0.5f;
-            stats.powerOfAnode += temp * gameSetting.multiple_powerOfAnode;
-            stats.powerOfCathode += temp * gameSetting.multiple_powerOfCathode;
+            stats.powerOfAnode += temp;
+            stats.powerOfCathode += temp;
         }
         else if (id == 20049)
         {
             float coins = CoinsManager.Instance.Coins;
-            stats.PowerOfAnode += coins * gameSetting.multiple_powerOfAnode;
-            stats.PowerOfCathode += coins * gameSetting.multiple_powerOfCathode;
+            stats.PowerOfAnode += coins;
+            stats.PowerOfCathode += coins;
             void Fun()
             {
-                stats.PowerOfAnode -= coins * gameSetting.multiple_powerOfAnode;
-                stats.PowerOfCathode -= coins * gameSetting.multiple_powerOfCathode;
+                stats.PowerOfAnode -= coins;
+                stats.PowerOfCathode -= coins;
                 MyEventSystem.Instance.RemoveEventListener("level_clear", Fun);
             }
             MyEventSystem.Instance.AddEventListener("level_clear", Fun);
@@ -175,7 +175,7 @@ public class Commodity : PropBase
                 {
                     if (enemy.info.energyType == EnergyType.Cathode)
                     {
-                        stats.CathodeEnergy += 1 * gameSetting.multiple_cathodeEnergy;
+                        stats.CathodeEnergy += 1;
                     }
                 }
             );
@@ -188,7 +188,7 @@ public class Commodity : PropBase
                 {
                     if (enemy.info.energyType == EnergyType.Anode)
                     {
-                        stats.AnodeEnergy += 1 * gameSetting.multiple_anodeEnergy;
+                        stats.AnodeEnergy += 1;
                     }
                 }
             );

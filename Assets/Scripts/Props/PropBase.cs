@@ -32,19 +32,19 @@ public class PropBase : ScriptableObject
 
     public virtual void EffectAfterGet(PlayerStats stats, GameSetting gameSetting)
     {
-        stats.MaxHealth += maxHealth * gameSetting.multiple_maxHeath;
+        stats.MaxHealth += maxHealth;
         stats.curHealth = stats.MaxHealth;
-        stats.MoveSpeed += moveSpeed * gameSetting.multiple_moveSpeed;
-        stats.RecoverForHealth += recoverForHealth * gameSetting.multiple_recoverForHealth;
-        stats.Defence += Defence * gameSetting.multiple_defense;
-        stats.Critical += Critical * gameSetting.multiple_critial;
-        stats.AnodeEnergy += anodeEnergy * gameSetting.multiple_anodeEnergy;
-        stats.CathodeEnergy += cathodeEnergy * gameSetting.multiple_cathodeEnergy;
-        stats.PowerOfCathode += powerOfCathode * gameSetting.multiple_powerOfCathode;
-        stats.PowerOfAnode += powerOfAnode * gameSetting.multiple_powerOfAnode;
-        stats.CriticalStrikeMultiplier += criticalStrikeMultiplier * gameSetting.multiple_criticalStrikeMultipiler;
-        stats.AttackScattering += attackScattering * gameSetting.multiple_attackScatter;
-        stats.EnergyConsumption += energyConsumption * gameSetting.multiple_energyConsumption;
-        stats.PiercingAttack += piercingAttack * gameSetting.multiple_piercingAttack;
+        stats.MoveSpeed += moveSpeed;
+        stats.RecoverForHealth += recoverForHealth;
+        stats.Defence += Defence;
+        stats.Critical += Critical;
+        stats.AnodeEnergy += anodeEnergy;
+        stats.CathodeEnergy += cathodeEnergy;
+        stats.PowerOfCathode += powerOfCathode;
+        stats.PowerOfAnode += powerOfAnode;
+        stats.CriticalStrikeMultiplier += criticalStrikeMultiplier;
+        stats.AttackScattering += attackScattering;
+        stats.EnergyConsumption += energyConsumption;
+        stats.PiercingAttack += piercingAttack;
     }
 }
