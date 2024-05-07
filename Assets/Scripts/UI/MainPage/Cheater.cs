@@ -43,19 +43,19 @@ public class Cheater : MonoBehaviour
 
     public void UpdateGameSetting()
     {
-        gameSetting.addition_maxHeath = Text_maxHealth.text == null ? 0 : int.Parse(Text_maxHealth.text);
-        gameSetting.addition_moveSpeed = Text_moveSpeed.text == null ? 0 : int.Parse(Text_moveSpeed.text);
-        gameSetting.addition_recoverForHealth = Text_recoverForHealth.text == null ? 0 : int.Parse(Text_recoverForHealth.text);
-        gameSetting.addition_defense = Text_defense.text == null ? 0 : int.Parse(Text_defense.text);
-        gameSetting.addition_critial = Text_critial.text == null ? 0 : int.Parse(Text_critial.text);
-        gameSetting.addition_anodeEnergy = Text_anodeEnergy.text == null ? 0 : int.Parse(Text_anodeEnergy.text);
-        gameSetting.addition_cathodeEnergy = Text_cathodeEnergy.text == null ? 0 : int.Parse(Text_cathodeEnergy.text);
-        gameSetting.addition_powerOfAnode = Text_powerOfAnode.text == null ? 0 : int.Parse(Text_powerOfAnode.text);
-        gameSetting.addition_powerOfCathode = Text_powerOfCathode.text == null ? 0 : int.Parse(Text_powerOfCathode.text);
-        gameSetting.addition_criticalStrikeMultipiler = Text_criticalStrikeMultipiler.text == null ? 0 : int.Parse(Text_criticalStrikeMultipiler.text);
-        gameSetting.addition_attackScatter = Text_attackScatter.text == null ? 0 : int.Parse(Text_attackScatter.text);
-        gameSetting.addition_energyConsumption = Text_energyConsumption.text == null ? 0 : int.Parse(Text_energyConsumption.text);
-        gameSetting.addition_piercingAttack = Text_piercingAttack.text == null ? 0 : int.Parse(Text_piercingAttack.text);
-        gameSetting.initialCoins = Text_initialCoins.text == null ? 0 : int.Parse(Text_initialCoins.text);
+        gameSetting.addition_maxHeath = Text_maxHealth.text == null ? 0 : int.Parse(Text_maxHealth.text) > 99999 ? 99999 : int.Parse(Text_maxHealth.text);
+        gameSetting.addition_moveSpeed = Text_moveSpeed.text == null ? 0 : int.Parse(Text_moveSpeed.text) > 99999 ? 99999 : int.Parse(Text_moveSpeed.text);
+        gameSetting.addition_recoverForHealth = Text_recoverForHealth.text == null ? 0 : int.Parse(Text_recoverForHealth.text) > 99999 ? 99999 : int.Parse(Text_recoverForHealth.text);
+        gameSetting.addition_defense = Text_defense.text == null ? 0 : int.Parse(Text_defense.text) > 99999 ? 99999 : int.Parse(Text_defense.text);
+        gameSetting.addition_critial = Text_critial.text == null ? 0 : int.Parse(Text_critial.text) > 99999 ? 99999 : int.Parse(Text_critial.text);
+        gameSetting.addition_anodeEnergy = Text_anodeEnergy.text == null ? 0 : int.Parse(Text_anodeEnergy.text) > 99999 ? 99999 : int.Parse(Text_anodeEnergy.text);
+        gameSetting.addition_cathodeEnergy = Text_cathodeEnergy.text == null ? 0 : int.Parse(Text_cathodeEnergy.text) > 99999 ? 99999 : int.Parse(Text_cathodeEnergy.text);
+        gameSetting.addition_powerOfAnode = Text_powerOfAnode.text == null ? 0 : int.Parse(Text_powerOfAnode.text) > 99999 ? 99999 : int.Parse(Text_powerOfAnode.text);
+        gameSetting.addition_powerOfCathode = Text_powerOfCathode.text == null ? 0 : int.Parse(Text_powerOfCathode.text) > 99999 ? 99999 : int.Parse(Text_powerOfCathode.text);
+        gameSetting.addition_criticalStrikeMultipiler = Text_criticalStrikeMultipiler.text == null ? 0 : int.Parse(Text_criticalStrikeMultipiler.text) > 99999 ? 99999 : int.Parse(Text_criticalStrikeMultipiler.text);
+        gameSetting.addition_attackScatter = Text_attackScatter.text == null ? 0 : int.Parse(Text_attackScatter.text) > 99999 ? 99999 : int.Parse(Text_attackScatter.text);
+        gameSetting.addition_energyConsumption = Text_energyConsumption.text == null ? 0 : int.Parse(Text_energyConsumption.text) > 99999 ? 99999 : int.Parse(Text_energyConsumption.text);
+        gameSetting.addition_piercingAttack = Text_piercingAttack.text == null ? 0 : int.Parse(Text_piercingAttack.text) > 99999 ? 99999 : int.Parse(Text_piercingAttack.text);
+        gameSetting.initialCoins = Text_initialCoins.text == null ? 0 : int.Parse(Text_initialCoins.text) > 99999 ? 99999 : int.Parse(Text_initialCoins.text);
     }
 }
