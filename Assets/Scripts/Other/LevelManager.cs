@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+[DefaultExecutionOrder(-220)]
 public class LevelManager : MonoBehaviour
 {
     private static LevelManager instance;
@@ -23,6 +23,9 @@ public class LevelManager : MonoBehaviour
     public Transform bulletParent;
     public Text text;
 
+    private readonly Dictionary<int, GameObject> enemyPrefabCache = new Dictionary<int, GameObject>();
+    static readonly Collider2D[] SpawnOverlapNonAllocScratch = new Collider2D[8];
+
     private void Awake()
     {
         if (instance != null)
@@ -31,6 +34,20 @@ public class LevelManager : MonoBehaviour
         }
         instance = this;
         DOTween.SetTweensCapacity(3000, 100);
+
+        WarmEnemyPrefabs();
+    }
+
+    /// <summary>波次中出现的敌人 ID：预加载 Prefab，避免生成协程每帧 Resources.Load。</summary>
+    void WarmEnemyPrefabs()
+    {
+        enemyPrefabCache.Clear();
+        for (int id = 1; id <= 24; id++)
+        {
+            GameObject p = Resources.Load<GameObject>("Prefabs/Enemy/Monster" + id);
+            if (p != null)
+                enemyPrefabCache[id] = p;
+        }
     }
 
     private void Start()
@@ -315,15 +332,7 @@ public class LevelManager : MonoBehaviour
         {
             monster.GetComponent<EnemyBase>().Die(false);
         }
-        foreach (Transform bullet in bulletParent)
-        {
-            bullet
-                .DOScale(0, 0.001f)
-                .OnComplete(() =>
-                {
-                    Destroy(bullet.gameObject);
-                });
-        }
+        ProjectilePools.ReleaseAllBulletsUnder(bulletParent);
         CoinsManager.Instance.Clear();
         Invoke(nameof(ClearCallBack), 2f);
     }
@@ -352,10 +361,13 @@ public class LevelManager : MonoBehaviour
         while (isStart)
         {
             yield return new WaitForSeconds(duration * 0.2f);
-            GameObject enemy = Instantiate(
-                Resources.Load<GameObject>("Prefabs/Enemy/Monster" + id),
-                monstersParent
-            );
+            if (!enemyPrefabCache.TryGetValue(id, out GameObject prefab) || prefab == null)
+            {
+                yield return new WaitForSeconds(duration * 0.8f);
+                continue;
+            }
+
+            GameObject enemy = Instantiate(prefab, monstersParent);
             enemy.transform.position = GetRandomPos();
             yield return new WaitForSeconds(duration * 0.8f);
         }
@@ -366,7 +378,10 @@ public class LevelManager : MonoBehaviour
         int maxChoice = 20;
         Vector2 pos;
         pos = new(MyRandom.Instance.NextFloat(-11, 11), MyRandom.Instance.NextFloat(-11, 11));
-        while (Physics2D.OverlapCircle(pos, 5.5f, 1 << 7) != null && maxChoice > 0)
+        while (
+            Physics2D.OverlapCircleNonAlloc(pos, 5.5f, SpawnOverlapNonAllocScratch, 1 << 7) > 0
+            && maxChoice > 0
+        )
         {
             pos = new(MyRandom.Instance.NextFloat(-11, 11), MyRandom.Instance.NextFloat(-11, 11));
             maxChoice--;

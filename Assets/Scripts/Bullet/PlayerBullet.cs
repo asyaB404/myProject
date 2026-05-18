@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,38 +22,52 @@ public class PlayerBullet : MonoBehaviour
     [SerializeField]
     private bool isSword;
 
+    public bool IsSwordOrbit => isSword;
+
+    public void ResetRuntimeStateBeforePool()
+    {
+        timer = 0f;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         EnemyBase enemyBase = collision.GetComponent<EnemyBase>();
         if (enemyBase != null && !enemyBase.isDie && penetrableCount > 0)
         {
             if (isSword)
+            {
                 if (type == EnergyType.Anode)
                     damage = PlayerController.Instance.playerStats.PowerOfAnode * 1f;
                 else
                     damage = PlayerController.Instance.playerStats.PowerOfCathode * 1f;
+            }
             else
                 penetrableCount--;
-            EnemyBase enemy = collision.GetComponent<EnemyBase>();
+
+            EnemyBase enemy = enemyBase;
             if (enemy.info.energyType != type)
             {
                 PlayerStats playerStats = PlayerController.Instance.playerStats;
-                Text text = WorldCanvas.Instacne.ShowMessage(
+                float dmgForHit = damage;
+                bool isCrit = playerStats.Critical > Random.Range(0f, 1f);
+                if (isCrit)
+                    dmgForHit *= playerStats.CriticalStrikeMultiplier;
+
+                Vector3 floatPos =
                     enemy.transform.position
-                        + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f)),
-                    Mathf.FloorToInt(damage).ToString()
+                    + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
+                WorldCanvas.Instacne.TryShowEnemyHitDamage(
+                    floatPos,
+                    Mathf.FloorToInt(dmgForHit).ToString(),
+                    isCrit,
+                    enemy.GetInstanceID()
                 );
-                if (playerStats.Critical > Random.Range(0f, 1f))
-                {
-                    damage *= playerStats.CriticalStrikeMultiplier;
-                    text.color = Color.yellow;
-                    text.text = Mathf.FloorToInt(damage).ToString();
-                }
+
                 MusicMgr.Instance.PlaySound("hit", false, 3);
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(dmgForHit);
             }
             if (penetrableCount <= 0 && !isSword)
-                Destroy(gameObject);
+                ProjectilePools.ReleasePlayerBullet(gameObject);
         }
     }
 
@@ -69,7 +80,7 @@ public class PlayerBullet : MonoBehaviour
         transform.Translate(Vector2.right * Time.deltaTime * speed);
         if (timer >= duration)
         {
-            Destroy(gameObject);
+            ProjectilePools.ReleasePlayerBullet(gameObject);
         }
         timer += Time.deltaTime;
     }
@@ -85,6 +96,7 @@ public class PlayerBullet : MonoBehaviour
         this.type = _type;
         this.penetrableCount = _penetrableCount;
         this.speed = _speed;
+        this.timer = 0f;
         transform.parent = LevelManager.Instance.bulletParent;
         if (type == EnergyType.Cathode)
             sr.sprite = sprite1;

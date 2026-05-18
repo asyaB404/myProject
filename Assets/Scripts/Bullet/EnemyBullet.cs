@@ -23,6 +23,21 @@ public class EnemyBullet : MonoBehaviour, IEnemyBullet
     public Sprite sprite1;
     public Sprite sprite2;
 
+    /// <summary>用于按 prefab 分桶回收到对象池。</summary>
+    public GameObject EnemyBulletPrefabKey { get; private set; }
+
+    public void AssignPoolPrefabKey(GameObject prefab)
+    {
+        EnemyBulletPrefabKey = prefab;
+    }
+
+    public void ResetRuntimeStateBeforePool()
+    {
+        timer = 0f;
+        if (rb != null)
+            rb.velocity = Vector2.zero;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -78,6 +93,6 @@ public class EnemyBullet : MonoBehaviour, IEnemyBullet
 
     public void DoDestroy()
     {
-        Destroy(gameObject);
+        ProjectilePools.ReleaseEnemyBullet(gameObject);
     }
 }

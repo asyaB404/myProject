@@ -242,6 +242,8 @@ public class PlayerStats : MonoBehaviour
     public float pullingRange = 1.5f;
     public bool isOpenPullingCoins = true;
 
+    static readonly Collider2D[] CoinPullScratch = new Collider2D[64];
+
     public void TakeDamage(float attackMultiple)
     {
         if (invTimer <= 0)
@@ -253,9 +255,11 @@ public class PlayerStats : MonoBehaviour
             damage =
                 damage - Mathf.RoundToInt(Defence) > 0 ? damage - Mathf.RoundToInt(Defence) : 0;
             if (damage >= 1)
-                WorldCanvas
-                    .Instacne.ShowMessage(transform.position, Mathf.FloorToInt(damage).ToString())
-                    .color = Color.red;
+                WorldCanvas.Instacne.ShowPooledFloatingText(
+                    transform.position,
+                    Mathf.FloorToInt(damage).ToString(),
+                    Color.red
+                );
             CurHealth -= damage;
             if (CurHealth <= 0)
                 Die();
@@ -274,22 +278,18 @@ public class PlayerStats : MonoBehaviour
         float y = pos.y;
         if (x < -12)
         {
-            Debug.Log("1");
             transform.position += Vector3.right * (-11.5f - x);
         }
         else if (x > 12)
         {
-            Debug.Log("2");
             transform.position += Vector3.right * (11.5f - x);
         }
         if (y < -12)
         {
-            Debug.Log("1");
             transform.position += Vector3.up * (-11.5f - y);
         }
         else if (y > 12)
         {
-            Debug.Log("2");
             transform.position += Vector3.up * (11.5f - y);
         }
         if (invTimer > 0)
@@ -298,15 +298,27 @@ public class PlayerStats : MonoBehaviour
         }
         if (isOpenPullingCoins)
         {
-            Collider2D[] objs = Physics2D.OverlapCircleAll(
+            int coinMask = 1 << 6;
+            int hits = Physics2D.OverlapCircleNonAlloc(
                 transform.position,
                 pullingRange,
-                1 << 6
+                CoinPullScratch,
+                coinMask
             );
-            foreach (var obj in objs)
+            Vector2 playerPos = transform.position;
+            for (int i = 0; i < hits; i++)
             {
-                Vector2 direction = (transform.position - obj.transform.position).normalized;
-                float len = (transform.position - obj.transform.position).magnitude;
+                Collider2D obj = CoinPullScratch[i];
+                if (obj == null)
+                    continue;
+
+                Vector2 coinPos = obj.transform.position;
+                Vector2 delta = playerPos - coinPos;
+                float sqr = delta.sqrMagnitude;
+                if (sqr < 1e-8f)
+                    continue;
+                float len = Mathf.Sqrt(sqr);
+                Vector2 direction = delta / len;
                 obj.transform.Translate(direction * Time.deltaTime * (len + 20));
             }
         }

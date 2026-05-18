@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public enum EnergyType
@@ -16,11 +13,17 @@ public class EnemyBase : MonoBehaviour
     [Header("基本属性")]
     public float curHealth;
     public EnemyInfo info;
+
     public Vector2 DirectionToPlayer
     {
         get
         {
-            return (PlayerController.Instance.transform.position - transform.position).normalized;
+            Vector2 d = GameData.CachedPlayerPosition - (Vector2)transform.position;
+            float sq = d.sqrMagnitude;
+            if (sq < 1e-10f)
+                return Vector2.right;
+            float invLen = 1f / Mathf.Sqrt(sq);
+            return d * invLen;
         }
     }
 
@@ -33,35 +36,69 @@ public class EnemyBase : MonoBehaviour
     public bool autoFilp = true;
     public bool isDie;
 
+    /// <summary>每只怪生成时在配置 speed 基础上的倍率 ∈ [0.9, 1.1]，让同屏集群速度略有差异。</summary>
+    float instanceSpeedFactor = 1f;
+
+    /// <summary><see cref="EnemyInfo.speed"/> × 实例随机倍率。</summary>
+    public float EffectiveMoveSpeed => info != null ? info.speed * instanceSpeedFactor : 0f;
+
+    static readonly MaterialPropertyBlock FlashMpb = new MaterialPropertyBlock();
+    Coroutine damageFlashCo;
+
+    bool touchingPlayer;
+    float nextContactSoundTime;
+
     public virtual void Start()
     {
         curHealth = info.Health;
+        instanceSpeedFactor = 1f + MyRandom.Instance.NextFloat(-0.1f, 0.1f);
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         stateMachine = new EnemyStateMachine();
         sr = GetComponent<SpriteRenderer>();
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !isDie)
+        if (other.CompareTag("Player"))
+            touchingPlayer = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+            touchingPlayer = false;
+    }
+
+    /// <summary>替代 OnTriggerStay：由 FixedUpdate 统一处理贴身回能与伤害；音效节流降低尖峰。</summary>
+    private void FixedUpdate()
+    {
+        if (!touchingPlayer || isDie || PlayerController.Instance == null)
+            return;
+        PlayerStats ps = PlayerController.Instance.playerStats;
+        if (ps.IsInv)
+            return;
+
+        if (info.energyType == EnergyType.Anode)
         {
-            PlayerStats playerStats = other.GetComponent<PlayerStats>();
-            if (!playerStats.IsInv)
+            ps.AnodeEnergy += info.RecoverFromAtk;
+            if (Time.time >= nextContactSoundTime)
             {
-                if (info.energyType == EnergyType.Anode)
-                {
-                    MusicMgr.Instance.PlaySound("atk_yang");
-                    playerStats.AnodeEnergy += info.RecoverFromAtk;
-                }
-                else
-                {
-                    MusicMgr.Instance.PlaySound("atk_yin");
-                    playerStats.CathodeEnergy += info.RecoverFromAtk;
-                }
-                playerStats.TakeDamage(info.AtkMul);
+                MusicMgr.Instance.PlaySound("atk_yang");
+                nextContactSoundTime = Time.time + 0.12f;
             }
         }
+        else
+        {
+            ps.CathodeEnergy += info.RecoverFromAtk;
+            if (Time.time >= nextContactSoundTime)
+            {
+                MusicMgr.Instance.PlaySound("atk_yin");
+                nextContactSoundTime = Time.time + 0.12f;
+            }
+        }
+
+        ps.TakeDamage(info.AtkMul);
     }
 
     public void Filp()
@@ -72,14 +109,11 @@ public class EnemyBase : MonoBehaviour
 
     public void AutoFilp()
     {
-        if (DirectionToPlayer.x > 0 && facingRight == -1)
-        {
+        float dx = GameData.CachedPlayerPosition.x - transform.position.x;
+        if (dx > 0 && facingRight == -1)
             Filp();
-        }
-        else if (DirectionToPlayer.x < 0 && facingRight == 1)
-        {
+        else if (dx < 0 && facingRight == 1)
             Filp();
-        }
     }
 
     public virtual void Update()
@@ -104,19 +138,25 @@ public class EnemyBase : MonoBehaviour
 
     private void StartDamagedEffect()
     {
-        StartCoroutine(nameof(DamagedEffect));
+        if (damageFlashCo != null)
+            StopCoroutine(damageFlashCo);
+        damageFlashCo = StartCoroutine(DamagedEffect());
     }
 
     IEnumerator DamagedEffect()
     {
-        sr.material.SetFloat("_rate", 1);
+        FlashMpb.SetFloat("_rate", 1f);
+        sr.SetPropertyBlock(FlashMpb);
         yield return new WaitForSeconds(0.1f);
-        sr.material.SetFloat("_rate", 0);
+        FlashMpb.SetFloat("_rate", 0f);
+        sr.SetPropertyBlock(FlashMpb);
+        damageFlashCo = null;
     }
 
     public virtual void Die(bool e = true)
     {
         isDie = true;
+        touchingPlayer = false;
         stateMachine.ChangeState(new DieState(stateMachine, this));
         transform.DOKill();
         if (e)
@@ -135,6 +175,8 @@ public class EnemyBase : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (WorldCanvas.Instacne != null)
+            WorldCanvas.Instacne.UnregisterEnemyFloatThrottle(GetInstanceID());
         transform.DOKill();
         stateMachine?.CurState?.OnExit();
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[DefaultExecutionOrder(-200)]
 public class PlayerController : MonoBehaviour
 {
     private static PlayerController instance;
@@ -45,6 +46,8 @@ public class PlayerController : MonoBehaviour
         instance = this;
         playerStats = GetComponent<PlayerStats>();
         playerStats.LoadGameSetting();
+        if (LevelManager.Instance != null && bullet != null && LevelManager.Instance.bulletParent != null)
+            ProjectilePools.ConfigurePlayerBullet(bullet, LevelManager.Instance.bulletParent);
     }
 
     public void Filp()
@@ -68,6 +71,9 @@ public class PlayerController : MonoBehaviour
             UpdateHeal();
             UpdateShoot();
         }
+
+        Vector3 p = transform.position;
+        GameData.CachedPlayerPosition = new Vector2(p.x, p.y);
     }
 
     [SerializeField]
@@ -166,12 +172,11 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot0(Vector3 rotaion)
     {
-        GameObject newBullet = Instantiate(
+        PlayerBullet script = ProjectilePools.AcquirePlayerBullet(
             bullet,
             sword.firePoint.position,
             Quaternion.Euler(rotaion)
         );
-        PlayerBullet script = newBullet.GetComponent<PlayerBullet>();
         script.SetupBullet(
             Mathf.RoundToInt(playerStats.PiercingAttack),
             EnergyType.Cathode,
@@ -181,12 +186,11 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot1(Vector3 rotaion)
     {
-        GameObject newBullet = Instantiate(
+        PlayerBullet script = ProjectilePools.AcquirePlayerBullet(
             bullet,
             sword.firePoint.position,
             Quaternion.Euler(rotaion)
         );
-        PlayerBullet script = newBullet.GetComponent<PlayerBullet>();
         script.SetupBullet(
             Mathf.RoundToInt(playerStats.PiercingAttack),
             EnergyType.Anode,

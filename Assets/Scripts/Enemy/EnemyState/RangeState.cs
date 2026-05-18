@@ -16,11 +16,14 @@ public class RangeState : EnemyState
     public override void OnUpdate()
     {
         base.OnUpdate();
-        float len = (
-            PlayerController.Instance.transform.position - enemy.transform.position
-        ).magnitude;
+        Vector2 toPlayer =
+            GameData.CachedPlayerPosition - (Vector2)enemy.transform.position;
+        float sqrLen = toPlayer.sqrMagnitude;
         EnemyInfo info = enemy.info;
-        if (len < info.range * GameData.GlobalRange)
+        float rng = info.range * GameData.GlobalRange;
+        float rangeSqr = rng * rng;
+
+        if (sqrLen < rangeSqr)
         {
             shootCD += Time.deltaTime * info.atkSpeed / 100;
             if (shootCD >= 1)
@@ -30,7 +33,6 @@ public class RangeState : EnemyState
                 shootCD = 0 - (enemy as Enemy2).Shootduration;
                 enemy
                     .transform.DOScale(scale * 1.25f, 0.2f)
-                    // 缩放变大完成后执行缩放恢复动画
                     .OnComplete(
                         () =>
                             enemy
@@ -38,13 +40,16 @@ public class RangeState : EnemyState
                                 .SetEase(Ease.OutBounce)
                                 .OnComplete(() =>
                                 {
-                                    GameObject bullet = GameObject.Instantiate(
-                                        (enemy as Enemy2).bullet
-                                    );
-                                    bullet.transform.position = enemy.transform.position;
-                                    bullet
-                                        .GetComponent<IEnemyBullet>()
-                                        .Init(enemy.DirectionToPlayer, info);
+                                    Enemy2 shooter = enemy as Enemy2;
+                                    if (shooter != null && shooter.bullet != null)
+                                    {
+                                        GameObject b = ProjectilePools.AcquireEnemyBullet(
+                                            shooter.bullet,
+                                            enemy.transform.position,
+                                            Quaternion.identity
+                                        );
+                                        b.GetComponent<IEnemyBullet>().Init(enemy.DirectionToPlayer, info);
+                                    }
                                 })
                     );
             }
