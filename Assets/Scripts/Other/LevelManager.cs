@@ -327,7 +327,7 @@ public class LevelManager : MonoBehaviour
         PlayerController.Instance.Idle();
         StopAllCoroutines();
         CancelInvoke();
-        MyEventSystem.Instance.EventTrigger("level_clear");
+        MyEventSystem.Instance.EventTrigger(GameEventType.LevelClear);
         foreach (Transform monster in monstersParent)
         {
             monster.GetComponent<EnemyBase>().Die(false);
@@ -391,12 +391,12 @@ public class LevelManager : MonoBehaviour
 
     private void OnEnable()
     {
-        MyEventSystem.Instance.AddEventListener<EnemyBase>("monsDie", DropCoin);
+        MyEventSystem.Instance.AddEventListener<EnemyBase>(GameEventType.MonsDie, DropCoin);
     }
 
     private void OnDisable()
     {
-        MyEventSystem.Instance.RemoveEventListener<EnemyBase>("monsDie", DropCoin);
+        MyEventSystem.Instance.RemoveEventListener<EnemyBase>(GameEventType.MonsDie, DropCoin);
     }
 
     private void DropCoin(EnemyBase enemy)

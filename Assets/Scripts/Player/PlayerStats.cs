@@ -37,9 +37,9 @@ public class PlayerStats : MonoBehaviour
         }
         set
         {
-            MyEventSystem.Instance.EventTrigger<bool>("hp_change", false);
+            MyEventSystem.Instance.EventTrigger<bool>(GameEventType.HpChange, false);
             curHealth = value;
-            MyEventSystem.Instance.EventTrigger<bool>("hp_change", true);
+            MyEventSystem.Instance.EventTrigger<bool>(GameEventType.HpChange, true);
         }
     }
 
@@ -81,9 +81,9 @@ public class PlayerStats : MonoBehaviour
         }
         set
         {
-            MyEventSystem.Instance.EventTrigger<bool>("def_change", false);
+            MyEventSystem.Instance.EventTrigger<bool>(GameEventType.DefChange, false);
             defence = value;
-            MyEventSystem.Instance.EventTrigger<bool>("def_change", true);
+            MyEventSystem.Instance.EventTrigger<bool>(GameEventType.DefChange, true);
         }
     }
 
@@ -99,9 +99,9 @@ public class PlayerStats : MonoBehaviour
         }
         set
         {
-            MyEventSystem.Instance.EventTrigger<bool>("cri_change", false);
+            MyEventSystem.Instance.EventTrigger<bool>(GameEventType.CriChange, false);
             critical = value;
-            MyEventSystem.Instance.EventTrigger<bool>("cri_change", true);
+            MyEventSystem.Instance.EventTrigger<bool>(GameEventType.CriChange, true);
         }
     }
 
@@ -118,9 +118,9 @@ public class PlayerStats : MonoBehaviour
         }
         set
         {
-            MyEventSystem.Instance.EventTrigger<bool>("energy_change", false);
+            MyEventSystem.Instance.EventTrigger<bool>(GameEventType.EnergyChange, false);
             anodeEnergy = value;
-            MyEventSystem.Instance.EventTrigger<bool>("energy_change", true);
+            MyEventSystem.Instance.EventTrigger<bool>(GameEventType.EnergyChange, true);
         }
     }
 
@@ -136,9 +136,9 @@ public class PlayerStats : MonoBehaviour
         }
         set
         {
-            MyEventSystem.Instance.EventTrigger<bool>("energy_change", false);
+            MyEventSystem.Instance.EventTrigger<bool>(GameEventType.EnergyChange, false);
             cathodeEnergy = value;
-            MyEventSystem.Instance.EventTrigger<bool>("energy_change", true);
+            MyEventSystem.Instance.EventTrigger<bool>(GameEventType.EnergyChange, true);
         }
     }
 

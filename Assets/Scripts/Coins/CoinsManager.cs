@@ -15,9 +15,9 @@ public class CoinsManager : MonoBehaviour
         get { return coins; }
         set
         {
-            MyEventSystem.Instance.EventTrigger<bool>("coins_change", false);
+            MyEventSystem.Instance.EventTrigger<bool>(GameEventType.CoinsChange, false);
             coins = value;
-            MyEventSystem.Instance.EventTrigger<bool>("coins_change", true);
+            MyEventSystem.Instance.EventTrigger<bool>(GameEventType.CoinsChange, true);
         }
     }
     public float tempCoins;

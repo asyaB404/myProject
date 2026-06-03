@@ -63,7 +63,7 @@ public class Commodity : PropBase
         else if (id == 20044)
         {
             MyEventSystem.Instance.AddEventListener<bool>(
-                "energy_change",
+                GameEventType.EnergyChange,
                 (flag) =>
                 {
                     float temp = Mathf.Abs(stats.AnodeEnergy - stats.CathodeEnergy);
@@ -86,7 +86,7 @@ public class Commodity : PropBase
         else if (id == 20045)
         {
             MyEventSystem.Instance.AddEventListener<bool>(
-                "def_change",
+                GameEventType.DefChange,
                 (flag) =>
                 {
                     float temp = stats.Defence * 0.01f;
@@ -106,7 +106,7 @@ public class Commodity : PropBase
         else if (id == 20046)
         {
             MyEventSystem.Instance.AddEventListener<bool>(
-                "cri_change",
+                GameEventType.CriChange,
                 (flag) =>
                 {
                     float temp = 1 - stats.Critical;
@@ -130,7 +130,7 @@ public class Commodity : PropBase
         else if (id == 20048)
         {
             MyEventSystem.Instance.AddEventListener<bool>(
-                "hp_change",
+                GameEventType.HpChange,
                 (flag) =>
                 {
                     float temp = (stats.MaxHealth - stats.CurHealth) * 0.5f;
@@ -159,9 +159,9 @@ public class Commodity : PropBase
             {
                 stats.PowerOfAnode -= coins;
                 stats.PowerOfCathode -= coins;
-                MyEventSystem.Instance.RemoveEventListener("level_clear", Fun);
+                MyEventSystem.Instance.RemoveEventListener(GameEventType.LevelClear, Fun);
             }
-            MyEventSystem.Instance.AddEventListener("level_clear", Fun);
+            MyEventSystem.Instance.AddEventListener(GameEventType.LevelClear, Fun);
         }
         else if (id == 20050)
         {
@@ -170,7 +170,7 @@ public class Commodity : PropBase
         else if (id == 20052)
         {
             MyEventSystem.Instance.AddEventListener<EnemyBase>(
-                "monsDie",
+                GameEventType.MonsDie,
                 (EnemyBase enemy) =>
                 {
                     if (enemy.info.energyType == EnergyType.Cathode)
@@ -183,7 +183,7 @@ public class Commodity : PropBase
         else if (id == 20053)
         {
             MyEventSystem.Instance.AddEventListener<EnemyBase>(
-                "monsDie",
+                GameEventType.MonsDie,
                 (EnemyBase enemy) =>
                 {
                     if (enemy.info.energyType == EnergyType.Anode)

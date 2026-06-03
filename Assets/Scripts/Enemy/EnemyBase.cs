@@ -161,7 +161,7 @@ public class EnemyBase : MonoBehaviour
         transform.DOKill();
         if (e)
         {
-            MyEventSystem.Instance.EventTrigger<EnemyBase>("monsDie", this);
+            MyEventSystem.Instance.EventTrigger<EnemyBase>(GameEventType.MonsDie, this);
         }
         transform.DOScale(0f, 0.5f);
         transform
