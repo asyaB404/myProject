@@ -63,7 +63,7 @@ public class PlayerBullet : MonoBehaviour
                     enemy.GetInstanceID()
                 );
 
-                MusicMgr.Instance.PlaySound("hit", false, 3);
+                MusicMgr.Instance.PlaySound("hit", false, 3, 0.1f);
                 enemy.TakeDamage(dmgForHit);
             }
             if (penetrableCount <= 0 && !isSword)

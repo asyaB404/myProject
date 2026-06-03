@@ -7,6 +7,8 @@ public class MusicMgr
     public GameObject soundOBJ = null;
     private readonly List<AudioSource> soundList = new();
     private readonly Dictionary<string, AudioClip> soundDict = new();
+    /// <summary>按逻辑音效名（不含随机后缀）记录上次播放时间，用于割草场景限流。</summary>
+    private readonly Dictionary<string, float> lastPlayTimeByName = new();
     private float soundValue = 1;
 
     /// <summary>
@@ -30,9 +32,25 @@ public class MusicMgr
     /// <summary>
     /// 播放音效
     /// </summary>
-    /// <param name="name"></param>
-    public AudioSource PlaySound(string name, bool isLoop = false, int i = 0)
+    /// <param name="name">逻辑音效名（冷却字典 key，与随机变体无关）</param>
+    /// <param name="cooldown">同 name 最短播放间隔（秒），默认 0.016</param>
+    public AudioSource PlaySound(
+        string name,
+        bool isLoop = false,
+        int i = 0,
+        float cooldown = 0.016f
+    )
     {
+        string cooldownKey = name;
+        if (
+            cooldown > 0f
+            && lastPlayTimeByName.TryGetValue(cooldownKey, out float lastTime)
+            && Time.time - lastTime < cooldown
+        )
+        {
+            return null;
+        }
+
         if (soundOBJ == null)
         {
             soundOBJ = new GameObject("soundOBJ");
@@ -41,7 +59,8 @@ public class MusicMgr
 
         AudioSource source = soundOBJ.AddComponent<AudioSource>();
         AudioClip audioClip;
-        name = "Sounds/" + name;
+        string resPath = "Sounds/" + name;
+        name = resPath;
         if (i == 0)
         {
             if (!soundDict.ContainsKey(name))
@@ -61,6 +80,8 @@ public class MusicMgr
         source.volume = soundValue;
         source.loop = isLoop;
         source.Play();
+        if (cooldown > 0f)
+            lastPlayTimeByName[cooldownKey] = Time.time;
         return source;
     }
 
