@@ -16,14 +16,11 @@ public class RangeState : EnemyState
     public override void OnUpdate()
     {
         base.OnUpdate();
-        Vector2 toPlayer =
-            GameData.CachedPlayerPosition - (Vector2)enemy.transform.position;
-        float sqrLen = toPlayer.sqrMagnitude;
         EnemyInfo info = enemy.info;
         float rng = info.range * GameData.GlobalRange;
         float rangeSqr = rng * rng;
 
-        if (sqrLen < rangeSqr)
+        if (enemy.SqrDistanceToPlayer < rangeSqr)
         {
             shootCD += Time.deltaTime * info.atkSpeed / 100;
             if (shootCD >= 1)
@@ -48,7 +45,8 @@ public class RangeState : EnemyState
                                             enemy.transform.position,
                                             Quaternion.identity
                                         );
-                                        b.GetComponent<IEnemyBullet>().Init(enemy.DirectionToPlayer, info);
+                                        b.GetComponent<IEnemyBullet>()
+                                            .Init(enemy.GetDirectionToPlayerNow(), info);
                                     }
                                 })
                     );

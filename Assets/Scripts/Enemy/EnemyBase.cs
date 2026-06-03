@@ -1,4 +1,3 @@
-using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 
@@ -14,18 +13,31 @@ public class EnemyBase : MonoBehaviour
     public float curHealth;
     public EnemyInfo info;
 
-    public Vector2 DirectionToPlayer
-    {
-        get
-        {
-            Vector2 d = GameData.CachedPlayerPosition - (Vector2)transform.position;
-            float sq = d.sqrMagnitude;
-            if (sq < 1e-10f)
-                return Vector2.right;
-            float invLen = 1f / Mathf.Sqrt(sq);
-            return d * invLen;
-        }
-    }
+//    public Vector2 DirectionToPlayer
+//    {
+//       get
+//       {
+//          Vector2 d = GameData.CachedPlayerPosition - (Vector2)transform.position;
+//          float sq = d.sqrMagnitude;
+//          if (sq < 1e-10f)
+//             return Vector2.right;
+//          float invLen = 1f / Mathf.Sqrt(sq);
+//          return d * invLen;
+//       }
+//    }
+
+    Vector2 _toPlayer;
+    float _sqrDistToPlayer;
+    Vector2 _directionToPlayer;
+
+    /// <summary>本帧 Update 内已刷新；指向玩家的单位向量（每怪每帧至多一次 Sqrt）。</summary>
+    public Vector2 DirectionToPlayer => _directionToPlayer;
+
+    /// <summary>本帧内指向玩家的未归一化偏移。</summary>
+    public Vector2 ToPlayer => _toPlayer;
+
+    /// <summary>本帧内与玩家距离的平方，用于射程比较，避免重复 Sqrt。</summary>
+    public float SqrDistanceToPlayer => _sqrDistToPlayer;
 
     [Header("组件")]
     public Rigidbody2D rb;
@@ -42,8 +54,11 @@ public class EnemyBase : MonoBehaviour
     /// <summary><see cref="EnemyInfo.speed"/> × 实例随机倍率。</summary>
     public float EffectiveMoveSpeed => info != null ? info.speed * instanceSpeedFactor : 0f;
 
-    static readonly MaterialPropertyBlock FlashMpb = new MaterialPropertyBlock();
-    Coroutine damageFlashCo;
+    static readonly int RateId = Shader.PropertyToID("_rate");
+    const float DamageFlashDuration = 0.1f;
+
+    MaterialPropertyBlock _flashMpb;
+    float flashUntil;
 
     bool touchingPlayer;
     float nextContactSoundTime;
@@ -56,6 +71,7 @@ public class EnemyBase : MonoBehaviour
         anim = GetComponent<Animator>();
         stateMachine = new EnemyStateMachine();
         sr = GetComponent<SpriteRenderer>();
+        _flashMpb = new MaterialPropertyBlock();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -109,20 +125,47 @@ public class EnemyBase : MonoBehaviour
 
     public void AutoFilp()
     {
-        float dx = GameData.CachedPlayerPosition.x - transform.position.x;
+        float dx = _toPlayer.x;
         if (dx > 0 && facingRight == -1)
             Filp();
         else if (dx < 0 && facingRight == 1)
             Filp();
     }
 
+    void RefreshPlayerTracking()
+    {
+        _toPlayer = GameData.CachedPlayerPosition - (Vector2)transform.position;
+        _sqrDistToPlayer = _toPlayer.sqrMagnitude;
+        if (_sqrDistToPlayer < 1e-10f)
+            _directionToPlayer = Vector2.right;
+        else
+            _directionToPlayer = _toPlayer * (1f / Mathf.Sqrt(_sqrDistToPlayer));
+    }
+
+    /// <summary>按当前位置即时计算方向（如 DOTween 延迟开火），不走帧缓存。</summary>
+    public Vector2 GetDirectionToPlayerNow()
+    {
+        Vector2 d = GameData.CachedPlayerPosition - (Vector2)transform.position;
+        float sq = d.sqrMagnitude;
+        if (sq < 1e-10f)
+            return Vector2.right;
+        return d * (1f / Mathf.Sqrt(sq));
+    }
+
     public virtual void Update()
     {
+        RefreshPlayerTracking();
         stateMachine?.CurState?.OnUpdate();
         if (autoFilp)
         {
             AutoFilp();
         }
+    }
+
+    void LateUpdate()
+    {
+        if (flashUntil > 0f && Time.time >= flashUntil)
+            EndDamageFlash();
     }
 
     public virtual void TakeDamage(float damage)
@@ -138,25 +181,24 @@ public class EnemyBase : MonoBehaviour
 
     private void StartDamagedEffect()
     {
-        if (damageFlashCo != null)
-            StopCoroutine(damageFlashCo);
-        damageFlashCo = StartCoroutine(DamagedEffect());
+        flashUntil = Time.time + DamageFlashDuration;
+        _flashMpb.SetFloat(RateId, 1f);
+        sr.SetPropertyBlock(_flashMpb);
     }
 
-    IEnumerator DamagedEffect()
+    void EndDamageFlash()
     {
-        FlashMpb.SetFloat("_rate", 1f);
-        sr.SetPropertyBlock(FlashMpb);
-        yield return new WaitForSeconds(0.1f);
-        FlashMpb.SetFloat("_rate", 0f);
-        sr.SetPropertyBlock(FlashMpb);
-        damageFlashCo = null;
+        flashUntil = 0f;
+        _flashMpb.SetFloat(RateId, 0f);
+        sr.SetPropertyBlock(_flashMpb);
     }
 
     public virtual void Die(bool e = true)
     {
         isDie = true;
         touchingPlayer = false;
+        if (flashUntil > 0f)
+            EndDamageFlash();
         stateMachine.ChangeState(new DieState(stateMachine, this));
         transform.DOKill();
         if (e)

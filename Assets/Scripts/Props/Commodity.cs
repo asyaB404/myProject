@@ -26,172 +26,153 @@ public class Commodity : PropBase
     {
         base.EffectAfterGet(stats, gameSetting);
         if (id < 20038)
-        {
             return;
-        }
-        if (id == 20038)
+
+        switch (id)
         {
-            stats.EnergyConsumption = 1;
-        }
-        else if (id == 20039)
-        {
-            stats.AnodeEnergy += Mathf.FloorToInt(stats.MaxHealth * 0.5f);
-        }
-        else if (id == 20040)
-        {
-            stats.PowerOfAnode += Mathf.FloorToInt(stats.MaxHealth * 0.1f);
-        }
-        else if (id == 20041)
-        {
-            stats.CathodeEnergy += Mathf.FloorToInt(stats.RecoverForHealth * 20);
-        }
-        else if (id == 20042)
-        {
-            stats.PowerOfCathode += Mathf.FloorToInt(stats.RecoverForHealth * 2);
-        }
-        else if (id == 20043)
-        {
-            if (stats.CathodeEnergy > stats.AnodeEnergy)
-            {
-                stats.AnodeEnergy = stats.CathodeEnergy;
-            }
-            else
-            {
-                stats.CathodeEnergy = stats.AnodeEnergy;
-            }
-        }
-        else if (id == 20044)
-        {
-            MyEventSystem.Instance.AddEventListener<bool>(
-                GameEventType.EnergyChange,
-                (flag) =>
+            case 20038:
+                stats.EnergyConsumption = 1;
+                break;
+            case 20039:
+                stats.AnodeEnergy += Mathf.FloorToInt(stats.MaxHealth * 0.5f);
+                break;
+            case 20040:
+                stats.PowerOfAnode += Mathf.FloorToInt(stats.MaxHealth * 0.1f);
+                break;
+            case 20041:
+                stats.CathodeEnergy += Mathf.FloorToInt(stats.RecoverForHealth * 20);
+                break;
+            case 20042:
+                stats.PowerOfCathode += Mathf.FloorToInt(stats.RecoverForHealth * 2);
+                break;
+            case 20043:
+                if (stats.CathodeEnergy > stats.AnodeEnergy)
+                    stats.AnodeEnergy = stats.CathodeEnergy;
+                else
+                    stats.CathodeEnergy = stats.AnodeEnergy;
+                break;
+            case 20044:
+                MyEventSystem.Instance.AddEventListener<bool>(
+                    GameEventType.EnergyChange,
+                    (flag) =>
+                    {
+                        float temp = Mathf.Abs(stats.AnodeEnergy - stats.CathodeEnergy);
+                        if (!flag)
+                        {
+                            stats.powerOfAnode -= temp;
+                            stats.powerOfCathode -= temp;
+                        }
+                        else
+                        {
+                            stats.powerOfAnode += temp;
+                            stats.powerOfCathode += temp;
+                        }
+                    }
+                );
                 {
                     float temp = Mathf.Abs(stats.AnodeEnergy - stats.CathodeEnergy);
-                    if (!flag)
-                    {
-                        stats.powerOfAnode -= temp;
-                        stats.powerOfCathode -= temp;
-                    }
-                    else
-                    {
-                        stats.powerOfAnode += temp;
-                        stats.powerOfCathode += temp;
-                    }
+                    stats.powerOfAnode += temp;
+                    stats.powerOfCathode += temp;
                 }
-            );
-            float temp = Mathf.Abs(stats.AnodeEnergy - stats.CathodeEnergy);
-            stats.powerOfAnode += temp;
-            stats.powerOfCathode += temp;
-        }
-        else if (id == 20045)
-        {
-            MyEventSystem.Instance.AddEventListener<bool>(
-                GameEventType.DefChange,
-                (flag) =>
+                break;
+            case 20045:
+                MyEventSystem.Instance.AddEventListener<bool>(
+                    GameEventType.DefChange,
+                    (flag) =>
+                    {
+                        float temp = stats.Defence * 0.01f;
+                        if (!flag)
+                            stats.criticalStrikeMultiplier -= temp;
+                        else
+                            stats.criticalStrikeMultiplier += temp;
+                    }
+                );
                 {
                     float temp = stats.Defence * 0.01f;
-                    if (!flag)
-                    {
-                        stats.criticalStrikeMultiplier -= temp;
-                    }
-                    else
-                    {
-                        stats.criticalStrikeMultiplier += temp;
-                    }
+                    stats.criticalStrikeMultiplier += temp;
                 }
-            );
-            float temp = stats.Defence * 0.01f;
-            stats.criticalStrikeMultiplier += temp;
-        }
-        else if (id == 20046)
-        {
-            MyEventSystem.Instance.AddEventListener<bool>(
-                GameEventType.CriChange,
-                (flag) =>
+                break;
+            case 20046:
+                MyEventSystem.Instance.AddEventListener<bool>(
+                    GameEventType.CriChange,
+                    (flag) =>
+                    {
+                        float temp = 1 - stats.Critical;
+                        if (!flag)
+                            stats.criticalStrikeMultiplier -= temp;
+                        else
+                            stats.criticalStrikeMultiplier += temp;
+                    }
+                );
                 {
                     float temp = 1 - stats.Critical;
-                    if (!flag)
-                    {
-                        stats.criticalStrikeMultiplier -= temp;
-                    }
-                    else
-                    {
-                        stats.criticalStrikeMultiplier += temp;
-                    }
+                    stats.criticalStrikeMultiplier += temp;
                 }
-            );
-            float temp = 1 - stats.Critical;
-            stats.criticalStrikeMultiplier += temp;
-        }
-        else if (id == 20047)
-        {
-            stats.CriticalStrikeMultiplier += (stats.MoveSpeed - 110) * 0.01f;
-        }
-        else if (id == 20048)
-        {
-            MyEventSystem.Instance.AddEventListener<bool>(
-                GameEventType.HpChange,
-                (flag) =>
+                break;
+            case 20047:
+                stats.CriticalStrikeMultiplier += (stats.MoveSpeed - 110) * 0.01f;
+                break;
+            case 20048:
+                MyEventSystem.Instance.AddEventListener<bool>(
+                    GameEventType.HpChange,
+                    (flag) =>
+                    {
+                        float temp = (stats.MaxHealth - stats.CurHealth) * 0.5f;
+                        if (!flag)
+                        {
+                            stats.powerOfAnode -= temp;
+                            stats.powerOfCathode -= temp;
+                        }
+                        else
+                        {
+                            stats.powerOfAnode += temp;
+                            stats.powerOfCathode += temp;
+                        }
+                    }
+                );
                 {
                     float temp = (stats.MaxHealth - stats.CurHealth) * 0.5f;
-                    if (!flag)
-                    {
-                        stats.powerOfAnode -= temp;
-                        stats.powerOfCathode -= temp;
-                    }
-                    else
-                    {
-                        stats.powerOfAnode += temp;
-                        stats.powerOfCathode += temp;
-                    }
+                    stats.powerOfAnode += temp;
+                    stats.powerOfCathode += temp;
                 }
-            );
-            float temp = (stats.MaxHealth - stats.CurHealth) * 0.5f;
-            stats.powerOfAnode += temp;
-            stats.powerOfCathode += temp;
-        }
-        else if (id == 20049)
-        {
-            float coins = CoinsManager.Instance.Coins;
-            stats.PowerOfAnode += coins;
-            stats.PowerOfCathode += coins;
-            void Fun()
-            {
-                stats.PowerOfAnode -= coins;
-                stats.PowerOfCathode -= coins;
-                MyEventSystem.Instance.RemoveEventListener(GameEventType.LevelClear, Fun);
-            }
-            MyEventSystem.Instance.AddEventListener(GameEventType.LevelClear, Fun);
-        }
-        else if (id == 20050)
-        {
-            stats.SwordCount += 2;
-        }
-        else if (id == 20052)
-        {
-            MyEventSystem.Instance.AddEventListener<EnemyBase>(
-                GameEventType.MonsDie,
-                (EnemyBase enemy) =>
+                break;
+            case 20049:
                 {
-                    if (enemy.info.energyType == EnergyType.Cathode)
+                    float coins = CoinsManager.Instance.Coins;
+                    stats.PowerOfAnode += coins;
+                    stats.PowerOfCathode += coins;
+                    void Fun()
                     {
-                        stats.CathodeEnergy += 1;
+                        stats.PowerOfAnode -= coins;
+                        stats.PowerOfCathode -= coins;
+                        MyEventSystem.Instance.RemoveEventListener(GameEventType.LevelClear, Fun);
                     }
+                    MyEventSystem.Instance.AddEventListener(GameEventType.LevelClear, Fun);
                 }
-            );
-        }
-        else if (id == 20053)
-        {
-            MyEventSystem.Instance.AddEventListener<EnemyBase>(
-                GameEventType.MonsDie,
-                (EnemyBase enemy) =>
-                {
-                    if (enemy.info.energyType == EnergyType.Anode)
+                break;
+            case 20050:
+                stats.SwordCount += 2;
+                break;
+            case 20052:
+                MyEventSystem.Instance.AddEventListener<EnemyBase>(
+                    GameEventType.MonsDie,
+                    (EnemyBase enemy) =>
                     {
-                        stats.AnodeEnergy += 1;
+                        if (enemy.info.energyType == EnergyType.Cathode)
+                            stats.CathodeEnergy += 1;
                     }
-                }
-            );
+                );
+                break;
+            case 20053:
+                MyEventSystem.Instance.AddEventListener<EnemyBase>(
+                    GameEventType.MonsDie,
+                    (EnemyBase enemy) =>
+                    {
+                        if (enemy.info.energyType == EnergyType.Anode)
+                            stats.AnodeEnergy += 1;
+                    }
+                );
+                break;
         }
     }
 }

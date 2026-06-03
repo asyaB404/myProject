@@ -18,20 +18,13 @@ public class CloseState : EnemyState
         if (rushTimer > 0)
             rushTimer -= Time.deltaTime;
 
-        Vector2 toPlayer =
-            GameData.CachedPlayerPosition - (Vector2)enemy.transform.position;
-        float sqrLen = toPlayer.sqrMagnitude;
-        Vector2 moveDir;
-        if (sqrLen > 1e-6f)
-            moveDir = toPlayer * (1f / Mathf.Sqrt(sqrLen));
-        else
-            moveDir = Vector2.right;
-        enemy.rb.velocity = moveDir * enemy.EffectiveMoveSpeed * GameData.GlobalMoveSpeed;
+        enemy.rb.velocity =
+            enemy.DirectionToPlayer * enemy.EffectiveMoveSpeed * GameData.GlobalMoveSpeed;
         float rng = enemy.info.range * GameData.GlobalRange;
         float rangeSqr = rng * rng;
         EnemyInfo info = enemy.info;
 
-        if (sqrLen < rangeSqr)
+        if (enemy.SqrDistanceToPlayer < rangeSqr)
         {
             if (info.enemyType == 1 && rushTimer <= 0)
             {
